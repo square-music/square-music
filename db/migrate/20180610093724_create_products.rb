@@ -7,7 +7,7 @@ class CreateProducts < ActiveRecord::Migration[5.1]
       t.integer :product_price
       t.integer :stock
       t.text :description
-      t.integer :order_item_count
+      t.integer :order_item_count, default: 0
       t.date :release
       t.integer :disc_amount
       t.integer :artist_id

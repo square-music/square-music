@@ -1,0 +1,2 @@
+class SubAddress < ApplicationRecord
+end

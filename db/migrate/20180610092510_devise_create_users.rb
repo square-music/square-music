@@ -36,7 +36,7 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.1]
       t.string :postal
       t.string :address
       t.string :tell
-      t.boolean :delete_flag
+      t.boolean :delete_flag, default: false
       t.timestamps null: false
     end
 

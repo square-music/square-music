@@ -1,0 +1,2 @@
+class UnsubscribeComment < ApplicationRecord
+end

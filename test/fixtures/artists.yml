@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  artist_name: MyString
+  artist_phonetic: MyString
+
+two:
+  artist_name: MyString
+  artist_phonetic: MyString

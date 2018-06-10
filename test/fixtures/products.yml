@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  product_name: MyString
+  product_phonetic: MyString
+  image_id: MyText
+  product_price: 1
+  stock: 1
+  description: MyText
+  order_item_count: 1
+  release: 2018-06-10
+  disc_amount: 1
+  artist_id: 1
+  label_id: 1
+  genre_id: 1
+
+two:
+  product_name: MyString
+  product_phonetic: MyString
+  image_id: MyText
+  product_price: 1
+  stock: 1
+  description: MyText
+  order_item_count: 1
+  release: 2018-06-10
+  disc_amount: 1
+  artist_id: 1
+  label_id: 1
+  genre_id: 1

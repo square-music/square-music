@@ -9,7 +9,27 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>
+	<div class="header-links">
+		<div class="link1">cartへのリンク</div>
+		<div class="link2">マイページ</div>
+		<div class="link3">ログアウト</div>
+	</div>
+<!-- タイトルdiv -->
+	<div class="header-sub1">
+		<div class="header-sub2">
+			<div class="header-text2">
+				<p class="header-text3">ようこそ＜USER＞<!-- ログインユーザー名を表示予定 -->さん</p>
+			</div>
+			<h1 class="header-text1">SQUARE MUSIC</h1>
+			<div class="search-sample">
+				<p class="search-space">検索実装スペース</p>
+			</div>
+		</div>
+	</div>
+
+</header>
+<%= yield %>
   </body>
-  
+
 </html>

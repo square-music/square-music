@@ -1,0 +1,18 @@
+<h1>Disc#edit</h1>
+<%= link_to "Index", products_path %>
+<p>product_id:<%= @disc.product_id %>/disc_number:<%= @disc.disc_number %></p>
+
+
+<%= nested_form_for(@disc) do |f| %>
+
+            	<%= f.fields_for :tunes do |q| %>
+					<%= q.number_field :tune_number, class: 'form-inline' %>
+					<%= q.text_field :tune_name, class: 'form-inline' %>
+					<%= q.number_field :artist_id, :autocomplete => 'off', class: 'form-inline' %>
+					<%= q.link_to_remove "Remove this", class: 'btn btn-danger', role: 'button' %>
+				<% end %>
+	 <%= f.link_to_add "Add tune", :tunes, class: 'btn btn-primary', role: 'button' %>
+	 <div>
+	 	<%= f.submit %>
+	 </div>
+<% end %>

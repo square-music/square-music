@@ -154,8 +154,8 @@
  	padding-top:30px;
  }
 
- // 以下原
- // ログイン画面
+ /*以下原*/
+  /*ログイン画面*/
  .login_container {
    width: 800px;
    margin: 0 auto;
@@ -193,7 +193,7 @@ th , td {
   padding: 5px 0;
   text-align: center;
 }
-// 新規登録
+/*新規登録*/
 .Agreement {
   width: 1000px;
   margin: 0 auto;
@@ -214,7 +214,7 @@ th , td {
   width: 100px;
   height: 30px;
 }
-// パスワードリマインダー編集
+/*パスワードリマインダー編集*/
 .password_reminder_container .headline_box {
   background-color: black;
   width: 350px;
@@ -239,4 +239,22 @@ th , td {
 .password_reminder_table, .login_table, .password_edit_table {
   width: 500px;
   margin: 0 auto;
+}
+
+
+
+/*以下渡辺*/
+/*product/new/*/
+.product_new_side{
+  }
+.product_new_inner{
+  background-color: #708090;
+  height: 100%;
+}
+.product_new_main{
+  background-color: white;
+}
+.header-footer{
+  height:100px;
+  background-color: black;
 }

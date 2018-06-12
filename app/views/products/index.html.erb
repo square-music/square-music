@@ -1,0 +1,35 @@
+<h1>index</h1>
+<p><%= link_to "new", new_product_path %></p>
+<table>
+		<h2>Product</h2>
+		<thead>
+			<tr>
+				<th>Product_name</th>
+				<th>Product_phonetic</th>
+				<th>Product_price</th>
+				<th>Stock</th>
+				<th>Description</th>
+				<th>Release</th>
+				<th>Disc_amount</th>
+				<th>Artist</th>
+				<th>Label</th>
+				<th>Genre</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @products.each do |product| %>
+				<tr>
+					<td><%= product.product_name %></td>
+					<td><%= product.product_phonetic %></td>
+					<td><%= product.product_price %></td>
+					<td><%= product.stock %></td>
+					<td><%= product.description %></td>
+					<td><%= product.release %></td>
+					<td><%= product.disc_amount %></td>
+					<td><%= product.artist.artist_name %></td>
+					<td><%= product.label.label_name %></td>
+					<td><%= product.genre.genre_name %></td>
+				</tr>
+			<% end %>
+		</tbody>
+	</table>

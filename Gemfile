@@ -60,3 +60,4 @@ gem 'nested_form_fields'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'ransack'
+gem "nested_form"

@@ -49,6 +49,11 @@ class ProductsController < ApplicationController
 	def destroy
 	end
 
+	def top
+	end
+
+	def search
+	end
 
 	private
 	  def product_params

@@ -258,3 +258,238 @@ th , td {
   height:100px;
   background-color: black;
 }
+
+
+
+/*以下　岡田*/
+/*header用のCSS*/
+header{
+  background-color: #808080;
+  height: 200px;
+  border: solid black 1px;
+}
+.header-links{
+  text-align: right;
+  padding: 5px 20px 5px 0;
+}
+.link1{
+  display: inline-block;
+  color: black;
+  background-color: white;
+  border-radius: 20px;
+  width: 150px;
+  text-align: center;
+  border: 1px black solid;
+}
+.link2{
+  display: inline-block;
+  padding: 0 15px;
+  color: white;
+}
+.link3{
+  display: inline-block;
+  color: white;
+}
+.header-sub1{
+  background-color: white;
+  height: 132px;
+}
+.header-sub2{
+  background-color: black;
+  height: 130px;
+  position: relative;
+  top: 1px;
+}
+.header-text1{
+  color: white;
+  padding: 0 0 0 60px;
+  font-family: "Comic Sans MS";
+}
+.header-text2{
+  text-align: right;
+  padding: 5px 40px 0 0;
+}
+.header-text3{
+  color: white;
+  font-size: 14px;
+}
+.search-sample{
+  background-color: white;
+  width: 250px;
+  height: 18px;
+  float: right;
+  margin: 0 20px 20px 0;
+}
+.search-space{
+  color: black;
+  text-align: center;
+  font-size: 14px;
+}
+
+/*main用のCSS*/
+.top-main{
+  overflow:hidden;
+}
+.genre-box{
+  height: 850px;
+  width: 14%;
+  border: solid black 2px;
+  float: left;
+}
+.genre-title{
+  height: 25px;
+  background-color: black;
+  padding-left: 20px;
+}
+.genre-title-text{
+  color: white;
+}
+.top-box{
+  height: 850px;
+  width: 86%;
+  float: left;
+  background-color: #c0c0c0;
+}
+.swipe-space{
+  width: 96%;
+  height: 280px;
+  margin: 50px 2%;
+  background-color: white;
+  border-radius: 10px;
+  border: solid black 1px;
+}
+.ranking-space{
+  width: 96%;
+  height: 180px;
+  margin: 70px 2% 0 2%;
+  background-color: white;
+  border-radius: 10px;
+  border: solid black 1px;
+}
+.newproduct-space{
+  width: 96%;
+  height: 180px;
+  margin: 40px 2% 30px 2%;
+  background-color: white;
+  border-radius: 10px;
+  border: solid black 1px;
+}
+/*商品検索用のCSS*/
+.top-box2{
+  height: 850px;
+  width: 86%;
+  float: left;
+  background-color: #c0c0c0;
+  overflow:hidden;
+}
+.sarch-word{
+  padding: 0 0 20px 10px;
+}
+.sarch-products-box1{
+  float: left;
+  width: 350px;
+  height: 220px;
+  background-color: white;
+  margin: 10px 0 0 45px;
+  border: solid black 1px;
+}
+.sarch-products-box2{
+  float: left;
+  width: 350px;
+  height: 220px;
+  background-color: white;
+  margin: 20px 0 0 45px;
+  border: solid black 1px;
+}
+.kaminari-plan{
+  text-align: center;
+  padding-top: 500px;
+}
+.newproduct-space2{
+  width: 96%;
+  height: 180px;
+  margin: 50px 2% 30px 2%;
+  background-color: white;
+  border-radius: 10px;
+  border: solid black 1px;
+}
+/*商品詳細用のCSS*/
+.product-detail{
+  width: 96%;
+  height: 380px;
+  background-color: white;
+  margin: 20px 2% 20px 2%;
+  border: solid black 1px;
+}
+.product-detail-image{
+  width: 200px;
+  height: 140px;
+  margin: 20px 0 0 60px;
+  background-color: gray;
+  float: left;
+}
+.product-detail-field1{
+  background-color: red;
+  width: 700px;
+  height: 180px;
+  float: right;
+  margin-right: 15px;
+}
+.in-the-cart-field{
+  width: 170px;
+  height: 180px;
+  background-color: #ffcc99;
+  margin-right: 2%;
+  border-radius: 20px;
+  border: solid black 1px;
+  float: right;
+}
+.product-detail-field2{
+  background-color: red;
+  width: 960px;
+  height: 155px;
+  float: right;
+  margin: 5px 10px 0 0;
+}
+.product-comment{
+  width: 90%;
+  height: 150px;
+  background-color: white;
+  margin: 0 2% 0 8%;
+  border: solid black 1px;
+}
+.newproduct-space3{
+  width: 96%;
+  height: 180px;
+  margin: 65px 2% 30px 2%;
+  background-color: white;
+  border-radius: 10px;
+  border: solid black 1px;
+}
+.amount-setting{
+  width: 90px;
+  height: 25px;
+  background-color: white;
+  text-align: right;
+  margin: 50px 0 0 70px;
+}
+.in-the-cart{
+  width: 160px;
+  height: 22px;
+  background-color: white;
+  text-align: center;
+  border-radius: 10px;
+  border: solid black 1px;
+  margin: 10px 0 0 4px;
+}
+/*footer用のCSS*/
+footer{
+  height: 30px;
+  background-color: black;
+}
+.footer-text{
+  text-align: center;
+  padding-top: 10px;
+  font-family: "Comic Sans MS";
+  color: white;
+}

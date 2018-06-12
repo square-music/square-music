@@ -1,25 +1,29 @@
-<h2>Change your password</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
-  <%= devise_error_messages! %>
-  <%= f.hidden_field :reset_password_token %>
-
-  <div class="field">
-    <%= f.label :password, "New password" %><br />
-    <% if @minimum_password_length %>
-      <em>(<%= @minimum_password_length %> characters minimum)</em><br />
-    <% end %>
-    <%= f.password_field :password, autofocus: true, autocomplete: "off" %>
+<section class="password_edit_container">
+  <div class="headline_box">
+    <h2 class="password_edit_headline">パスワード再設定</h2>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "Confirm new password" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
+  <table border="1" class="password_edit_table">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :put }) do |f| %>
+    <%= devise_error_messages! %>
+    <%= f.hidden_field :reset_password_token %>
+    <tr>
+      <div class="field">
+        <th><%= f.label :"パスワード" %><br /></th>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> characters minimum)</em><br />
+        <% end %>
+        <th><%= f.password_field :password, autofocus: true, autocomplete: "off" %></th>
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
+        <th><%= f.label :"パスワード確認" %><br /></th>
+        <th><%= f.password_field :password_confirmation, autocomplete: "off" %></th>
+      </div>
+    </tr>
+  </table>
   <div class="actions">
-    <%= f.submit "Change my password" %>
+    <%= f.submit "パスワード変更",class: "change_btn" %>
   </div>
-<% end %>
-
-<%= render "users/shared/links" %>
+  <% end %>
+</section>

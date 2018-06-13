@@ -37,7 +37,7 @@ class ProductsController < ApplicationController
 	      i += 1
 	    end
 	    disc = Disc.find_by(product_id: @product.id, disc_number: 1)
-	    redirect_to edit_disc_path(disc)
+	    redirect_to new_disc_tune_path(disc)
 	end
 
 	def edit

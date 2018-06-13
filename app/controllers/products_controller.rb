@@ -55,6 +55,9 @@ class ProductsController < ApplicationController
 	def search
 	end
 
+	def show
+	end
+
 	private
 	  def product_params
 	    params.require(:product).permit(:product_name, :product_phonetic, :product_price, :stock, :description, :release, :disc_amount, :artist_id, :label_id, :genre_id)

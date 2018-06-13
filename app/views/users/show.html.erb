@@ -1,0 +1,70 @@
+<div class="user-show-back">
+ <div class="container">
+  <div class="row">
+  	<div class="col-lg-3">
+  		<h2>登録情報</h2>
+  		<div class="user-show">
+  	    <table class="table table-striped">
+  	     <tr>
+  	     	<td>名前</td><td><%= @user.user_name %></td>
+  	     </tr>
+  	     <tr>
+  	     	<td>かな</td><td><%= @user.user_phonetic %></td>
+  	     </tr>
+  	     <tr>
+  	     	<td>〒</td><td><%= @user.postal %></td>
+  	     </tr>
+  	     <tr>
+  	     	<td>住所</td><td><%= @user.address %></td>
+  	     </tr>
+  	     <tr>
+  	     	<td>☎︎</td><td><%= @user.tell %></td>
+  	     </tr>
+  	     <tr>
+  	     	<td>✉︎</td><td><%= @user.email %></td>
+  	     </tr>
+        </table>
+         <button class="btn btn-default">登録情報を変更</button>
+     </div>
+
+   </div>
+
+   <div class="col-lg-9">
+   		<h2>購入履歴</h2>
+   	  <div class="user-box">
+
+		   	<table class="table table-striped">
+		  <tr class="info">
+		  	<th>購入日</th>
+		    <th>ジャケット</th>
+		    <th>商品名</th>
+		    <th>Artist</th>
+		    <th>値段</th>
+		    <th>詳細</th>
+		  </tr>
+		  <tr>
+		    <td class="td-purchase">2018/6/24</td>
+		    <td class="td-purchase">NO IMAGE</td>
+		    <td class="td-purchase">10fold</td>
+		    <td class="td-purchase">UNCHAIN</td>
+		    <td class="td-purchase">3,240円</td>
+		    <td class="td-purchase">ステータス</td>
+		  </tr>
+		  <tr>
+		    <td class="td-purchase">2018/6/12</td>
+		    <td class="td-purchase">NO IMAGE</td>
+		    <td class="td-purchase">4th</td>
+		    <td class="td-purchase">DIMENSION</td>
+		    <td class="td-purchase">2,800円</td>
+		    <td class="td-purchase">ステータス</td>
+		  </tr>
+		</table>
+	   </div>
+	</div>
+
+
+
+
+  </div>
+ </div>
+</div>

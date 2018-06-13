@@ -27,6 +27,10 @@
  }
 
 
+
+
+
+
  /*伊藤order/complete*/
  .complete-back {
  	width:100%;
@@ -74,7 +78,6 @@
  }
  .order-box {
  	width:700px;
- 	background-color:#f5f5f5;
  	margin:0 auto;
  	border:inset 3px;
  	padding-top:2px;
@@ -123,8 +126,6 @@
  	padding:8px 0 0 8px;
  }
  .price-table {
- 	width:200px;
- 	height:10px;
  	float:right;
  }
  .product-image {
@@ -141,18 +142,86 @@
  	float:right;
  	margin:50px 5px 0 0;
  }
- table th, table td {
-   border: solid 1px black;
-   font-size:15px;
- }
 
  /*/order/show*/
  .purchase {
- 	width:1240px;
+ 	width:100%;
  	height:800px;
  	background-color:#dcdcdc;
  	padding-top:30px;
  }
+ .purchase-detail {
+  border:solid 1px;
+  border-radius:5px;
+  height:500px;
+   background-color:white;
+ }
+
+/*cart*/
+.cart {
+  width:100%;
+  height:500px;
+  background-color:#dcdcdc;
+  padding-top:30px;
+}
+.cart-detail {
+   border:solid 1px;
+   border-radius:5px;
+  background-color:white;
+  padding:10px 10px 10px 10px;
+}
+.cart-item {
+  width:90%;
+  height:100px;
+}
+.cart-image {
+  height:80px;
+  border:solid 1px;
+}
+.cart-text{
+  font-size:20px;
+}
+.cart-item .col-md-2 {
+  line-height:80px;
+}
+.cart-item .col-md-3 {
+  line-height:80px;
+}
+.cart-item .col-md-1 {
+  line-height:80px;
+}
+
+ /*user/show*/
+.user-show-back {
+  width:100%;
+  height:800px;
+  background-color:#dcdcdc;
+}
+.user-show {
+  font-size:15px;
+  background-color:white;
+  text-align:center;
+}
+.user-box {
+  background-color:white;
+}
+.td-purchase {
+  height:80px;
+  vertical-align: inherit !important;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
  /*以下原*/
   /*ログイン画面*/
@@ -180,7 +249,7 @@
 th , td {
   padding: 10px 0 10px 5px;
 }
-.login_btn, .post_btn, .change_btn, .signup_btn{
+.login_btn, .post_btn, .change_btn, .signup_btn, .edit_btn{
   background-color: black;
   border-radius: 5px;
   color: white;
@@ -196,7 +265,11 @@ th , td {
 /*新規登録*/
 .Agreement {
   width: 1000px;
+  height: 150px;
   margin: 0 auto;
+  overflow: scroll;
+  border: solid 1px;
+  padding: 10px;
 }
 .signup_table {
   width: 700px;
@@ -233,13 +306,81 @@ th , td {
   text-align: center;
   margin: 0 auto;
 }
-.password_reminder_headline, .password_edit_headline , .signup_headline, .Agreement_headline{
+.password_reminder_headline, .password_edit_headline , .signup_headline, .Agreement_headline, .useredit_headline, .unsubscribe_headsline, .user_confirm_headline {
   color: white;
 }
 .password_reminder_table, .login_table, .password_edit_table {
   width: 500px;
   margin: 0 auto;
 }
+  /*user_edit*/
+.edit_table {
+  width: 700px;
+  margin: 0 auto;
+}
+.user_edit_container .headline_box {
+  background-color: black;
+  width: 200px;
+  text-align: center;
+  margin: 0 auto;
+}
+ /*unsubscribe_comment*/
+.unsubscribe_headlinebox {
+  background-color: black;
+  width: 300px;
+  text-align: center;
+  margin: 0 auto;
+}
+.unsubscribe_table {
+  width: 700px;
+  margin: 0 auto;
+}
+.unsubscribe_text {
+  margin: 0 auto;
+  width: 400px;
+}
+.unsubscribe_textarea {
+  text-align: center;
+  width: 100%;
+}
+.unsubscribe_textarea textarea {
+  width: 700px;
+  height: 300px;
+}
+/*user_confirm*/
+.user_confirm_container .headline_box {
+  background-color: black;
+  width: 200px;
+  text-align: center;
+  margin: 0 auto;
+}
+.user_confirm_table {
+  width: 700px;
+  margin: 0 auto;
+}
+.back_actions {
+  text-align: center;
+  width: 150px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+ /*admin_login*/
+.admin_login_container .headline_box {
+  background-color: black;
+  width: 250px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -258,6 +399,29 @@ th , td {
   height:100px;
   background-color: black;
 }
+.product_new_topbottom{
+  background-color: #708090;
+  height: 100px;
+}
+
+.product_new_heading{
+  text-align: center;
+}
+.product_new_heading h1{
+  display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -265,7 +429,7 @@ th , td {
 /*header用のCSS*/
 header{
   background-color: #808080;
-  height: 200px;
+  height: 160px;
   border: solid black 1px;
 }
 .header-links{
@@ -280,23 +444,27 @@ header{
   width: 150px;
   text-align: center;
   border: 1px black solid;
+  font-size: 12px;
+  height: 16px;
 }
 .link2{
   display: inline-block;
   padding: 0 15px;
   color: white;
+  font-size: 12px;
 }
 .link3{
   display: inline-block;
   color: white;
+  font-size: 12px;
 }
 .header-sub1{
   background-color: white;
-  height: 132px;
+  height: 95px;
 }
 .header-sub2{
   background-color: black;
-  height: 130px;
+  height: 93px;
   position: relative;
   top: 1px;
 }
@@ -304,6 +472,9 @@ header{
   color: white;
   padding: 0 0 0 60px;
   font-family: "Comic Sans MS";
+  display: inline-block;
+  position: relative;
+  bottom: 20px;
 }
 .header-text2{
   text-align: right;
@@ -311,14 +482,14 @@ header{
 }
 .header-text3{
   color: white;
-  font-size: 14px;
+  font-size: 12px;
 }
 .search-sample{
   background-color: white;
   width: 250px;
   height: 18px;
   float: right;
-  margin: 0 20px 20px 0;
+  margin: 30px 20px 20px 0;
 }
 .search-space{
   color: black;
@@ -329,47 +500,95 @@ header{
 /*main用のCSS*/
 .top-main{
   overflow:hidden;
+  background-color:  #c0c0c0;
 }
 .genre-box{
-  height: 850px;
-  width: 14%;
-  border: solid black 2px;
+  height: 600px;
+  width: 18%;
+  border: solid black 1px;
   float: left;
+  margin: 30px 0 0 3%;
+  background-color: white;
 }
 .genre-title{
   height: 25px;
   background-color: black;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 .genre-title-text{
   color: white;
 }
+.genre-index{
+  padding: 10px 0 0 20px;
+}
 .top-box{
-  height: 850px;
-  width: 86%;
+  height: 900px;
+  width: 78%;
   float: left;
   background-color: #c0c0c0;
 }
 .swipe-space{
-  width: 96%;
+  width: 80%;
   height: 280px;
-  margin: 50px 2%;
+  margin: 30px 10%;
   background-color: white;
   border-radius: 10px;
   border: solid black 1px;
 }
 .ranking-space{
-  width: 96%;
-  height: 180px;
-  margin: 70px 2% 0 2%;
+  width: 85%;
+  height: 220px;
+  margin: 40px 10% 0 10%;
   background-color: white;
   border-radius: 10px;
   border: solid black 1px;
 }
+.rankin-product{
+  width: 16%;
+  height: 65%;
+  float: left;
+  margin: 2% 2% 20px 2%;
+  position: relative;
+  padding: .5em .75em;
+  background-color: #e8e8e8;
+}
+.rankin-product::after {
+  content: '';
+  position: absolute;
+  top: -20px;
+  left: 0px;
+  width: -webkit-calc(100% 10px);
+  width: calc(100% - 0px);
+  height: 0;
+  border: 10px solid transparent;
+  border-bottom-color: #f0f0f0;
+}
+.ranking-integer{
+  height: 17px;
+  font-size: 12px;
+}
+.ranking-image{
+  width: 70%;
+  height: 55%;
+  margin: 0 15% 3px 15%;
+  background-color: white;
+}
+.ranking-artist-text{
+  font-size: 13px;
+  height: 13px;
+  text-align: center;
+  padding-top: 5px;
+}
+.ranking-product-text{
+  font-size: 13px;
+  height: 13px;
+  padding-top: 10px;
+  text-align: center;
+}
 .newproduct-space{
-  width: 96%;
-  height: 180px;
-  margin: 40px 2% 30px 2%;
+  width: 85%;
+  height: 220px;
+  margin: 40px 10% 30px 10%;
   background-color: white;
   border-radius: 10px;
   border: solid black 1px;
@@ -482,9 +701,64 @@ header{
   border: solid black 1px;
   margin: 10px 0 0 4px;
 }
+.product-heading{
+  position: relative;
+  height: 30px;
+  line-height: 30px;
+  padding: 0 1em;
+  background: -webkit-linear-gradient(top, #whitesmoke 0%, whitesmoke 100%);
+  background: linear-gradient(to bottom, whitesmoke 0%, #FFFF00 100%);
+  width: 200px;
+  margin: 5px;
+}
+.product-heading::before,
+.product-heading::after {
+  content: '';
+  position: absolute;
+}
+.product-heading::before {
+  top: 100%;
+  left: 0;
+  border-width: 0 15px 15px 0;
+  border-style: solid;
+  border-color: transparent;
+  border-right-color: #CCCC66;
+}
+.product-heading::after {
+  top: 0;
+  right: 0;
+  z-index: 2;
+  border-width: 15px 15px;
+  border-style: solid;
+  border-color: transparent;
+  border-right-color: #fff;
+}
+
+.genre-list {
+  padding: 0;
+  position: relative;
+}
+
+.genre-list .genre-list-item {
+  line-height: 1.5;
+  padding: 0.5em 0.5em 0.5em 1.7em;
+  list-style-type: none!important;
+  background: -webkit-linear-gradient(top, #whitesmoke 0%, whitesmoke 100%);/*グラデーション*/
+  background: linear-gradient(to bottom, whitesmoke 0%, #CCCCCC 100%);/*グラデーション*/
+  text-shadow: 3px 3px 1px whitesmoke;
+  color: black;
+}
+
+.genre-list .genre-list-item:before { /*疑似要素*/
+  font-family: "Font Awesome 5 Free";
+  content: "\f138";
+  position: absolute;
+  left : 0.5em;
+  color: #FF6600;
+}
 /*footer用のCSS*/
 footer{
-  height: 30px;
+  height: 80px;
   background-color: black;
 }
 .footer-text{

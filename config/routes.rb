@@ -2,15 +2,27 @@ Rails.application.routes.draw do
 
 
   devise_for :admins
-  devise_for :users
+  devise_for :users, :controllers => {
+  :registrations => 'users/registrations'}
 
+  devise_scope :user do
+  post 'users/sign_up/confirm' => 'users/registrations#confirm'
+  post 'users/sign_up/complete' => 'users/registrations#complete'
+  end
+
+  resources :users, only: [:show, :edit]
+  resources :carts, only: [:show]
+  resources :products
   resources :orders
-  get "complete" => "orders#complete"
-  get '/top' => 'products#top'
+
+  resources :discs, only: [:show, :edit, :update] do
+  resources :tunes, only: [:new, :create]
+  end
+
+  get 'unsubscribe_comment/new' => 'unsubscribe_comment#new'
+  get "/complete" => "orders#complete"
+  root 'products#top'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :products, except: [:show]
-  resources :discs, only: [:show, :edit, :update] do
-	resource :tunes, only: [:new, :create]
-  end
+
 end

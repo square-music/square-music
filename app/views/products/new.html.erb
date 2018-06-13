@@ -1,94 +1,97 @@
 <div class="container-fluid">
-	<div class="row header-footer"></div>
 	<div class="row product_new_inner">
 		<div class="col-lg-2 product_new_side"></div>
 		<div class="col-lg-8 product_new_main">
-			<h1>新規商品登録</h1>
-			<p><%=%></p>
-			<%= form_for @product, html: {class: 'form-horizontal'} do |f| %>
-				<div class="form-group">
-					<label for="product_name" class="control-label col-xs-2">商品名</label>
-					<div class="col-xs-8">
-						<%= f.text_field :product_name, class: "form-control" %>
-					</div>
+			<div class="row product_new_topbottom"></div>
+			<div class="row product_new_form">
+				<div class="product_new_heading">
+					<h1>新規商品登録</h1>
 				</div>
-				<div class="form-group">
-					<label for="product_phonetic" class="control-label col-xs-2">商品名・フリガナ</label>
-					<div class="col-xs-8">
-						<%= f.text_field :product_phonetic, class: "form-control" %>
+				<%= form_for @product, html: {class: 'form-horizontal'} do |f| %>
+					<div class="form-group">
+						<label for="product_name" class="control-label col-xs-2">商品名</label>
+						<div class="col-xs-8">
+							<%= f.text_field :product_name, class: "form-control" %>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="artist_id" class="control-label col-xs-2">アーティスト</label>
-					<div class="col-xs-8">
-						<%= f.text_field :artist_id, :list => "artist_list", :autocomplete => 'off', class: "form-control" %>
-					 　　<datalist id="artist_list">
-							<% @artists.each do |artist| %>
-								<option value="<%= artist.artist_name %>"><%= artist.artist_name %></option>
-							<% end %>
-						</datalist>
+					<div class="form-group">
+						<label for="product_phonetic" class="control-label col-xs-2">商品名・フリガナ</label>
+						<div class="col-xs-8">
+							<%= f.text_field :product_phonetic, class: "form-control" %>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="label_id" class="control-label col-xs-2">レーベル</label>
-					<div class="col-xs-8">
-						<%= f.text_field :label_id, :list => "label_list", :autocomplete => 'off', class: "form-control" %>
-					 　　<datalist id="label_list">
-							<% @labels.each do |label| %>
-								<option value="<%= label.label_name %>"><%= label.label_name %></option>
-							<% end %>
-						</datalist>
+					<div class="form-group">
+						<label for="artist_id" class="control-label col-xs-2">アーティスト</label>
+						<div class="col-xs-8">
+							<%= f.text_field :artist_id, :list => "artist_list", :autocomplete => 'off', class: "form-control" %>
+						 　　<datalist id="artist_list">
+								<% @artists.each do |artist| %>
+									<option value="<%= artist.artist_name %>"><%= artist.artist_name %></option>
+								<% end %>
+							</datalist>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="genre_id" class="control-label col-xs-2">ジャンル</label>
-					<div class="col-xs-8">
-						<%= f.text_field :genre_id, :list => "genre_list", :autocomplete => 'off', class: "form-control" %>
-					 　　<datalist id="genre_list">
-							<% @genres.each do |genre| %>
-								<option value="<%= genre.genre_name %>"><%= genre.genre_name %></option>
-							<% end %>
-						</datalist>
+					<div class="form-group">
+						<label for="label_id" class="control-label col-xs-2">レーベル</label>
+						<div class="col-xs-8">
+							<%= f.text_field :label_id, :list => "label_list", :autocomplete => 'off', class: "form-control" %>
+						 　　<datalist id="label_list">
+								<% @labels.each do |label| %>
+									<option value="<%= label.label_name %>"><%= label.label_name %></option>
+								<% end %>
+							</datalist>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="product_price" class="control-label col-xs-2">価格</label>
-					<div class="col-xs-4">
-						<%= f.number_field :product_price, class: "form-control" %>
+					<div class="form-group">
+						<label for="genre_id" class="control-label col-xs-2">ジャンル</label>
+						<div class="col-xs-8">
+							<%= f.text_field :genre_id, :list => "genre_list", :autocomplete => 'off', class: "form-control" %>
+						 　　<datalist id="genre_list">
+								<% @genres.each do |genre| %>
+									<option value="<%= genre.genre_name %>"><%= genre.genre_name %></option>
+								<% end %>
+							</datalist>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="stock" class="control-label col-xs-2">在庫数</label>
-					<div class="col-xs-4">
-					<%= f.number_field :stock, class: "form-control" %>
+					<div class="form-group">
+						<label for="product_price" class="control-label col-xs-2">価格</label>
+						<div class="col-xs-4">
+							<%= f.number_field :product_price, class: "form-control" %>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="release" class="control-label col-xs-2">発売日</label>
-					<div class="col-xs-4">
-						<%= f.date_field :release, class: "form-control" %>
+					<div class="form-group">
+						<label for="stock" class="control-label col-xs-2">在庫数</label>
+						<div class="col-xs-4">
+						<%= f.number_field :stock, class: "form-control" %>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="disc_amount" class="control-label col-xs-2">ディスク枚数</label>
-					<div class="col-xs-4">
-						<%= f.number_field :disc_amount, class: "form-control" %>
+					<div class="form-group">
+						<label for="release" class="control-label col-xs-2">発売日</label>
+						<div class="col-xs-4">
+							<%= f.date_field :release, class: "form-control" %>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<label for="description" class="control-label col-xs-2">商品説明</label>
-					<div class="col-xs-8">
-						<%= f.text_area :description, class: "form-control" %>
+					<div class="form-group">
+						<label for="disc_amount" class="control-label col-xs-2">ディスク枚数</label>
+						<div class="col-xs-4">
+							<%= f.number_field :disc_amount, class: "form-control" %>
+						</div>
 					</div>
-				</div>
-				<div class="form-group">
-					<div class="col-xs-offset-2 col-xs-10">
-						<%= f.submit '登録', class: "btn btn-primary" %>
+					<div class="form-group">
+						<label for="description" class="control-label col-xs-2">商品説明</label>
+						<div class="col-xs-8">
+							<%= f.text_area :description, class: "form-control" %>
+						</div>
 					</div>
-				</div>
-			<% end %>
+					<div class="form-group">
+						<div class="col-xs-offset-9 col-xs-3">
+							<%= f.submit '登録', class: "btn btn-primary" %>
+						</div>
+					</div>
+				<% end %>
+			</div>
+			<div class="row product_new_topbottom"></div>
 		</div>
 		<div class="col-lg-2 product_new_side"></div>
 	</div>
-	<div class="row header-footer"></div>
 </div>

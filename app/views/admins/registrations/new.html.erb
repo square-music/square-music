@@ -1,29 +1,37 @@
-<h2>Sign up</h2>
-
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<div class="admin_signup_container">
+  <div class="headline_box">
+    <h2 class="signup_headline">管理者新規登録</h2>
   </div>
+  <table class="signup_table">
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= devise_error_messages! %>
+    <tr>
+      <div class="field">
+        <td><%= f.label :メールアドレス %><br /></td>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
+        <td><%= f.label :パスワード %></td>
+        <td><%= f.password_field :password, autocomplete: "off" %>
+        <% if @minimum_password_length %>
+        <em>(<%= @minimum_password_length %> 文字以上で入力して下さい)</em></td>
+        <% end %><br />
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "off" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
+        <td><%= f.label :パスワード確認 %><br /></td>
+        <td><%= f.password_field :password_confirmation, autocomplete: "off" %></td>
+      </div>
+    </tr>
+  </table>
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "登録",class: "signup_btn" %>
+    <% end %>
   </div>
-<% end %>
 
-<%= render "admins/shared/links" %>
+  <%= render "admins/shared/links" %>
+</div>

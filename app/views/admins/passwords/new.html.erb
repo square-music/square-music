@@ -1,16 +1,20 @@
-<h2>Forgot your password?</h2>
-
-<%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
-  <%= devise_error_messages! %>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+<section class="password_reminder_container">
+  <div class="headline_box">
+    <h2 class="password_reminder_headline">パスワードリマインダー</h2>
   </div>
-
+  <table border="1" class="password_reminder_table">
+    <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
+    <%= devise_error_messages! %>
+      <tr>
+        <div class="field">
+          <th><%= f.label :メールアドレス %><br /></th>
+          <th><%= f.email_field :email, autofocus: true, autocomplete: "email" %></th>
+        </div>
+      </tr>
+  </table>
   <div class="actions">
-    <%= f.submit "Send me reset password instructions" %>
+    <%= f.submit "送信",class: "post_btn" %>
   </div>
-<% end %>
-
-<%= render "admins/shared/links" %>
+  <% end %>
+  <%= render "users/shared/links" %>
+</section>

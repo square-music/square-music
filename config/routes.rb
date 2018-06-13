@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
 
 
+  get 'unsubscribe_ccomment/new'
+
   devise_for :admins
   devise_for :users, :controllers => {
   :registrations => 'users/registrations'}

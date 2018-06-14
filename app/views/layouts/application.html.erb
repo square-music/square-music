@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
   <head>
     <title>SquareMusic</title>
     <%= csrf_meta_tags %>
@@ -9,20 +10,32 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/3.4.1/css/swiper.min.css">
   </head>
 
+
   <body>
+  <div class="header-padding">
     <header>
+	<% if user_signed_in? %>
+
 	<div class="header-links">
 		<div class="link1">cartへのリンク</div>
-		<div class="link2">マイページ</div>
-		<div class="link3">ログアウト</div>
+		<div class="link2"><%= link_to "マイページ", user_path(current_user.id) %></div>
+		<div class="link3"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>
 	</div>
+
+	<% else %>
+
+	<div class="header-links">
+		<div class="link2"><%= link_to "新規登録", new_user_registration_path %></div>
+		<div class="link3"><%= link_to "ログイン", new_user_session_path %></div>
+	</div>
+
+	<% end %>
 <!-- タイトルdiv -->
-	<div class="header-sub1">
-		<div class="header-sub2">
+		<div class="header-sub">
 			<div class="header-text2">
 				<p class="header-text3">ようこそ＜USER＞<!-- ログインユーザー名を表示予定 -->さん</p>
 			</div>
-			<h1 class="header-text1">SQUARE MUSIC</h1>
+			<h1 class="header-text1"><a href="/" style="text-decoration: none;color: white">SQUARE MUSIC</a></h1>
 			<div class="search-sample">
 				<p class="search-space">検索実装スペース</p>
 			</div>
@@ -31,6 +44,11 @@
 
 </header>
 <%= yield %>
+<footer>
+		<div class="footer-text">
+			<p>©︎SQUARE MUSIC</p>
+		</div>
+</footer>
   </body>
 
 </html>

@@ -465,12 +465,20 @@ th , td {
 /*header用のCSS*/
 header{
   background-color: #808080;
-  height: 160px;
+  width: 100%;
+  height: 111px;
   border: solid black 1px;
+  position: fixed;            /* ヘッダーの固定 */
+  top: 0px;
+  z-index: 100;
+}
+.header-padding{
+  height: 111px;
+  width: 100%;
 }
 .header-links{
   text-align: right;
-  padding: 5px 20px 5px 0;
+  padding-right: 30px;
 }
 .link1{
   display: inline-block;
@@ -494,15 +502,14 @@ header{
   color: white;
   font-size: 12px;
 }
-.header-sub1{
-  background-color: white;
-  height: 95px;
-}
-.header-sub2{
+.header-sub{
   background-color: black;
-  height: 93px;
+  height: 65px;
   position: relative;
-  top: 1px;
+  top: 2px;
+  border-top: solid white 2px;
+  border-bottom: solid white 2px;
+
 }
 .header-text1{
   color: white;
@@ -510,7 +517,7 @@ header{
   font-family: "Comic Sans MS";
   display: inline-block;
   position: relative;
-  bottom: 20px;
+  bottom: 45px;
 }
 .header-text2{
   text-align: right;
@@ -525,7 +532,7 @@ header{
   width: 250px;
   height: 18px;
   float: right;
-  margin: 30px 20px 20px 0;
+  margin: 5px 20px 20px 0;
 }
 .search-space{
   color: black;
@@ -538,12 +545,20 @@ header{
   overflow:hidden;
   background-color:  #c0c0c0;
 }
-.genre-box{
-  height: 600px;
-  width: 18%;
-  border: solid black 1px;
+.sidebar-space{
+  width: 300px;
+  background-color: #c0c0c0;
+  height: 1000px;
   float: left;
-  margin: 30px 0 0 3%;
+}
+.genre-box{
+  height: 590px;
+  width: 18%;
+  position: fixed;
+  top: 130px;
+  left: 3%;
+  z-index: 100;
+  border: solid black 2px;
   background-color: white;
 }
 .genre-title{
@@ -631,8 +646,8 @@ header{
 }
 /*商品検索用のCSS*/
 .top-box2{
-  height: 850px;
-  width: 86%;
+  height: auto;
+  width: 78%;
   float: left;
   background-color: #c0c0c0;
   overflow:hidden;
@@ -671,21 +686,20 @@ header{
 /*商品詳細用のCSS*/
 .product-detail{
   width: 96%;
-  height: 380px;
+  height: 550px;
   background-color: white;
   margin: 20px 2% 20px 2%;
   border: solid black 1px;
 }
 .product-detail-image{
   width: 200px;
-  height: 140px;
-  margin: 20px 0 0 60px;
+  height: 200px;
+  margin: 10px 0 0 40px;
   background-color: gray;
   float: left;
 }
 .product-detail-field1{
-  background-color: red;
-  width: 700px;
+  width: 54%;
   height: 180px;
   float: right;
   margin-right: 15px;
@@ -700,23 +714,41 @@ header{
   float: right;
 }
 .product-detail-field2{
-  background-color: red;
-  width: 960px;
-  height: 155px;
+  width: 73%;
+  height: auto;
   float: right;
-  margin: 5px 10px 0 0;
+  margin: 10px 1% 0 3%;
+  border-top: dashed gray 1px;
+}
+.product-detail-field3{
+  width: 73%;
+  height: auto;
+  float: right;
+  margin: 5px 1% 0 3%;
+  border-top: dashed gray 1px;
 }
 .product-comment{
   width: 90%;
-  height: 150px;
+  margin: 10px 0 0 2%;
+  height: 350px;
   background-color: white;
-  margin: 0 2% 0 8%;
   border: solid black 1px;
 }
+.product-comment-newbox{
+  width: 90%;
+  margin: 0 0 0 2%;
+  height: 120px;
+  background: -webkit-linear-gradient(top, #whitesmoke 0%, whitesmoke 100%);/*グラデーション*/
+  background: linear-gradient(to bottom, whitesmoke 0%, #aaaaaa 100%);/*グラデーション*/
+  margin-right: 3px;
+  border-left: solid black 1px;
+  border-right: solid black 1px;
+  border-bottom: solid black 1px;
+}
 .newproduct-space3{
-  width: 96%;
-  height: 180px;
-  margin: 65px 2% 30px 2%;
+  width: 85%;
+  height: 220px;
+  margin: 40px 10% 30px 5%;
   background-color: white;
   border-radius: 10px;
   border: solid black 1px;
@@ -792,6 +824,11 @@ header{
   left : 0.5em;
   color: #FF6600;
 }
+
+/*test*/
+
+
+
 /*footer用のCSS*/
 footer{
   height: 80px;

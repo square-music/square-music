@@ -1,19 +1,21 @@
 class TunesController < ApplicationController
 	def new
 	  	@disc = Disc.find(params[:disc_id])
+	  	product = Product.find_by(id: @disc.product_id)
 	  	@artists = Artist.all
+	  	@artist = Artist.find_by(id: product.artist_id)
 	  	@tune = Tune.new
-	    @tunes = Tune.where(disc_id: @disc.id)
+	    @tunes = Tune.where(disc_id: @disc.id).order('tune_number')
 	    @discs = Disc.where(product_id: @disc.product_id)
 	end
 
 	def create
-	  	tune = Tune.new(tune_params)
+	  	tune = Tune.new(tune_name: params[:tune_name], tune_number: params[:tune_number])
 	  	disc = Disc.find_by(id: params[:disc_id])
-	  	if artist = Artist.find_by(artist_name: params[:tune][:artist_id])
+	  	if artist = Artist.find_by(artist_name: params[:artist_name])
 	        tune.artist_id = artist.id
 	      else
-	        new_artist = Artist.create(artist_name: params[:tune][:artist_id])
+	        new_artist = Artist.create(artist_name: params[:artist_name], artist_phonetic: params[:artist_phonetic])
 	        tune.artist_id = new_artist.id
 	      end
 	    tune.disc_id = disc.id
@@ -29,6 +31,6 @@ class TunesController < ApplicationController
     end
 	private
 	    def tune_params
-	    	params.require(:tune).permit(:tune_name, :disc_id, :artist_id, :tune_number, :id, :_destroy)
+	    	params.permit(:tune_name, :tune_number, :artist_name, :artist_phonetic)
 	    end
 end

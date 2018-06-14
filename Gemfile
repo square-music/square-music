@@ -61,3 +61,5 @@ gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'ransack'
 gem "nested_form"
+gem 'carrierwave'
+gem 'rmagick'

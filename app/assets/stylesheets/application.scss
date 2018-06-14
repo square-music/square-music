@@ -422,22 +422,14 @@ th , td {
 
 /*以下渡辺*/
 /*product/new/*/
-.product_new_side{
-  }
 .product_new_inner{
-  background-color: #708090;
   height: 100%;
 }
 .product_new_main{
-  background-color: white;
-}
-.header-footer{
-  height:100px;
-  background-color: black;
 }
 .product_new_topbottom{
-  background-color: #708090;
   height: 100px;
+  z-index: 1;
 }
 
 .product_new_heading{
@@ -446,11 +438,35 @@ th , td {
 .product_new_heading h1{
   display: inline-block;
 }
-
-
-
-
-
+.product_new_form{
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-shadow: 0 0 5px gray;
+  padding-top: 50px;
+}
+.tune-form-group{
+  margin-right: 10px;
+}
+.tune-new-btn{
+  margin-top: 25px;
+  margin-left: 40px;
+}
+.tune_new_table{
+  box-shadow: 0 0 5px gray;
+}
+.tune_table_head{
+  background-color: black;
+  color: white;
+  font-size: 16px;
+}
+.tune_new_navi{
+  margin-top: 50px;
+  text-align: right;
+}
+.tune_new_navi_list{
+  display: inline-block;
+  margin-right: 50px;
+}
 
 
 

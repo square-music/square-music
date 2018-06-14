@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   resources :orders
 
   resources :discs, only: [:show, :edit, :update] do
-  resources :tunes, only: [:new, :create]
+  resources :tunes, only: [:new, :create, :destroy]
   end
 
   get 'unsubscribe_comment/new' => 'unsubscribe_comment#new'

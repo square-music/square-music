@@ -1,3 +1,32 @@
 // Place all the styles related to the products controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*以下渡辺*/
+/*product/new/*/
+.product_new_inner{
+  height: 100%;
+}
+.product_new_main{
+}
+.header-footer{
+  height:100px;
+  background-color: black;
+}
+.product_new_topbottom{
+  height: 100px;
+  z-index: 1;
+}
+
+.product_new_heading{
+  text-align: center;
+}
+.product_new_heading h1{
+  display: inline-block;
+}
+.product_new_form{
+  border: 1px solid gray;
+  border-radius: 10px;
+  box-shadow: 0 0 10px black;
+  padding-top: 50px;
+}

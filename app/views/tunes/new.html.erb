@@ -1,46 +1,73 @@
-<h1>Tunes#new</h1>
-<p>product_id:<%= @disc.product.id %> disc_id:<%= @disc.id %></p>
-<table class="table">
-	<h2>Tunes</h2>
-	<thead>
-		<tr>
-			<th>曲順</th>
-			<th>曲名</th>
-			<th>アーティスト名</th>
-			<th>Action</th>
-		</tr>
-	</thead>
-	<tbody>
-		<% @tunes.each do |tune| %>
-			<tr>
-				<td><%= tune.tune_number %></td>
-				<td><%= tune.tune_name %></td>
-				<td><%= tune.artist.artist_name %></td>
-				<td><%= link_to "delete", disc_tune_path(@disc.id, tune.id),  method: :delete %></td>
-			</tr>
-		<% end %>
-	</tbody>
-</table>
-
-<%= form_for [@disc,@tune] do |f| %>
-	<label for="tune_number">曲順</label>
-	<%= f.number_field :tune_number %>
-	<label for="tune_name">曲名</label>
-	<%= f.text_field :tune_name %>
-	<label for="artist_id">アーティスト</label>
-	<%= f.text_field :artist_id, :list => "artist_list", :autocomplete => "off" %>
-	<datalist id="artist_list">
-		<% @artists.each do |artist| %>
-			<option value="<%= artist.artist_name %>"><%= artist.artist_name %></option>
-		<% end %>
-	</datalist>
-	<%= f.submit %>
-<% end %>
-<p>
-	<% @discs.each do |disc| %>
-		<%= link_to "Disc#{disc.disc_number}", new_disc_tune_path(disc.id) %>
-	<% end %>
-</p>
-<p>
-	<%= link_to "入力終了", products_path %>
-</p>
+<div class="container-fulid">
+	<div class="row">
+		<div class="col-lg-1"></div>
+		<div class="col-lg-10">
+			<h1>Tunes#new</h1>
+			<p>product_id:<%= @disc.product.id %> /disc_id:<%= @disc.id %> /disc_number:<%= @disc.disc_number %></p>
+			<% if @tunes.present? %>
+			<table class="table table-striped tune_new_table">
+				<h2>Tunes</h2>
+				<thead class="tune_table_head">
+					<tr>
+						<th class="col-sm-2">曲順</th>
+						<th class="col-sm-5">曲名</th>
+						<th class="col-sm-3">アーティスト名</th>
+						<th class="col-sm-2"></th>
+					</tr>
+				</thead>
+				<tbody>
+					<% @tunes.each do |tune| %>
+						<tr>
+							<td><%= tune.tune_number %></td>
+							<td><%= tune.tune_name %></td>
+							<td><%= tune.artist.artist_name %></td>
+							<td><%= link_to "delete", disc_tune_path(@disc.id, tune.id),  method: :delete, class: "btn btn-danger btn-sm" %></td>
+						</tr>
+					<% end %>
+				</tbody>
+			</table>
+			<% end %>
+			<div class="row">
+				<%= form_tag(disc_tunes_path, method: :post) do %>
+					<div class="form-group tune-form-group col-xs-1">
+						<label for="tune_number">曲順</label>
+						<%= number_field_tag :tune_number,'', class: "form-control" %>
+					</div>
+					<div class="form-group tune-form-group col-lg-3">
+						<label for="tune_name">曲名</label>
+						<%= text_field_tag :tune_name,'', class: "form-control" %>
+					</div>
+					<div class="form-group tune-form-group col-lg-3">
+						<label for="artist_name">アーティスト</label>
+						<%= text_field_tag :artist_name,'', :list => "artist_list", :autocomplete => "off", class: "form-control" %>
+						<datalist id="artist_list">
+							<% @artists.each do |artist| %>
+								<option value="<%= artist.artist_name %>"><%= artist.artist_name %></option>
+							<% end %>
+						</datalist>
+					</div>
+					<div class="form-group tune-form-group col-lg-3">
+						<label for="artist_phonetic">ふりがな</label>
+						<%= text_field_tag :artist_phonetic,'', :autocomplete => "off", class: "form-control" %>
+					</div>
+					<div class="form-group tune-new-btn col-lg-1">
+						<%= submit_tag '登録', class: "btn btn-primary" %>
+					</div>
+				<% end %>
+			</div>
+			<div class="row tune_new_navi">
+				<div class="tune_new_navi_list">
+					<% unless @discs.count == 1 %>
+						<h4>
+							<% @discs.each do |disc| %>
+								<%= link_to "Disc#{disc.disc_number}", new_disc_tune_path(disc.id) %>
+							<% end %>
+						</h4>
+					<% end %>
+					<%= link_to "入力終了", products_path, class: "btn btn-success" %>
+				</div>
+			</div>
+		</div>
+		<div class="col-lg-1"></div>
+	</div>
+</div>

@@ -1,3 +1,35 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.user-show-back {
+  width:100%;
+  height:800px;
+  background-color:#dcdcdc;
+}
+.user-show {
+  font-size:15px;
+  background-color:white;
+  text-align:center;
+  border:solid 1px;
+  margin:5px auto 0;
+  padding:5px;
+  border-radius: 5px;
+  border-color:#dcdcdc;
+}
+.user-box {
+  background-color:white;
+  text-align:center;
+  border:solid 1px;
+  margin:5px auto 0;
+  padding:5px;
+  border-radius: 5px;
+  border-color:#dcdcdc;
+}
+.td-purchase {
+  height:80px;
+  vertical-align: inherit !important;
+}
+.th-purchase {
+  text-align:center !important;
+}

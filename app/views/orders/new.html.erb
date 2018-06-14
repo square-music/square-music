@@ -4,14 +4,14 @@
       <div class="col-lg-3">
       </div>
        <div class="order col-lg-6">
-    <h2>支払い方法・注文内容の確認</h2>
+    <h3>注文内容の確認</h3>
       
   <div class="order-box">
 
 	  <div class="sendbox">
 	    <h4>登録住所</h4>
 	   <div class="address-form">
-	   	東京都世田谷区1-1-1
+	   	<%= link_to "ログアウト",destroy_user_session_path, method: :delete %>
 	   </div>
 	   <h4>送付先住所</h4>
 	   <div class="address-form">
@@ -39,43 +39,43 @@
      </div>
      
      <div class="pay">
-      <h4>支払い方法の選択</h4>
-      <div class="btn-group">
-	      <button type="button" class="btn btn-default">
-		選択する
-		</button>
-		<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-		<span class="caret"></span>
-		</button>
-		<ul class="dropdown-menu" role="menu">
-		<li role="presentation"><a role="menuitem" tabindex="-1" href="#">銀行振込</a></li>
-		<li role="presentation"><a role="menuitem" tabindex="-1" href="#">商品代引き</a></li>
-		<li role="presentation"><a role="menuitem" tabindex="-1" href="#">クレジットカード</a></li>
-	    </ul>
-  		</div>
-
+	      <h4>支払い方法の選択</h4>
+	      <div class="btn-group">
+		      <button type="button" class="btn btn-default">
+			選択する
+			</button>
+			<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+			<span class="caret"></span>
+			</button>
+			<ul class="dropdown-menu" role="menu">
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">銀行振込</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">商品代引き</a></li>
+			<li role="presentation"><a role="menuitem" tabindex="-1" href="#">クレジットカード</a></li>
+		    </ul>
+	  		</div>
      </div>
 
      <div class="preorder clearfix">
      	<h4>商品の確認</h4>
+      
       <div class="pre-product clearfix">
       	<div class="product-image">NO IMAGE
       	</div>
       	<p class="order-text">【UNCHAIN】 10fold</p>
-      	<p class="preorder-price">3,240円 </p>
+      	<p class="preorder-price">小計 3,240円 </p>
       </div>
     
       	<table class="price-table">
 		　<tr>
 		　　<td>商品合計数 </td>
-		　　<td>３</td>
+		　　<td>1</td>
 		　</tr>
 		　<tr>
-		　　<td>合計金額 </td>
+		　　<td>ご請求額 </td>
 		　　<td>3,240円</td>
 		　</tr>
 		 <tr>
-		 <td colspan="2"><button class="btn btn-warning">購入確定</button>
+		 <td colspan="2"><button class="btn btn-warning">注文の確定</button>
 		 </td>
 		</tr>
 		</table>

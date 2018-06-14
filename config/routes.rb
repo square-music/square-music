@@ -22,7 +22,7 @@ Rails.application.routes.draw do
   end
 
   get 'unsubscribe_comment/new' => 'unsubscribe_comment#new'
-  get "/complete" => "orders#complete"
+  get "/order/complete" => "orders#complete"
   root 'products#top'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

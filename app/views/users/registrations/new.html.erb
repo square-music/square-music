@@ -1,58 +1,72 @@
+
 <section class="signup_container">
   <div class="headline_box">
-    <h2 class="signup_headline">新規登録</h2>
+    <h2 class="signup_headline">会員登録</h2>
+  </div>
+  <div class="procedure_container clearfix">
+  <div class="procedure_content_1">
+    会員情報入力
+  </div>
+  <div class="kigou">&#9654;</div>
+  <div class="procedure_content_2">
+    入力内容確認
+  </div>
+  <div class="kigou">&#9654;</div>
+  <div class="procedure_content_3">
+    登録完了
+  </div>
   </div>
   <table border="1" class="signup_table">
     <%= form_for @user, url: {action: "confirm"} do |f| %>
       <%= devise_error_messages! %>
       <tr>
         <div class="field">
-          <th><%= f.label :氏名 %><br /></th>
-          <th><%= f.text_field :user_name%></th>
+          <td class="td_color"><%= f.label :氏名 %><br /></td>
+          <td><%= f.text_field :user_name%></td>
         </div>
       </tr>
       <tr>
         <div class="field">
-          <td><%= f.label :フリガナ %><br /></td>
+          <td class="td_color"><%= f.label :フリガナ %><br /></td>
           <td><%= f.text_field :user_phonetic %></td>
         </div>
       </tr>
       <tr>
         <div class="field">
-          <td><%= f.label :郵便番号 %><br /></td>
+          <td class="td_color"><%= f.label :郵便番号 %><br /></td>
           <td><%= f.text_field :postal %></td>
         </div>
       </tr>
       <tr>
         <div class="field">
-          <td><%= f.label :住所 %><br /></td>
+          <td class="td_color"><%= f.label :住所 %><br /></td>
           <td><%= f.text_field :address %></td>
         </div>
       </tr>
       <tr>
         <div class="field">
-          <td><%= f.label :電話番号 %><br /></td>
+          <td class="td_color"><%= f.label :電話番号 %><br /></td>
           <td><%= f.text_field :tell %></td>
         </div>
       </tr>
       <tr>
         <div class="field">
-          <td><%= f.label :メールアドレス %><br /></td>
+          <td class="td_color"><%= f.label :メールアドレス %><br /></td>
           <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
         </div>
       </tr>
       <tr>
         <div class="field">
-          <td><%= f.label :パスワード %></td>
+          <td class="td_color"><%= f.label :パスワード %></td>
           <td><%= f.password_field :password, autocomplete: "off" %>
           <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> 文字以上で入力して下さい)</em></td>
+          <div><em>(<%= @minimum_password_length %> 文字以上で入力して下さい)</em></div></td>
           <% end %><br />
         </div>
       </tr>
       <tr>
         <div class="field">
-          <td><%= f.label :パスワード確認 %><br /></td>
+          <td class="td_color"><%= f.label :パスワード確認 %><br /></td>
           <td><%= f.password_field :password_confirmation, autocomplete: "off" %></td>
         </div>
       </tr>

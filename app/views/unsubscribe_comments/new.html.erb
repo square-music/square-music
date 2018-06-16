@@ -1,0 +1,20 @@
+
+
+  <div class="unsubscribe_container">
+    <div class="headline_box">
+      <h2 class="unsubscribe_headsline">退会をご希望の方</h2>
+    </div>
+
+<%= current_user.id %>
+    <div class="unsubscribe_text">
+      <h3>よろしければ退会理由を書き下さい</h3>
+    </div>
+      <%= form_for(@unsubscribe_comment) do |f| %>
+  <div class="unsubscribe_textarea">
+      <%= f.text_area :comment %>
+    </div>
+    <div class="actions">
+      <%= f.submit "送信",class: "post_btn" %>
+    </div>
+    <% end %>
+  </div>

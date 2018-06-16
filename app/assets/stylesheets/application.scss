@@ -79,26 +79,28 @@
    width: 800px;
    margin: 0 auto;
  }
-.login_container .headline_box {
-  background-color: black;
-  width: 150px;
-  text-align: center;
-  margin: 0 auto;
-}
-.login_headline {
-  color: white;
-  margin: 20px 0;
-  padding: 5px 0;
-}
+
+
 .label {
   margin-bottom: 0px;
 }
-#user_email, #user_password, #user_password_confirmation, #user_tell, #user_address, #user_postal, #user_user_name, #user_user_phonetic {
-  width: 200px;
+#user_email, #user_password,#user_current_password, #user_password_confirmation, #user_tell, #user_address, #user_postal, #user_user_name, #user_user_phonetic {
+  width: 400px;
+}
+#admin_email, #admin_password, #admin_current_password, #admin_password_confirmation, #admin_admin_name {
+  width: 400px;
+}
+input {
+  width: 400px;
 }
 th , td {
   padding: 10px 0 10px 5px;
 }
+.td_color {
+  background-color: #eeeeee;
+  width: 200px;
+}
+
 .login_btn, .post_btn, .change_btn, .signup_btn, .edit_btn{
   background-color: black;
   border-radius: 5px;
@@ -113,15 +115,65 @@ th , td {
   text-align: center;
 }
 /*新規登録*/
-.Agreement {
+.procedure_content_1, .procedure_content_2, .procedure_content_3 {
+  float: left;
+  width: 200px;
+  border: 1px solid red;
+  border-radius: 5px ;
+}
+.procedure_container {
+  width: 628px;
+  margin: 0 auto;
+  text-align: center;
+  padding-bottom: 10px;
+}
+.kigou {
+  float: left;
+}
+.procedure_content_1 {
+  background-color: red;
+  color: white;
+}
+.procedure_content_2, .procedure_content_3 {
+  color: red;
+}
+.completion_headline {
+  margin: 10px auto;
   width: 1000px;
+}
+
+.headline_box {
+  width: 800px;
+  color: black;
+  border-left: solid 8px orange;/*左側の線*/
+  background: whitesmoke;/*背景色*/
+  margin-bottom: 5px;/*下のバーとの余白*/
+  line-height: 1.5;
+  margin: 0 auto;
+}
+.text_1 {
+  width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 15px;
+}
+.text_2 {
+  width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding-top: 20px;
+  font-size: 15px;
+}
+.Agreement {
+  width: 700px;
   height: 150px;
   margin: 0 auto;
   overflow: scroll;
   border: solid 1px;
   padding: 10px;
 }
-.signup_table {
+.signup_table, .login_table {
   width: 700px;
   margin: 0 auto;
 }
@@ -131,6 +183,13 @@ th , td {
   margin: 0 auto;
   font-size: 20px;
   text-align: center;
+  height: 50px;
+}
+.aaa {
+  float: left;
+}
+.bbb {
+  float: left;
 }
 .actions {
   margin: 10px auto;
@@ -138,49 +197,24 @@ th , td {
   height: 30px;
 }
 /*パスワードリマインダー編集*/
-.password_reminder_container .headline_box {
-  background-color: black;
-  width: 350px;
-  text-align: center;
-  margin: 0 auto;
-}
-.password_edit_container .headline_box {
-  background-color: black;
-  width: 350px;
-  text-align: center;
-  margin: 0 auto;
-}
-.signup_container .headline_box {
-  background-color: black;
-  width: 140px;
-  text-align: center;
-  margin: 0 auto;
-}
-.password_reminder_headline, .password_edit_headline , .signup_headline, .Agreement_headline, .useredit_headline, .unsubscribe_headsline, .user_confirm_headline {
-  color: white;
-}
-.password_reminder_table, .login_table, .password_edit_table {
-  width: 500px;
-  margin: 0 auto;
-}
-  /*user_edit*/
-.edit_table {
+
+
+.password_reminder_table, .login_table, .password_table, .edit_table {
   width: 700px;
   margin: 0 auto;
 }
-.user_edit_container .headline_box {
-  background-color: black;
-  width: 200px;
-  text-align: center;
+  /*user_edit*/
+
+
+
+.user_edit_container  {
+
+  width: 700px;
+
   margin: 0 auto;
 }
  /*unsubscribe_comment*/
-.unsubscribe_headlinebox {
-  background-color: black;
-  width: 300px;
-  text-align: center;
-  margin: 0 auto;
-}
+
 .unsubscribe_table {
   width: 700px;
   margin: 0 auto;
@@ -194,19 +228,15 @@ th , td {
   width: 100%;
 }
 .unsubscribe_textarea textarea {
-  width: 700px;
+  width: 600px;
   height: 300px;
 }
 /*user_confirm*/
-.user_confirm_container .headline_box {
-  background-color: black;
-  width: 200px;
-  text-align: center;
-  margin: 0 auto;
-}
+
 .user_confirm_table {
   width: 700px;
   margin: 0 auto;
+
 }
 .back_actions {
   text-align: center;
@@ -215,12 +245,7 @@ th , td {
   padding-top: 20px;
 }
  /*admin_login*/
-.admin_login_container .headline_box {
-  background-color: black;
-  width: 250px;
-  text-align: center;
-  margin: 0 auto;
-}
+
 
 
 

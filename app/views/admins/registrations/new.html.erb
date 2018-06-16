@@ -2,28 +2,28 @@
   <div class="headline_box">
     <h2 class="signup_headline">管理者新規登録</h2>
   </div>
-  <table class="signup_table">
+  <table class="signup_table" border="1">
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
     <%= devise_error_messages! %>
     <tr>
       <div class="field">
-        <td><%= f.label :メールアドレス %><br /></td>
+        <td class="td_color"><%= f.label :メールアドレス %><br /></td>
         <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
       </div>
     </tr>
     <tr>
       <div class="field">
-        <td><%= f.label :パスワード %></td>
+        <td class="td_color"><%= f.label :パスワード %></td>
         <td><%= f.password_field :password, autocomplete: "off" %>
         <% if @minimum_password_length %>
-        <em>(<%= @minimum_password_length %> 文字以上で入力して下さい)</em></td>
+        <div><em>(<%= @minimum_password_length %> 文字以上で入力して下さい)</em></div></td>
         <% end %><br />
 
       </div>
     </tr>
     <tr>
       <div class="field">
-        <td><%= f.label :パスワード確認 %><br /></td>
+        <td class="td_color"><%= f.label :パスワード確認 %><br /></td>
         <td><%= f.password_field :password_confirmation, autocomplete: "off" %></td>
       </div>
     </tr>

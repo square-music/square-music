@@ -395,7 +395,13 @@ header{
   font-size: 14px;
 }
 
-/*main用のCSS*/
+
+
+
+
+
+
+/*top用のCSS*/
 .top-main{
   overflow:hidden;
   background-color:  #c0c0c0;
@@ -403,14 +409,13 @@ header{
 .sidebar-space{
   width: 22%;
   background-color: #c0c0c0;
-  height: 1000px;
+  height: 600px;
   float: left;
 }
 .genre-box{
-  height: 590px;
   width: 18%;
   position: fixed;
-  top: 130px;
+  margin-top: 30px;
   left: 3%;
   z-index: 100;
   border: solid black 2px;
@@ -451,7 +456,7 @@ header{
 }
 .rankin-product{
   width: 16%;
-  height: 65%;
+  height: 140px;
   float: left;
   margin: 2% 2% 20px 2%;
   position: relative;
@@ -475,7 +480,7 @@ header{
 }
 .ranking-image{
   width: 70%;
-  height: 55%;
+  height: 60px;
   margin: 0 15% 3px 15%;
   background-color: white;
 }
@@ -499,6 +504,14 @@ header{
   border-radius: 10px;
   border: solid black 1px;
 }
+
+
+
+
+
+
+
+
 /*商品検索用のCSS*/
 .top-box2{
   height: auto;
@@ -538,39 +551,54 @@ header{
   border-radius: 10px;
   border: solid black 1px;
 }
+
+
+
+
+
+
+
+
+
+
+
 /*商品詳細用のCSS*/
 .product-detail{
-  width: 96%;
-  height: 550px;
+  width: 93%;
   background-color: white;
   margin: 20px 2% 20px 2%;
   border: solid black 1px;
+  padding-top:20px;
 }
 .product-detail-image{
   width: 200px;
   height: 200px;
-  margin: 10px 0 0 40px;
+  margin: 0 20px 0 20px;
   background-color: gray;
   float: left;
 }
 .product-detail-field1{
-  width: 54%;
-  height: 180px;
-  float: right;
+  width: 40%;
+  float: left;
   margin-right: 15px;
 }
 .in-the-cart-field{
-  width: 170px;
-  height: 180px;
+  width: 160px;
+  height: 160px;
   background-color: #ffcc99;
   margin-right: 2%;
   border-radius: 20px;
   border: solid black 1px;
   float: right;
 }
+.cart-price{
+  height:30px;
+  font-size:20px;
+  margin:5px 10px 0 20px;
+  text-align:right;
+}
 .product-detail-field2{
   width: 73%;
-  height: auto;
   float: right;
   margin: 10px 1% 0 3%;
   border-top: dashed gray 1px;
@@ -579,20 +607,30 @@ header{
   width: 73%;
   height: auto;
   float: right;
-  margin: 5px 1% 0 3%;
+  margin: 5px 1% 20px 3%;
   border-top: dashed gray 1px;
 }
+
+
+/*コメント*/
 .product-comment{
-  width: 90%;
+  width: 85%;
   margin: 10px 0 0 2%;
-  height: 350px;
   background-color: white;
   border: solid black 1px;
 }
+.review-count {
+  background: -webkit-linear-gradient(top, #whitesmoke 0%, whitesmoke 100%);/*グラデーション*/
+  background: linear-gradient(to bottom, whitesmoke 0%, #aaaaaa 100%);/*グラデーション*/
+}
+.review {
+  border:solid 1px;
+  border-radius: 5px
+}
 .product-comment-newbox{
-  width: 90%;
+  width: 85%;
+  height:180px;
   margin: 0 0 0 2%;
-  height: 120px;
   background: -webkit-linear-gradient(top, #whitesmoke 0%, whitesmoke 100%);/*グラデーション*/
   background: linear-gradient(to bottom, whitesmoke 0%, #aaaaaa 100%);/*グラデーション*/
   margin-right: 3px;
@@ -600,29 +638,41 @@ header{
   border-right: solid black 1px;
   border-bottom: solid black 1px;
 }
+.user-comment {
+  list-style: none;
+  margin:5px 5px;
+  border-bottom:solid 1px;
+  border-color:#708090;
+  padding:10px 10px;
+}
+.comment-box {
+  margin:5px 0;
+}
+.alert {
+  width:18%;
+  margin-left:20px;
+}
+
+
+
+
+
 .newproduct-space3{
   width: 85%;
-  height: 220px;
   margin: 40px 10% 30px 5%;
   background-color: white;
   border-radius: 10px;
   border: solid black 1px;
 }
-.amount-setting{
-  width: 90px;
+.quantity-setting{
+  width: 100px;
   height: 25px;
-  background-color: white;
   text-align: right;
-  margin: 50px 0 0 70px;
+  margin: 10px 0 40px 50px;
 }
 .in-the-cart{
-  width: 160px;
-  height: 22px;
-  background-color: white;
   text-align: center;
-  border-radius: 10px;
-  border: solid black 1px;
-  margin: 10px 0 0 4px;
+  margin-left:5px;
 }
 .product-heading{
   position: relative;
@@ -664,6 +714,7 @@ header{
 
 .genre-list .genre-list-item {
   line-height: 1.5;
+  height:35px;
   padding: 0.5em 0.5em 0.5em 1.7em;
   list-style-type: none!important;
   background: -webkit-linear-gradient(top, #whitesmoke 0%, whitesmoke 100%);/*グラデーション*/
@@ -680,18 +731,30 @@ header{
   color: #FF6600;
 }
 
-/*test*/
+td {
+  padding:0 !important;
+}
 
 
 
 /*footer用のCSS*/
-footer{
-  height: 80px;
+footer {
+  height: 120px;
   background-color: black;
 }
 .footer-text{
-  text-align: center;
-  padding-top: 10px;
-  font-family: "Comic Sans MS";
-  color: white;
+  width:400px;
+  height:100px;
+  float:right;
+  margin-top:15px;
+  background-image:url(logo2.png);
+  background-repeat: no-repeat;
+  /*padding-top: 10px;*/
+  /*font-family: "Comic Sans MS";*/
+  /*color: white;*/
 }
+
+
+
+
+

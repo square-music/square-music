@@ -1,6 +1,6 @@
 
 <!-- main部分 -->
-<div class="top-main">
+<div class="top-main clearfix">
 <div class="sidebar-space"></div>
 	<div class="genre-box">
 		<div class="genre-title">
@@ -17,42 +17,110 @@
 		</ul>
 	</div>
 	<div class="top-box2">
-		<div class="product-detail">
-			<p>商品詳細</p>
+		<div class="product-detail clearfix">
 			<div class="product-detail-image">
-				<p>商品画像</p>
+				<%= image_tag @product.image_id.url(:thumb) unless @product.image_id.blank? %></td>
 			</div>
+
 			<div class="in-the-cart-field">
-				<p>価格</p>
-				<p>ProductPrice 円</p>
-				<div class="amount-setting">
-					<p>個</p>
+				<div class="cart-price">
+				 価格：<%= @product.product_price %>円
+			    </div>
+			  <%= form_tag(add_item_path, method: :post) do %>
+				<div class="quantity-setting">
+				 個数選択<%= number_field_tag :cart_quantity,'', class: 'form-control' %>
 				</div>
 				<div class="in-the-cart">
-					<p>カートへ入れる</p>
+			　<%= submit_tag "カートに入れる", class: "btn btn-primary" %>
 				</div>
+			　<% end %>
 			</div>
+
 			<div class="product-detail-field1">
-				<div><p>CDの名前</p></div>
-				<div><p>Artistの名前</p></div>
-				<div><p>所属するGenre</p></div>
-				<div><p>在庫状況：在庫の数</p></div>
+				<div><h2><%= @product.product_name %></h2>
+				</div>
+				<div><h3><%= @product.artist.artist_name %></h3>
+				</div>
+				<div>ジャンル：<%= @product.genre.genre_name %>
+				</div>
+				<div><%= @product.disc_amount %>枚組
+				</div>
+				<div>発売日：<%= @product.release %>
+				</div>
+				<div>在庫数：<%= @product.stock %>
+				</div>
 
 			</div>
 			<div class="product-detail-field2">
-				<p>商品説明欄（高さ自動調整実装予定）<br>xxxxxxxxxx<br>xxxxxxxxxxxx<br>xxxxxxxxxxxx<br>xxxxxxxxxxx</p>
+				<%= @product.description %>
 			</div>
 			<div class="product-detail-field3">
-				<p>曲一覧（高さ自動調整実装予定）<br>xxxxxxxxxx<br>xxxxxxxxxxxx<br>xxxxxxxxxxxx<br>xxxxxxxxxxx<br>xxxxxxxxxx<br>xxxxxxxxxxxx<br>xxxxxxxxxxxx<br>xxxxxxxxxxx<br>xxxxxxxxxx</p>
+				<table>
+					<% @product.discs.each do |disc| %>
+
+						Disc：<%= disc.disc_number %>
+						<br>
+						<br>
+						<% disc.tunes.each do |tune| %>
+							<tr>
+							 <td><%= tune.tune_number %>：</td>
+							 <td><%= tune.tune_name %></td>
+							</tr>
+						<% end %>
+					<% end %>
+				</table>
+
 			</div>
 		</div>
+
+　　　　　　<% flash.each do |key, value| %>
+           <div class="alert alert-<%= key %>">
+             <%= value %>
+           </div>
+          <% end %>
+
 		<div class="product-comment">
-			<p>コメントをスクロール表示</p>
+			<div class="review-count">
+				<% if @product.reviews.count == 0 %>
+				 レビューはまだありません。
+				<% else %>
+			     <%= @product.reviews.count %>件のレビュー
+			    <% end %>
+		    </div>
+		     <ol>
+			  <% @product.reviews.each do |review| %>
+			  <li class="user-comment">
+			    <div>
+				 ユーザー：<%= review.user.user_name %>
+				</div>
+				<div>
+				 投稿日：<%= review.created_at.strftime('%Y/%m/%d') %>
+				</div>
+				<div class="comment-box">
+				 コメント：<%= review.comment %>
+				</div>
+				<div class="comment-delete">
+					<% if review.user == current_user %>
+					<%= link_to "削除",product_review_path(product_id: @product.id, id: review.id), method: :delete %>
+					<% end %>
+				</div>
+			  </li>
+			 <% end %>
+			</ol>
 		</div>
+
+           <% if user_signed_in? %>
 		<div class="product-comment-newbox">
-			<p>コメント投稿フォーム・星での評価を実装予定</p>
+			レビューを書く
+			<%= form_for [@product, @review] do |f| %>
+
+                <%= f.text_area :comment, rows:'5', class: "form-control"%>
+                 <%= f.submit "送信する", class: "btn btn-lg btn-primary btn-block pull-right" %>
+             <% end %>
 		</div>
-		<div class="newproduct-space3">
+		<% end %>
+
+		<div class="newproduct-space3 clearfix">
 			<div class="product-heading">新着一覧</div>
 			<div class="rankin-product">
 				<div class="ranking-integer">発売日</div>

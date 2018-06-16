@@ -3,5 +3,9 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-
+         def active_for_authentication?
+             super && !delete_flag?
+         end
+         
+           has_one :unsubscribe_comment
 end

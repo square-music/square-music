@@ -8,17 +8,17 @@
     <%= f.hidden_field :reset_password_token %>
     <tr>
       <div class="field">
-        <th><%= f.label :"パスワード" %><br /></th>
+        <td class="td_color"><%= f.label :"パスワード" %><br /></td>
         <% if @minimum_password_length %>
         <em>(<%= @minimum_password_length %> characters minimum)</em><br />
         <% end %>
-        <th><%= f.password_field :password, autofocus: true, autocomplete: "off" %></th>
+        <td><%= f.password_field :password, autofocus: true, autocomplete: "off" %></td>
       </div>
     </tr>
     <tr>
       <div class="field">
-        <th><%= f.label :"パスワード確認" %><br /></th>
-        <th><%= f.password_field :password_confirmation, autocomplete: "off" %></th>
+        <td class="td_color"><%= f.label :"パスワード確認" %><br /></td>
+        <td><%= f.password_field :password_confirmation, autocomplete: "off" %></td>
       </div>
     </tr>
   </table>

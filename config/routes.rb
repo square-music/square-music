@@ -1,8 +1,10 @@
 Rails.application.routes.draw do
 
+  devise_scope :user do
+    get '/logout', to: 'devise/sessions#destroy', as: :logout
+  end
 
-  get 'unsubscribe_ccomment/new'
-
+  get 'users/completion' => 'users#completion'
   devise_for :admins
   devise_for :users, :controllers => {
   :registrations => 'users/registrations'}
@@ -25,7 +27,8 @@ Rails.application.routes.draw do
   resources :tunes, only: [:new, :create, :destroy]
   end
 
-  get 'unsubscribe_comment/new' => 'unsubscribe_comment#new'
+  get 'unsubscribe_comments/new' => 'unsubscribe_comments#new'
+  post 'unsubscribe_comments' => 'unsubscribe_comments#create'
   get "/order/complete" => "orders#complete"
   root 'products#top'
 

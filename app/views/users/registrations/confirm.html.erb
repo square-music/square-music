@@ -2,41 +2,54 @@
   <div class="headline_box">
     <h2 class="user_confirm_headline">登録情報確認</h2>
   </div>
-<table class="user_confirm_table">
+  <div class="procedure_container clearfix">
+  <div class="procedure_content_2">
+    会員情報入力
+  </div>
+  <div class="kigou">&#9654;</div>
+  <div class="procedure_content_1">
+    入力内容確認
+  </div>
+  <div class="kigou">&#9654;</div>
+  <div class="procedure_content_3">
+    登録完了
+  </div>
+  </div>
+<table class="user_confirm_table" border="1">
   <%= form_for @user, url: {action: "complete"} do |f| %>
   <%= devise_error_messages! %>
   <tr>
-    <td><%= f.label :氏名 %></td>
+    <td class="td_color"><%= f.label :氏名 %></td>
     <td><%= @user.user_name %></td>
     <%= f.hidden_field :user_name%>
   </tr>
   <tr>
-    <td><%= f.label :フリガナ %></td>
+    <td class="td_color"><%= f.label :フリガナ %></td>
     <td><%= @user.user_phonetic %></td>
     <%= f.hidden_field :user_phonetic%>
   </tr>
   <tr>
-    <td><%= f.label :郵便番号 %></td>
+    <td class="td_color"><%= f.label :郵便番号 %></td>
     <td><%= @user.postal %></td>
     <%= f.hidden_field :postal%>
   </tr>
   <tr>
-    <td><%= f.label :住所 %></td>
+    <td class="td_color"><%= f.label :住所 %></td>
     <td><%= @user.address %></td>
     <%= f.hidden_field :address%>
   </tr>
   <tr>
-    <td><%= f.label :電話番号 %></td>
+    <td class="td_color"><%= f.label :電話番号 %></td>
     <td><%= @user.tell %></td>
     <%= f.hidden_field :tell%>
   </tr>
   <tr>
-    <td><%= f.label :メールアドレス %></td>
+    <td class="td_color"><%= f.label :メールアドレス %></td>
     <td><%= @user.email %></td>
     <%= f.hidden_field :email%>
   </tr>
   <tr>
-    <td><%= f.label :パスワード %></td>
+    <td class="td_color"><%= f.label :パスワード %></td>
     <td><%= @user.password %></td>
     <%= f.hidden_field :password%>
   </tr>
@@ -112,7 +125,7 @@
   以上
 </div>
 <div class="checkbox_container">
-  <input type="checkbox"  name="riyu">規約に同意する
+  <input type="checkbox"  class="bbb"><p class="aaa">規約に同意する</p>
 </div>
 
 

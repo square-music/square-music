@@ -7,10 +7,10 @@
 			<tr>
 				<th>ID</th>
 				<th>Product_name</th>
-				<th>Product_phonetic</th>
+				<th>phonetic</th>
 				<th>Artist</th>
 				<th>Label</th>
-				<th>Product_price</th>
+				<th>price</th>
 				<th>Stock</th>
 				<th>Description</th>
 				<th>Release</th>
@@ -28,12 +28,12 @@
 					<td><%= product.product_phonetic %></td>
 					<td><%= product.artist.artist_name %></td>
 					<td><%= product.label.label_name %></td>
-					<td><%= product.genre.genre_name %></td>
 					<td><%= product.product_price %></td>
 					<td><%= product.stock %></td>
 					<td><%= product.description %></td>
 					<td><%= product.release %></td>
 					<td><%= product.disc_amount %></td>
+					<td><%= product.genre.genre_name %></td>
 					<td>
 						<% product.discs.each do |disc| %>
 							<%= disc.id %>

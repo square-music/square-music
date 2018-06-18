@@ -5,16 +5,16 @@
       <h2 class="unsubscribe_headsline">退会をご希望の方</h2>
     </div>
 
-<%= current_user.id %>
-    <div class="unsubscribe_text">
-      <h3>よろしければ退会理由を書き下さい</h3>
-    </div>
+
+
+      <h3 class="unsubscribe_text">よろしければ退会理由を書き下さい</h3>
+
       <%= form_for(@unsubscribe_comment) do |f| %>
   <div class="unsubscribe_textarea">
       <%= f.text_area :comment %>
     </div>
     <div class="actions">
-      <%= f.submit "送信",class: "post_btn" %>
+      <%= f.submit "退会",class: "post_btn" %>
     </div>
     <% end %>
   </div>

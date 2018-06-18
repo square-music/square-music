@@ -4,6 +4,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-         has_one :cart
          has_many :reviews
+
+         def active_for_authentication?
+             super && !delete_flag?
+         end
+         
+           has_one :unsubscribe_comment
 end

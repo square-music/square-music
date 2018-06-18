@@ -19,38 +19,38 @@
   <%= form_for @user, url: {action: "complete"} do |f| %>
   <%= devise_error_messages! %>
   <tr>
-    <td class="td_color"><%= f.label :氏名 %></td>
-    <td><%= @user.user_name %></td>
+    <td class="td_color"><%= f.label :氏名,class: "label_name" %></td>
+    <td class="td_text"><%= @user.user_name %></td>
     <%= f.hidden_field :user_name%>
   </tr>
   <tr>
-    <td class="td_color"><%= f.label :フリガナ %></td>
-    <td><%= @user.user_phonetic %></td>
+    <td class="td_color"><%= f.label :フリガナ,class: "label_name" %></td>
+    <td class="td_text"><%= @user.user_phonetic %></td>
     <%= f.hidden_field :user_phonetic%>
   </tr>
   <tr>
-    <td class="td_color"><%= f.label :郵便番号 %></td>
-    <td><%= @user.postal %></td>
+    <td class="td_color"><%= f.label :郵便番号,class: "label_name" %></td>
+    <td class="td_text"><%= @user.postal %></td>
     <%= f.hidden_field :postal%>
   </tr>
   <tr>
-    <td class="td_color"><%= f.label :住所 %></td>
-    <td><%= @user.address %></td>
+    <td class="td_color"><%= f.label :住所,class: "label_name" %></td>
+    <td class="td_text"><%= @user.address %></td>
     <%= f.hidden_field :address%>
   </tr>
   <tr>
-    <td class="td_color"><%= f.label :電話番号 %></td>
-    <td><%= @user.tell %></td>
+    <td class="td_color"><%= f.label :電話番号,class: "label_name" %></td>
+    <td class="td_text"><%= @user.tell %></td>
     <%= f.hidden_field :tell%>
   </tr>
   <tr>
-    <td class="td_color"><%= f.label :メールアドレス %></td>
-    <td><%= @user.email %></td>
+    <td class="td_color"><%= f.label :メールアドレス,class: "label_name" %></td>
+    <td class="td_text"><%= @user.email %></td>
     <%= f.hidden_field :email%>
   </tr>
   <tr>
-    <td class="td_color"><%= f.label :パスワード %></td>
-    <td><%= @user.password %></td>
+    <td class="td_color"><%= f.label :パスワード,class: "label_name" %></td>
+    <td class="td_text"><%= @user.password %></td>
     <%= f.hidden_field :password%>
   </tr>
 </table>
@@ -125,7 +125,7 @@
   以上
 </div>
 <div class="checkbox_container">
-  <input type="checkbox"  class="bbb"><p class="aaa">規約に同意する</p>
+  <input type="checkbox"  class="checkbox"><p class="checkbox_text">規約に同意する</p>
 </div>
 
 

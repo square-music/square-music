@@ -29,8 +29,7 @@ class CartsController < ApplicationController
 #     redirect_to current_cart
 #   end
 
-#   private
-
+  # private
 #   def setup_cart_item!
 #     @cart_item = current_cart.cart_items.find_by(product_id: params[:product_id])
 #   end

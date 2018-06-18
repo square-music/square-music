@@ -7,37 +7,37 @@
   <%= devise_error_messages! %>
   <tr>
     <div class="field">
-      <td class="td_color"><%= f.label :氏名 %><br /></td>
+      <td class="td_color"><%= f.label :氏名,class: "label_name" %><br /></td>
       <td><%= f.text_field :user_name%></td>
     </div>
   </tr>
   <tr>
     <div class="field">
-      <td class="td_color"><%= f.label :フリガナ %><br /></td>
+      <td class="td_color"><%= f.label :フリガナ,class: "label_name" %><br /></td>
       <td><%= f.text_field :user_phonetic %></td>
     </div>
   </tr>
   <tr>
     <div class="field">
-      <td class="td_color"><%= f.label :郵便番号 %><br /></td>
+      <td class="td_color"><%= f.label :郵便番号,class: "label_name" %><br /></td>
       <td><%= f.text_field :postal %></td>
     </div>
   </tr>
   <tr>
     <div class="field">
-      <td class="td_color"><%= f.label :住所 %><br /></td>
+      <td class="td_color"><%= f.label :住所,class: "label_name" %><br /></td>
       <td><%= f.text_field :address %></td>
     </div>
   </tr>
   <tr>
     <div class="field">
-      <td class="td_color"><%= f.label :電話番号 %><br /></td>
+      <td class="td_color"><%= f.label :電話番号,class: "label_name" %><br /></td>
       <td><%= f.text_field :tell %></td>
     </div>
   </tr>
   <tr>
     <div class="field">
-      <td class="td_color"><%= f.label :メールアドレス %><br /></td>
+      <td class="td_color"><%= f.label :メールアドレス,class: "label_name" %><br /></td>
       <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
     </div>
   </tr>
@@ -47,23 +47,24 @@
   <% end %>
   <tr>
     <div class="field">
-      <td class="td_color"><%= f.label :新規パスワード %> <div><i>(変更したくない場合には、空白のままにして下さい)</i></div><br /></td>
-      <td><%= f.password_field :password, autocomplete: "off" %>
+      <td class="td_color"><%= f.label :新規パスワード,class: "label_name" %> <div><i>(変更したくない場合には、空白のままにして下さい)</i><br /></div>
       <% if @minimum_password_length %>
         <br />
         <em><%= @minimum_password_length %> 文字以上入力してください</em></td>
+      <td><%= f.password_field :password, autocomplete: "off" %></td>
+
       <% end %>
     </div>
   </tr>
   <tr>
     <div class="field">
-      <td class="td_color"><%= f.label :新規パスワード確認 %><br /></td>
+      <td class="td_color"><%= f.label :新規パスワード確認,class: "label_name" %><br /></td>
       <td><%= f.password_field :password_confirmation, autocomplete: "off" %></td>
     </div>
   </tr>
   <tr>
     <div class="field">
-      <td class="td_color"><%= f.label :現在のパスワード %> <div><i>(変更を確認するために現在のパスワードが必要です)</i></div><br /></td>
+      <td class="td_color"><%= f.label :現在のパスワード,class: "label_name" %> <i>(変更を確認するために現在のパスワードが必要です)</i><br /></td>
       <td><%= f.password_field :current_password, autocomplete: "off" %></td>
     </div>
   </tr>

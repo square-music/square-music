@@ -1,7 +1,8 @@
-<section>
-  <div>
-  <h2>登録情報編集</h2>
+<div class="user_edit_container">
+<div class="headline_box">
+  <h2 class="useredit_headline">登録情報編集 </h2>
 </div>
+<table class="edit_table" border="1">
 <%= form_for(@user) do |f| %>
     <div class="">
         <label class="control-label sr-only" for="inputEmail">Name</label>
@@ -10,4 +11,3 @@
     </div>
     <%= f.submit "変更を保存", class:"" %>
 <% end %>
-</section>

@@ -8,23 +8,24 @@
 				</div>
 			</div>
 			<div class="row product_new_form">
-				<%= form_tag(products_path, method: :post, class: 'form-horizontal', multipart: true) do %>
+				<%= form_for @product, html: {class: 'form-horizontal'} do |f| %>
 					<div class="form-group">
 						<label for="product_name" class="control-label col-xs-3">商品名</label>
 						<div class="col-xs-7">
-							<%= text_field_tag :product_name,'', class: 'form-control' %>
+							<%= f.text_field :product_name, class: 'form-control' %>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="product_phonetic" class="control-label col-xs-3">商品名・フリガナ</label>
 						<div class="col-xs-7">
-							<%= text_field_tag :product_phonetic,'', class: 'form-control' %>
+							<%= f.text_field :product_phonetic, class: 'form-control' %>
 						</div>
 					</div>
+					<%= fields_for @artist do |a| %>
 					<div class="form-group">
 						<label for="artist_name" class="control-label col-xs-3">アーティスト</label>
 						<div class="col-xs-7">
-							<%= text_field_tag :artist_name,'', class: 'form-control', :list => "artist_list", :autocomplete => "off" %>
+							<%= a.text_field :artist_name, class: 'form-control', :list => "artist_list", :autocomplete => "off" %>
 							<datalist id="artist_list">
 								<% @artists.each do |artist| %>
 									<option value="<%= artist.artist_name %>"><%= artist.artist_name %></option>
@@ -35,13 +36,15 @@
 					<div class="form-group">
 						<label for="artist_phonetic" class="control-label col-xs-3">アーティスト・フリガナ</label>
 						<div class="col-xs-7">
-							<%= text_field_tag :artist_phonetic,'', class: 'form-control', :autocomplete => "off" %>
+							<%= a.text_field :artist_phonetic, class: 'form-control', :autocomplete => "off" %>
 						</div>
 					</div>
+					<% end %>
+					<%= fields_for @label do |l| %>
 					<div class="form-group">
 						<label for="label_name" class="control-label col-xs-3">レーベル</label>
 						<div class="col-xs-7">
-							<%= text_field_tag :label_name,'', class: 'form-control', :list => "label_list", :autocomplete => "off" %>
+							<%= l.text_field :label_name, class: 'form-control', :list => "label_list", :autocomplete => "off" %>
 							<datalist id="label_list">
 								<% @labels.each do |label| %>
 									<option value="<%= label.label_name %>"><%= label.label_name %></option>
@@ -49,10 +52,12 @@
 							</datalist>
 						</div>
 					</div>
+					<% end %>
+					<%= fields_for @genre do |g| %>
 					<div class="form-group">
 						<label for="genre_name" class="control-label col-xs-3">ジャンル</label>
 						<div class="col-xs-7">
-							<%= text_field_tag :genre_name,'', class: 'form-control', :list => "genre_list", :autocomplete => "off" %>
+							<%= g.text_field :genre_name, class: 'form-control', :list => "genre_list", :autocomplete => "off" %>
 							<datalist id="genre_list">
 								<% @genres.each do |genre| %>
 									<option value="<%= genre.genre_name %>"><%= genre.genre_name %></option>
@@ -60,45 +65,48 @@
 							</datalist>
 						</div>
 					</div>
-					<div class="form-group">
+					<% end %>
+					<div class="form-group has-feedback">
 						<label for="product_price" class="control-label col-xs-3">価格</label>
-						<div class="col-xs-3">
-							<%= number_field_tag :product_price,'', class: 'form-control' %>
+						<div class="col-xs-2">
+							<%= f.number_field :product_price, min: 0, class: 'form-control' %>
+							<span class="form-control-feedback">円</span>
+							<span class="help-block" id="help-block">※税込価格で入力</span>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="disc_amount" class="control-label col-xs-3">ディスク枚数</label>
 						<div class="col-xs-3">
-							<%= number_field_tag :disc_amount,'', class: 'form-control' %>
+							<%= f.number_field :disc_amount, min: 0, class: 'form-control' %>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="release" class="control-label col-xs-3">発売日</label>
 						<div class="col-xs-3">
-							<%= date_field_tag :release,'', class: 'form-control' %>
+							<%= f.date_field :release, class: 'form-control' %>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="stock" class="control-label col-xs-3">在庫数</label>
 						<div class="col-xs-3">
-							<%= number_field_tag :stock,'', class: 'form-control' %>
+							<%= f.number_field :stock, min: 0, class: 'form-control' %>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="image_id" class="control-label col-xs-3">ジャケット画像</label>
 						<div class="col-xs-7">
-							<%= file_field_tag :image_id %>
+							<%= f.attachment_field :image %>
 						</div>
 					</div>
 					<div class="form-group">
 						<label for="description" class="control-label col-xs-3">商品説明</label>
 						<div class="col-xs-7">
-							<%= text_area_tag :description,'', class: 'form-control', :rows => '6' %>
+							<%= f.text_area :description, class: 'form-control', :rows => '6' %>
 						</div>
 					</div>
 					<div class="form-group">
 						<div class="col-xs-offset-9 col-xs-3">
-							<%= submit_tag '登録', class: "btn btn-primary" %>
+							<%= f.submit '登録', class: "btn btn-primary" %>
 						</div>
 					</div>
 				<% end %>

@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   post 'users/sign_up/complete' => 'users/registrations#complete'
   end
 
-  resources :users, only: [:show, :edit]
+  resources :users, only: [:index, :show, :edit]
   resources :carts, only: [:show]
 
   post '/add_item' => 'carts#add_item'
@@ -37,6 +37,7 @@ Rails.application.routes.draw do
 
   get 'unsubscribe_comments/new' => 'unsubscribe_comments#new'
   post 'unsubscribe_comments' => 'unsubscribe_comments#create'
+  post '/products/:product_id/discs' => 'discs#create'
   get "/order/complete" => "orders#complete"
 
   root 'products#top'

@@ -21,6 +21,9 @@ Rails.application.routes.draw do
   post '/update_item' => 'carts#update_item'
   delete '/delete_item' => 'carts#delete_item'
 
+  # 優先順位の関係で↓をココに記述してます。移動しないようにしてください（岡田）
+  get '/products/search' => 'products#search'
+
   resources :products do
     resources :reviews, only: [:create, :destroy]
   end

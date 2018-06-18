@@ -88,6 +88,9 @@ class ProductsController < ApplicationController
 	end
 
 	def search
+		@search = Product.ransack(params[:q])
+		@products = @search.result
+		@q = Product.ransack(params[:q])
 	end
 
 	def show

@@ -38,7 +38,15 @@
 			</div>
 			<h1 class="header-text1"><a href="/" style="text-decoration: none;color: white">SQUARE MUSIC</a></h1>
 			<div class="search-sample">
-				<p class="search-space">検索実装スペース</p>
+				<!-- test -->
+			<%= search_form_for @search, url: products_search_path  do |f| %>
+				<div class="form-group">
+				<%= f.label :product_name_cont, "商品名" %>
+				<%= f.text_field :product_name_or_product_phonetic_cont, class: "form-control" %>
+				</div>
+				<div class="actions"><%= f.submit "Search" %></div>
+			<% end %>
+
 			</div>
 		</div>
 	</div>

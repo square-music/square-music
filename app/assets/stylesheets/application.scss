@@ -75,7 +75,7 @@
 
  /*以下原*/
 
- // 共通レイアウト
+ /*// 共通レイアウト*/
 .message {
   margin: 0 auto;
   width: 800px;
@@ -91,14 +91,13 @@
   padding-bottom: 10px;
   background-color: #eeeeee;
   width: 200px;
-=======
+}
   /*ログイン画面*/
  .login_container {
    width: 800px;
    margin: 0 auto;
  }
 
-}
 #user_email, #user_password,#user_current_password, #user_password_confirmation, #user_tell, #user_address, #user_postal, #user_user_name, #user_user_phonetic {
   width: 400px;
   margin-left: 5px;

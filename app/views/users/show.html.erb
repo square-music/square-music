@@ -23,7 +23,7 @@
   	     	<td>✉︎</td><td><%= @user.email %></td>
   	     </tr>
         </table>
-         <button class="btn btn-default">登録情報を変更</button>
+       <%= link_to "登録情報を変更する",edit_user_path ,class:'btn btn-info' %>
    </div>
 
    <div class="user-box col-lg-9">
@@ -32,28 +32,31 @@
 		   	<table class="table table-striped">
 		  <tr class="info">
 		  	<th class="th-purchase">購入日</th>
-		    <th class="th-purchase">ジャケット</th>
-		    <th class="th-purchase">商品名</th>
-		    <th class="th-purchase">Artist</th>
-		    <th class="th-purchase">値段</th>
+		    <th class="th-purchase">購入番号</th>
+		    <th class="th-purchase">合計金額</th>
+		    <th colspan="2" class="th-purchase">購入商品</th>
+         <th class="th-purchase">購入数</th>
 		    <th class="th-purchase">詳細</th>
 		  </tr>
 		  <tr>
 		    <td class="td-purchase">2018/6/24</td>
-		    <td class="td-purchase">NO IMAGE</td>
-		    <td class="td-purchase">10fold</td>
-		    <td class="td-purchase">UNCHAIN</td>
-		    <td class="td-purchase">3,240円</td>
-		    <td class="td-purchase">ステータス</td>
+		    <td class="td-purchase">555-5555-55</td>
+		    <td class="td-purchase">3640円</td>
+        <td class="td-purchase">NO IMAGE</td>
+		    <td class="td-purchase">めっちゃいいっていう名のCD</td>
+		    <td class="td-purchase">計2点</td>
+		    <td class="td-purchase"><%= link_to "詳細確認",order_path %></td>
 		  </tr>
-		  <tr>
-		    <td class="td-purchase">2018/6/12</td>
-		    <td class="td-purchase">NO IMAGE</td>
-		    <td class="td-purchase">4th</td>
-		    <td class="td-purchase">DIMENSION</td>
-		    <td class="td-purchase">2,800円</td>
-		    <td class="td-purchase">ステータス</td>
-		  </tr>
+      <tr>
+        <td class="td-purchase">2018/6/24</td>
+        <td class="td-purchase">555-5555-5aaaaaaaaa5</td>
+        <td class="td-purchase">3640円</td>
+        <td class="td-purchase">NO IMAGE</td>
+        <td class="td-purchase">っていCD</td>
+        <td class="td-purchase">計2点</td>
+        <td class="td-purchase"><%= link_to "詳細確認",order_path %></td>
+      </tr>
+		  
 		</table>
 	</div>
 

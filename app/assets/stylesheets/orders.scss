@@ -18,33 +18,53 @@
  .purchase1{
    border:solid 1px;
   border-color:#dcdcdc;
-  height:70px;
+  height:90px;
   background-color:#b0e0e6;
+  text-align: center;
  }
  .date {
   width:150px;
   height:30px;
-  line-height:35px;
+  line-height:30px;
   float:left;
  }
  .date1 {
   width:150px;
   height:30px;
-  line-height:35px;
+  line-height:30px;
   float:left;
  }
- .price-text {
+ .order-user{
   width:150px;
   height:30px;
-  line-height:35px;
+  line-height:30px;
   float:left;
  }
  .price-box {
-  width:150px;
+  width:120px;
   height:30px;
-  line-height:35px;
+  line-height:30px;
   float:left;
  }
+ .order-address{
+  width:300px;
+  height:30px;
+  line-height:30px;
+  float:left;
+ }
+ .order-address1 {
+  width:300px;
+  height:30px;
+  float:left;
+  line-height: none;
+ }
+ .status {
+  text-align:center;
+  float:right;
+  height:60px;
+  line-height: 60px;
+  margin-right:20px;
+}
  .purchase2 {
   border:solid 1px;
   border-color:#dcdcdc;
@@ -84,14 +104,9 @@
   float:left;
   line-height:60px;
 }
-.status {
-	text-align:center;
-	float:right;
-	height:60px;
-	width:200px;
-	line-height: 60px;
+.cancel {
+  float:right;
 }
-
 
 
 

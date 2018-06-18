@@ -14,12 +14,13 @@ Rails.application.routes.draw do
   post 'users/sign_up/complete' => 'users/registrations#complete'
   end
 
-  resources :users, only: [:index, :show, :edit]
+   get "/orders" => "orders#index"
+   get "/orders/complete" => "orders#complete"
+  resources :users, only: [:index, :show, :edit] do
+   resources :orders , only: [:new, :create, :update, :destroy, :show]
+  end
   resources :carts, only: [:show]
 
-  post '/add_item' => 'carts#add_item'
-  post '/update_item' => 'carts#update_item'
-  delete '/delete_item' => 'carts#delete_item'
 
   # 優先順位の関係で↓をココに記述してます。移動しないようにしてください（岡田）
   get '/products/search' => 'products#search'
@@ -29,7 +30,7 @@ Rails.application.routes.draw do
   end
 
    get "/orders/complete" => "orders#complete"
-  resources :orders
+
 
   resources :discs, only: [:show, :edit, :update] do
   resources :tunes, only: [:new, :create, :destroy]

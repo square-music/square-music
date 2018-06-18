@@ -1,0 +1,40 @@
+<div class="top-main">
+	<div class="sidebar-space"></div>
+		<div class="genre-box">
+		<div class="genre-title">
+			<p class="genre-title-text">カテゴリーで探す</p>
+		</div>
+		<ul class="genre-list">
+		<li class="genre-list-item">J-Pop</li>
+		<li class="genre-list-item">ロック</li>
+		<li class="genre-list-item">ジャズ</li>
+		<li class="genre-list-item">カントリー</li>
+		<li class="genre-list-item">ブルース</li>
+		<li class="genre-list-item">クラブ</li>
+		<li class="genre-list-item">アニメ</li>
+		</ul>
+	</div>
+
+
+<!-- 検索の仮設 -->
+<div class="top-box2">
+		<h3 class="sarch-word">検索ワード"ここに検索ワードを抜粋する"</h3>
+
+<% @products.each do |product| %>
+    <div class="sarch-products-box1">
+    		<span><p>商品名　<%= product.product_name %></p></span>
+    		<span><p>価格　<%= product.product_price %></p></span>
+    		<span><p>アーティスト名　<%= product.artist.artist_name %></p></span>
+    		<span><%= image_tag product.image_id %></span>
+    </div>
+ <% end %>
+
+<!-- 仮設終わり -->
+
+		<p class="kaminari-plan"> << ここにページネーションを実装する >> </p>
+
+		<div class="newproduct-space2">
+			<p>発売日が最も新しいProductを5つ表示</p>
+		</div>
+	</div>
+</div>

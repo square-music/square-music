@@ -90,12 +90,6 @@
 #admin_email, #admin_password, #admin_current_password, #admin_password_confirmation, #admin_admin_name {
   width: 400px;
 }
-input {
-  width: 400px;
-}
-th , td {
-  padding: 10px 0 10px 5px;
-}
 .td_color {
   background-color: #eeeeee;
   width: 200px;
@@ -389,10 +383,8 @@ header{
   float: right;
   margin: 5px 20px 20px 0;
 }
-.search-space{
-  color: black;
-  text-align: center;
-  font-size: 14px;
+.search-text-space{
+  width: 100%;
 }
 
 
@@ -659,7 +651,7 @@ header{
 
 .newproduct-space3{
   width: 85%;
-  margin: 40px 10% 30px 5%;
+  margin: 40px 10% 30px 2%;
   background-color: white;
   border-radius: 10px;
   border: solid black 1px;
@@ -731,9 +723,6 @@ header{
   color: #FF6600;
 }
 
-td {
-  padding:0 !important;
-}
 
 
 

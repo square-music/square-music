@@ -59,11 +59,7 @@ gem 'devise'
 gem 'kaminari'
 gem "refile", require: "refile/rails", github: 'manfe/refile'
 gem "refile-mini_magick"
-gem 'nested_form_fields'
 gem 'bootstrap-sass'
 gem 'jquery-rails'
 gem 'ransack'
-gem "nested_form"
-gem 'carrierwave'
-gem 'rmagick'
 gem 'rails-i18n'

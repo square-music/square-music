@@ -19,6 +19,6 @@ class User < ApplicationRecord
          def active_for_authentication?
              super && !delete_flag?
          end
-
-           has_one :unsubscribe_comment
+  has_one :cart
+  has_one :unsubscribe_comment
 end

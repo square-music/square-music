@@ -6,7 +6,11 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
   end
+
   def completion
+    unless cart = Cart.find_by(user_id: current_user.id)
+      Cart.create(user_id: current_user.id)
+    end
   end
 
   def index

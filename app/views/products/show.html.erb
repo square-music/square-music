@@ -26,12 +26,12 @@
 				<div class="cart-price">
 				 価格：<%= @product.product_price %>円
 			    </div>
-			  <%= form_tag(add_item_path, method: :post) do %>
+			  <%= form_for [@product, @cart_item] do |f| %>
 				<div class="quantity-setting">
-				 個数選択<%= number_field_tag :cart_quantity,'', class: 'form-control' %>
+				 個数選択<%= f.number_field :cart_quantity, class: 'form-control', min: 1  %>
 				</div>
 				<div class="in-the-cart">
-			　<%= submit_tag "カートに入れる", class: "btn btn-primary" %>
+			　<%= f.submit "カートに入れる", class: "btn btn-primary" %>
 				</div>
 			　<% end %>
 			</div>

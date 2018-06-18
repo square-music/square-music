@@ -26,6 +26,7 @@ Rails.application.routes.draw do
   get '/products/search' => 'products#search'
 
   resources :products do
+    resources :cart_items, only: [:create, :destroy, :update]
     resources :reviews, only: [:create, :destroy]
   end
 

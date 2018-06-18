@@ -8,6 +8,10 @@ class UsersController < ApplicationController
   end
   def completion
   end
+
+  def index
+    
+  end
   private
     def user_params
         params.require(:user).permit(:user_name, :user_phonetic, :postal, :address, :tell, :emal)

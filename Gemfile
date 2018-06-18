@@ -66,3 +66,4 @@ gem 'ransack'
 gem "nested_form"
 gem 'carrierwave'
 gem 'rmagick'
+gem 'rails-i18n'

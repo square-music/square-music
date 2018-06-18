@@ -8,51 +8,74 @@ class ProductsController < ApplicationController
 	    @labels = Label.all
 	    @genres = Genre.all
 	    @product = Product.new
+	    @artist = Artist.new
+	    @label = Label.new
+	    @genre = Genre.new
 	end
 
     def create
-	    @product = Product.new(product_name: params[:product_name],
-    						   product_phonetic: params[:product_phonetic],
-    						   product_price: params[:product_price],
-    						   disc_amount: params[:disc_amount],
-    						   release: params[:release],
-    						   stock: params[:stock],
-    						   description: params[:description],
-    						   image_id: params[:image_id])
-
-
-	    	if artist = Artist.find_by(artist_name: params[:artist_name])
-	    		@product.artist_id = artist.id
+	    product = Product.new(product_params)
+	    	if artist = Artist.find_by(artist_name:  params[:artist][:artist_name])
+	    		product.artist_id = artist.id
 	   		else
-	    		new_artist = Artist.create(artist_name: params[:artist_name], artist_phonetic: params[:artist_phonetic])
-	    		@product.artist_id = new_artist.id
+	    		new_artist = Artist.create(artist_name:  params[:artist][:artist_name], artist_phonetic: params[:artist][:artist_phonetic])
+	    		product.artist_id = new_artist.id
 	    	end
-	    	if label = Label.find_by(label_name: params[:label_name])
-	        	@product.label_id = label.id
+	    	if label = Label.find_by(label_name: params[:label][:label_name])
+	        	product.label_id = label.id
 	        else
-	       		new_label = Label.create(label_name: params[:label_name])
-	        	@product.label_id = new_label.id
+	       		new_label = Label.create(label_name: params[:label][:label_name])
+	        	product.label_id = new_label.id
 	        end
-	        if genre = Genre.find_by(genre_name: params[:genre_name])
-	        	@product.genre_id = genre.id
+	        if genre = Genre.find_by(genre_name: params[:genre][:genre_name])
+	        	product.genre_id = genre.id
 	        else
-	        	new_genre = Genre.create(genre_name: params[:genre_name])
-	        	@product.genre_id = new_genre.id
+	        	new_genre = Genre.create(genre_name: params[:genre][:genre_name])
+	        	product.genre_id = new_genre.id
 	        end
-	    @product.save
+	    product.save
 	    i = 1
-	    while i <= @product.disc_amount
-	      disc = Disc.create(product_id: @product.id, disc_number: i)
+	    while i <= product.disc_amount
+	      disc = Disc.create(product_id: product.id, disc_number: i)
 	      i += 1
 	    end
-	    disc = Disc.find_by(product_id: @product.id, disc_number: 1)
+	    disc = Disc.find_by(product_id: product.id, disc_number: 1)
 	    redirect_to new_disc_tune_path(disc)
 	end
 
 	def edit
+		@product = Product.find(params[:id])
+		@artists = Artist.all
+	    @labels = Label.all
+	    @genres = Genre.all
+	    @discs = Disc.where(product_id: @product.id)
+	    @artist = Artist.find(@product.artist_id)
+	    @label = Label.find(@product.label_id)
+	    @genre = Genre.find(@product.genre_id)
     end
 
 	def update
+		product = Product.find(params[:id])
+		if artist = Artist.find_by(artist_name:  params[:artist][:artist_name])
+	    		product.artist_id = artist.id
+	   		else
+	    		new_artist = Artist.create(artist_name:  params[:artist][:artist_name], artist_phonetic: params[:artist][:artist_phonetic])
+	    		product.artist_id = new_artist.id
+	    	end
+	    	if label = Label.find_by(label_name: params[:label][:label_name])
+	        	product.label_id = label.id
+	        else
+	       		new_label = Label.create(label_name: params[:label][:label_name])
+	        	product.label_id = new_label.id
+	        end
+	        if genre = Genre.find_by(genre_name: params[:genre][:genre_name])
+	        	product.genre_id = genre.id
+	        else
+	        	new_genre = Genre.create(genre_name: params[:genre][:genre_name])
+	        	product.genre_id = new_genre.id
+	        end
+		product.update(product_params)
+		redirect_to edit_product_path(product)
 	end
 
 	def destroy
@@ -74,7 +97,8 @@ class ProductsController < ApplicationController
 
 	private
 	  def product_params
-	    params.permit(:product_name, :product_phonetic, :artist_name, :artist_phonetic, :label_name, :genre_name, :product_price, :disc_amount, :release, :stock, :image_id, :description)
+	    params.require(:product).permit(:product_name, :product_phonetic, :product_price, :disc_amount, :release, :stock, :image, :description, :artist_id, :label_id, :genre_id)
 	  end
+
 
 end

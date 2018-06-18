@@ -1,52 +1,52 @@
 <div class="user-show-back">
  <div class="container">
   <div class="row">
-  	<div class="user-show col-lg-3">
-  		<h2>登録情報</h2>
-  	    <table class="table table-striped">
-  	     <tr>
-  	     	<td>名前</td><td><%= @user.user_name %></td>
-  	     </tr>
-  	     <tr>
-  	     	<td>かな</td><td><%= @user.user_phonetic %></td>
-  	     </tr>
-  	     <tr>
-  	     	<td>〒</td><td><%= @user.postal %></td>
-  	     </tr>
-  	     <tr>
-  	     	<td>住所</td><td><%= @user.address %></td>
-  	     </tr>
-  	     <tr>
-  	     	<td>☎︎</td><td><%= @user.tell %></td>
-  	     </tr>
-  	     <tr>
-  	     	<td>✉︎</td><td><%= @user.email %></td>
-  	     </tr>
+    <div class="user-show col-lg-3">
+      <h2>登録情報</h2>
+        <table class="table table-striped">
+         <tr>
+          <td>名前</td><td><%= @user.user_name %></td>
+         </tr>
+         <tr>
+          <td>かな</td><td><%= @user.user_phonetic %></td>
+         </tr>
+         <tr>
+          <td>〒</td><td><%= @user.postal %></td>
+         </tr>
+         <tr>
+          <td>住所</td><td><%= @user.address %></td>
+         </tr>
+         <tr>
+          <td>☎︎</td><td><%= @user.tell %></td>
+         </tr>
+         <tr>
+          <td>✉︎</td><td><%= @user.email %></td>
+         </tr>
         </table>
        <%= link_to "登録情報を変更する",edit_user_path ,class:'btn btn-info' %>
    </div>
 
    <div class="user-box col-lg-9">
-   		<h2>購入履歴</h2>
+      <h2>購入履歴</h2>
 
-		   	<table class="table table-striped">
-		  <tr class="info">
-		  	<th class="th-purchase">購入日</th>
-		    <th class="th-purchase">購入番号</th>
-		    <th class="th-purchase">合計金額</th>
-		    <th colspan="2" class="th-purchase">購入商品</th>
+        <table class="table table-striped">
+      <tr class="info">
+        <th class="th-purchase">購入日</th>
+        <th class="th-purchase">購入番号</th>
+        <th class="th-purchase">合計金額</th>
+        <th colspan="2" class="th-purchase">購入商品</th>
          <th class="th-purchase">購入数</th>
-		    <th class="th-purchase">詳細</th>
-		  </tr>
-		  <tr>
-		    <td class="td-purchase">2018/6/24</td>
-		    <td class="td-purchase">555-5555-55</td>
-		    <td class="td-purchase">3640円</td>
+        <th class="th-purchase">詳細</th>
+      </tr>
+      <tr>
+        <td class="td-purchase">2018/6/24</td>
+        <td class="td-purchase">555-5555-55</td>
+        <td class="td-purchase">3640円</td>
         <td class="td-purchase">NO IMAGE</td>
-		    <td class="td-purchase">めっちゃいいっていう名のCD</td>
-		    <td class="td-purchase">計2点</td>
-		    <td class="td-purchase"><%= link_to "詳細確認",order_path %></td>
-		  </tr>
+        <td class="td-purchase">めっちゃいいっていう名のCD</td>
+        <td class="td-purchase">計2点</td>
+        <td class="td-purchase"><%= link_to "詳細確認",order_path %></td>
+      </tr>
       <tr>
         <td class="td-purchase">2018/6/24</td>
         <td class="td-purchase">555-5555-5aaaaaaaaa5</td>
@@ -56,15 +56,9 @@
         <td class="td-purchase">計2点</td>
         <td class="td-purchase"><%= link_to "詳細確認",order_path %></td>
       </tr>
-		  
-		</table>
-	</div>
-
-    
-
-
-
-
+      
+    </table>
+  </div>
   </div>
  </div>
 </div>

@@ -3,7 +3,7 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 /*以下渡辺*/
-/*product/new/*/
+/*product/new/editでも流用*/
 .product_new_inner{
   height: 100%;
 }
@@ -29,4 +29,8 @@
   border-radius: 10px;
   box-shadow: 0 0 10px black;
   padding-top: 50px;
+}
+/*product edit*/
+#help-block{
+  margin-bottom: -10px;
 }

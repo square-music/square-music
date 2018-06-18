@@ -1,3 +1,28 @@
 // Place all the styles related to the tunes controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*tune/new*/
+.tune-form-group{
+  margin-right: 10px;
+}
+.tune-new-btn{
+  margin-top: 25px;
+  margin-left: 40px;
+}
+.tune_new_table{
+  box-shadow: 0 0 5px gray;
+}
+.tune_table_head{
+  background-color: black;
+  color: white;
+  font-size: 16px;
+}
+.tune_new_navi{
+  margin-top: 50px;
+  text-align: right;
+}
+.tune_new_navi_list{
+  display: inline-block;
+  margin-right: 50px;
+}

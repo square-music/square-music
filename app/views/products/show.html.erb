@@ -19,7 +19,7 @@
 	<div class="top-box2">
 		<div class="product-detail clearfix">
 			<div class="product-detail-image">
-				<%= image_tag @product.image_id.url(:thumb) unless @product.image_id.blank? %></td>
+				<%= attachment_image_tag @product, :image, :fill, 200, 200, format: 'jpeg' %>
 			</div>
 
 			<div class="in-the-cart-field">

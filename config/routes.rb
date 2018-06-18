@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get '/users/:id/soft_delete' => 'users#soft_delete'
   devise_scope :user do
     get '/logout', to: 'devise/sessions#destroy', as: :logout
   end

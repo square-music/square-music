@@ -16,28 +16,19 @@
               <th class="col-sm-2 order-index-th"></th>
             </tr>
           </thead>
+          <% @users.each do |user| %>
           <tbody>
             <tr>
-              <td class="order_index_td">1</td>
-              <td class="order_index_td">神木隆之介</td>
-              <td class="order_index_td">かみきりゅうのすけ</td>
-              <td class="order_index_td">kamiki@ryunosuke.com</td>
-              <td class="order_index_td show_link_btn"><a href="" title="">詳細</a></td>
+              <td class="order_index_td"><%= user.id %></td>
+              <td class="order_index_td"><%= user.user_name %></td>
+              <td class="order_index_td"><%= user.user_phonetic %></td>
+              <td class="order_index_td"><%= user.email %></td>
+              <td class="order_index_td show_link_btn"><div class="edit_link"><%= link_to "詳細",user_path(user.id)%></div>
+              <% if User.exists?(delete_flag: !"false") %>
+              <div class="unsubscribe_link"><%= link_to "退会", "/users/#{user.id}/soft_delete" %></div> </td>
+              <% end %>
             </tr>
-            <tr>
-              <td class="order_index_td">2</td>
-              <td class="order_index_td">神木隆之介</td>
-              <td class="order_index_td">かみきりゅうのすけ</td>
-              <td class="order_index_td">kamiki@ryunosuke.com</td>
-              <td class="order_index_td show_link_btn"><a href="" title="">詳細</a></td>
-            </tr>
-            <tr>
-              <td class="order_index_td">3</td>
-              <td class="order_index_td">神木隆之介</td>
-              <td class="order_index_td">かみきりゅうのすけ</td>
-              <td class="order_index_td">kamiki@ryunosuke.com</td>
-              <td class="order_index_td show_link_btn"><a href="" title="">詳細</a></td>
-            </tr>
+          <% end %>
           </tbody>
         </table>
       </div>

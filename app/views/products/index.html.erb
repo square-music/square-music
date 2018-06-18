@@ -39,8 +39,8 @@
 							<%= disc.id %>
 						<% end %>
 					</td>
-					<td><%= image_tag product.image_id.url(:thumb) unless product.image_id.blank? %></td>
-					<td><%= link_to '削除', product_path(product.id), method: :delete %>
+					<td><%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg' %></td>
+					<td><%= link_to '削除', product_path(product.id), method: :delete %></td>
 				</tr>
 			<% end %>
 		</tbody>

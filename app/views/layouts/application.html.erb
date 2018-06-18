@@ -31,16 +31,25 @@
 
 	<% end %>
 <!-- タイトルdiv -->
+<!-- タイトルdiv -->
 		<div class="header-sub">
 			<div class="header-text2">
 				<p class="header-text3">ようこそ!＜USER＞<!-- ログインユーザー名を表示予定 -->さん</p>
 			</div>
 			<h1 class="header-text1"><a href="/" style="text-decoration: none;color: white">SQUARE MUSIC</a></h1>
 			<div class="search-sample">
-				<p class="search-space">検索実装スペース</p>
+				<!-- test -->
+			<div class="search-text-space">
+			<%= search_form_for @search, url: products_search_path  do |f| %>
+				<%= f.text_field :product_name_or_product_phonetic_cont, class: "form-control" %>
+				</div>
+				<div class="actions"><%= f.submit "Search" %></div>
+			<% end %>
+
 			</div>
 		</div>
 	</div>
+
 
 </header>
 <%= yield %>

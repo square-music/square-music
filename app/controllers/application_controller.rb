@@ -8,7 +8,6 @@ class ApplicationController < ActionController::Base
  	@search = Product.ransack(params[:q])
  end
 
-
  protected
  def configure_permitted_parameters
    devise_parameter_sanitizer.permit(:sign_up, keys: [:name, :user_name, :user_phonetic, :postal, :address, :tell])

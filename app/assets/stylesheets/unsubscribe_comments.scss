@@ -1,3 +1,27 @@
 // Place all the styles related to the UnsubscribeComments controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.unsubscribe-back{
+	background-color: white;
+	height:600px;
+}
+.unsubscribe-main{
+	background-color: #E6E6E6;
+	margin-top:100px;
+	height: 300px;
+	border-radius: 10px;
+}
+.unsubscribe-text{
+	text-align: center;
+}
+.unsubscribe-text h1{
+	padding-top:60px;
+	padding-bottom: 60px;
+	font-size:36px;
+	font-weight:600;
+	color:#0B0B61;
+}
+.unsubscribe-text p{
+	font-size:17px;
+}

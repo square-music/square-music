@@ -13,12 +13,11 @@ class User < ApplicationRecord
          validates :address, {presence:true}
          validates :tell, {presence:true}
 
-
-
-
-         def active_for_authentication?
-             super && !delete_flag?
-         end
+  def active_for_authentication?
+    super && !delete_flag?
+  end
+  has_many :sub_addresses
+  has_many :orders
   has_one :cart
   has_one :unsubscribe_comment
 end

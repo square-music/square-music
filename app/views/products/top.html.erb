@@ -6,13 +6,15 @@
 			<p class="genre-title-text">カテゴリーで探す</p>
 		</div>
 		<ul class="genre-list">
-		<li class="genre-list-item">J-Pop</li>
-		<li class="genre-list-item">ロック</li>
-		<li class="genre-list-item">ジャズ</li>
-		<li class="genre-list-item">カントリー</li>
-		<li class="genre-list-item">ブルース</li>
-		<li class="genre-list-item">クラブ</li>
-		<li class="genre-list-item">アニメ</li>
+<!-- ジャンル検索 -->
+
+			<% @genres.each do |genre| %>
+				<%=link_to genre_path(genre), :style=>"text-decoration: none;" do %>
+				<li class="genre-list-item">
+					<%= genre.genre_name %>
+				</li>
+				<% end %>
+			<% end %>
 		</ul>
 	</div>
 	<div class="top-box">

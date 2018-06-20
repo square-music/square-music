@@ -1,0 +1,37 @@
+
+<div class="top-main">
+	<div class="sidebar-space"></div>
+		<div class="genre-box">
+		<div class="genre-title">
+			<p class="genre-title-text">カテゴリーで探す</p>
+		</div>
+		<ul class="genre-list">
+<!-- ジャンル検索 -->
+
+			<% @genres.each do |genre| %>
+				<%=link_to genre_path(genre), :style=>"text-decoration: none;" do %>
+				<li class="genre-list-item">
+					<%= genre.genre_name %>
+				</li>
+				<% end %>
+			<% end %>
+		</ul>
+	</div>
+
+<div class="top-box2">
+		<h3 class="sarch-word">検索カテゴリー"ここに検索カテゴリーを抜粋する"</h3>
+	<% @products.each do |product| %>
+
+		<div class="sarch-products-box1">
+			<%=link_to product_path(product), :style=>"text-decoration: none; color:black; " do %>
+				<span><p>商品名　<%= product.product_name %></p></span>
+    			<span><p>価格　<%= product.product_price %></p></span>
+    			<span><p>アーティスト名　<%= product.artist.artist_name %></p></span>
+   				<span><%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg' %></span>
+   			<% end %>
+    	</div>
+
+	<% end %>
+</div>
+
+</div>

@@ -87,18 +87,21 @@ class ProductsController < ApplicationController
 	end
 
 	def top
+		@genres = Genre.all
 	end
 
 	def search
 		@search = Product.ransack(params[:q])
 		@products = @search.result
 		@q = Product.ransack(params[:q])
+		@genres = Genre.all
 	end
 
 	def show
 		@product = Product.find(params[:id])
 		@review = Review.new
 		@cart_item = CartItem.new
+		@genres = Genre.all
 	end
 
 	private

@@ -18,30 +18,16 @@
             </tr>
           </thead>
           <tbody>
+            <% @orders.each do |order|  %>
             <tr>
-              <td class="order_index_td">5555−5555</td>
-              <td class="order_index_td">田中角栄</td>
-              <td class="order_index_td">2018/06/28 15:00</td>
-              <td class="order_index_td">3500円</td>
-              <td class="order_index_td">発送済み</td>
+              <td class="order_index_td"><%= order.order_number %></td>
+              <td class="order_index_td"><%= order.user.user_name %></td>
+              <td class="order_index_td"><%= order.created_at %></td>
+              <td class="order_index_td"><%= order.total_price %></td>
+              <td class="order_index_td"><%= order.status.shipment_status %></td>
               <td class="order_index_td show_link_btn"><a href="" title="">詳細</a></td>
             </tr>
-            <tr>
-              <td class="order_index_td">5555−5555</td>
-              <td class="order_index_td">田中角栄</td>
-              <td class="order_index_td">2018/06/28 15:00</td>
-              <td class="order_index_td">3500円</td>
-              <td class="order_index_td">発送済み</td>
-              <td class="order_index_td show_link_btn"><a href="" title="">詳細</a></td>
-            </tr>
-            <tr>
-              <td class="order_index_td">5555−5555</td>
-              <td class="order_index_td">田中角栄</td>
-              <td class="order_index_td">2018/06/28 15:00</td>
-              <td class="order_index_td">3500円</td>
-              <td class="order_index_td">発送済み</td>
-              <td class="order_index_td show_link_btn"><a href="" title="">詳細</a></td>
-            </tr>
+            <% end %>
           </tbody>
         </table>
       </div>

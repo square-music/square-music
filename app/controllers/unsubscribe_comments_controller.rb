@@ -8,10 +8,17 @@ before_action :authenticate_user!, only: [:new]
     @unsubscribe_comment.user_id = current_user.id
     if @unsubscribe_comment.save
       user = current_user
-      user.update( delete_flag: "true")
-      redirect_to logout_path
+
+      redirect_to unsubscribe_comments_complete_path
+
     end
-end
+  end
+
+  def complete
+    if current_user
+    current_user.update( delete_flag: "true")
+    end
+  end
 
 
 

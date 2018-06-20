@@ -147,7 +147,7 @@
 }
 
 
-
+/*order/new*/
 
 .order-back {
 width:100%;
@@ -220,9 +220,19 @@ float:left;
 float:left;
 line-height: 80px;
 }
+.order-price-box {
+ float:right;
+ height:90px;
+ margin-right:20px;
+ padding:10px;
+}
+.order-quantity {
+  height:45px;
+  width:80px;
+  float:right;
+}
 .preorder-price {
-float:right;
-margin:50px 5px 0 0;
+height:45px;
 }
 
 

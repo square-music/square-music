@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'genres/show'
+
   get '/users/:id/soft_delete' => 'users#soft_delete'
   get '/users/:id/restoration' => 'users#restoration'
   devise_scope :user do
@@ -17,9 +19,10 @@ Rails.application.routes.draw do
   end
 
    get "/orders" => "orders#index"
-   get "/orders/complete" => "orders#complete"
+
+   get "/orders/:id/complete" => "orders#complete"
   resources :users, only: [:index, :show, :edit, :update] do
-   resources :orders , only: [:new, :create, :update, :destroy, :show]
+    resources :orders , only: [:new, :create, :update, :destroy, :show]
   end
   resources :carts, only: [:show]
 
@@ -39,9 +42,9 @@ Rails.application.routes.draw do
   resources :tunes, only: [:new, :create, :destroy]
   end
 
+  resources :genres, only: [:show]
 
-
-
+  get '/unsubscribe_comments/complete' => 'unsubscribe_comments#complete'
   get 'unsubscribe_comments/new' => 'unsubscribe_comments#new'
   post 'unsubscribe_comments' => 'unsubscribe_comments#create'
   post '/products/:product_id/discs' => 'discs#create'

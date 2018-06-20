@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
 
   get '/users/:id/soft_delete' => 'users#soft_delete'
+  get '/users/:id/restoration' => 'users#restoration'
   devise_scope :user do
     get '/logout', to: 'devise/sessions#destroy', as: :logout
   end
@@ -12,12 +13,12 @@ Rails.application.routes.draw do
 
   devise_scope :user do
   post 'users/sign_up/confirm' => 'users/registrations#confirm'
-  post 'users/sign_up/complete' => 'users/registrations#complete'
+
   end
 
    get "/orders" => "orders#index"
    get "/orders/complete" => "orders#complete"
-  resources :users, only: [:index, :show, :edit] do
+  resources :users, only: [:index, :show, :edit, :update] do
    resources :orders , only: [:new, :create, :update, :destroy, :show]
   end
   resources :carts, only: [:show]

@@ -1,4 +1,6 @@
 class DiscsController < ApplicationController
+	before_action :authenticate_admin!, only: [:show, :edit]
+
 	def show
 		@disc = Disc.find(params[:id])
 	end

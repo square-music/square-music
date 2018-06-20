@@ -1,5 +1,5 @@
 class UnsubscribeCommentsController < ApplicationController
-
+before_action :authenticate_user!, only: [:new]
   def new
     @unsubscribe_comment = UnsubscribeComment.new
   end
@@ -9,7 +9,7 @@ class UnsubscribeCommentsController < ApplicationController
     if @unsubscribe_comment.save
       user = current_user
       user.update( delete_flag: "true")
-      redirect_to logout
+      redirect_to logout_path
     end
 end
 

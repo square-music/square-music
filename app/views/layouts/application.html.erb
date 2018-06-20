@@ -18,7 +18,6 @@
 
 	<div class="header-links">
 		<% cart = Cart.find_by(user_id: current_user.id) %>
-		<div class="link1"><%= link_to 'カート', cart_path(cart)  %></div>
 		<div class="link2"><%= link_to "マイページ", user_path(current_user.id) %></div>
 		<div class="link3"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>
 

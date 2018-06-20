@@ -16,7 +16,8 @@
   </div>
   </div>
 <table class="user_confirm_table" border="1">
-  <%= form_for @user, url: {action: "complete"} do |f| %>
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+
   <%= devise_error_messages! %>
   <tr>
     <td class="td_color"><%= f.label :氏名,class: "label_name" %></td>

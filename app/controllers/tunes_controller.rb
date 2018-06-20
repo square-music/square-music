@@ -1,4 +1,5 @@
 class TunesController < ApplicationController
+	before_action :authenticate_admin!, only: [:new]
 	def new
 	  	@disc = Disc.find(params[:disc_id])
 	  	product = Product.find_by(id: @disc.product_id)

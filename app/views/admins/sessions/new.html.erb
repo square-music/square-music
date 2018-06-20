@@ -6,13 +6,13 @@
     <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <tr>
       <div class="field">
-        <td class="td_color"><%= f.label:メールアドレス  %><br/></td>
+        <td class="td_color"><%= f.label:メールアドレス,class: "label_name"  %><br/></td>
         <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
       </div>
     </tr>
     <tr>
       <div class="field">
-        <td class="td_color"><%= f.label:パスワード %><br /></td>
+        <td class="td_color"><%= f.label:パスワード,class: "label_name" %><br /></td>
         <td><%= f.password_field :password, autocomplete: "off" %></td>
       </div>
     </tr>

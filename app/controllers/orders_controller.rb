@@ -1,5 +1,6 @@
 class OrdersController < ApplicationController
-
+before_action :authenticate_user!, only: [:new, :edit, :show]
+before_action :authenticate_admin!, only: [:index]
    def new
       @order = Order.new
       @user = User.find(params[:user_id])

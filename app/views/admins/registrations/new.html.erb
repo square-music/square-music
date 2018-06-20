@@ -7,23 +7,30 @@
     <%= devise_error_messages! %>
     <tr>
       <div class="field">
-        <td class="td_color"><%= f.label :メールアドレス %><br /></td>
+        <td class="td_color"><%= f.label :メールアドレス,class: "label_name" %><br /></td>
         <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
       </div>
     </tr>
     <tr>
       <div class="field">
-        <td class="td_color"><%= f.label :パスワード %></td>
-        <td><%= f.password_field :password, autocomplete: "off" %>
-        <% if @minimum_password_length %>
-        <div><em>(<%= @minimum_password_length %> 文字以上で入力して下さい)</em></div></td>
+        <td class="td_color"><%= f.label :氏名,class: "label_name" %><br /></td>
+        <td><%= f.text_field :admin_name, autofocus: true %></td>
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
+        <td class="td_color_pass"><%= f.label :パスワード,class: "label_name" %>
+          <% if @minimum_password_length %>
+          <div><em class="em_text">(<%= @minimum_password_length %> 文字以上で入力して下さい)</em></div></td>
+        <td><%= f.password_field :password, autocomplete: "off" %></td>
+
         <% end %><br />
 
       </div>
     </tr>
     <tr>
       <div class="field">
-        <td class="td_color"><%= f.label :パスワード確認 %><br /></td>
+        <td class="td_color"><%= f.label :パスワード確認,class: "label_name" %><br /></td>
         <td><%= f.password_field :password_confirmation, autocomplete: "off" %></td>
       </div>
     </tr>

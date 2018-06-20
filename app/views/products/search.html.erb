@@ -5,13 +5,15 @@
 			<p class="genre-title-text">カテゴリーで探す</p>
 		</div>
 		<ul class="genre-list">
-		<li class="genre-list-item">J-Pop</li>
-		<li class="genre-list-item">ロック</li>
-		<li class="genre-list-item">ジャズ</li>
-		<li class="genre-list-item">カントリー</li>
-		<li class="genre-list-item">ブルース</li>
-		<li class="genre-list-item">クラブ</li>
-		<li class="genre-list-item">アニメ</li>
+<!-- ジャンル検索 -->
+
+			<% @genres.each do |genre| %>
+				<%=link_to genre_path(genre), :style=>"text-decoration: none;" do %>
+				<li class="genre-list-item">
+					<%= genre.genre_name %>
+				</li>
+				<% end %>
+			<% end %>
 		</ul>
 	</div>
 
@@ -21,12 +23,16 @@
 		<h3 class="sarch-word">検索ワード"ここに検索ワードを抜粋する"</h3>
 
 <% @products.each do |product| %>
+
     <div class="sarch-products-box1">
+    	<%= link_to product_path(product), :style=>"text-decoration: none; color:black;" do %>
     		<span><p>商品名　<%= product.product_name %></p></span>
     		<span><p>価格　<%= product.product_price %></p></span>
     		<span><p>アーティスト名　<%= product.artist.artist_name %></p></span>
-    		<span><%= image_tag product.image_id %></span>
+    		<span><%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg' %></span>
+    	<% end %>
     </div>
+
  <% end %>
 
 <!-- 仮設終わり -->

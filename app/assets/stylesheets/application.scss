@@ -360,6 +360,7 @@ header{
   border: 1px black solid;
   font-size: 12px;
   height: 16px;
+  text-decoration: none;
 }
 .link2{
   display: inline-block;
@@ -384,33 +385,37 @@ header{
 .header-text1{
   color: white;
   padding: 0 0 0 60px;
-  font-family: "Comic Sans MS";
   display: inline-block;
   position: relative;
-  bottom: 45px;
+  bottom: 42px;
 }
 .header-text2{
   text-align: right;
-  padding: 5px 40px 0 0;
+  padding: 5px 20px 0 0;
 }
 .header-text3{
   color: white;
   font-size: 12px;
 }
-.search-sample{
-  background-color: white;
+.search-space{
   width: 250px;
   height: 18px;
   float: right;
-  margin: 5px 20px 20px 0;
+  margin: 2px 25px 0 0;
 }
-.search-space{
-  color: black;
-  text-align: center;
-  font-size: 14px;
+.search-form{
+  width: 85%;
+  height: 22px;
+  padding: 6px 12px;
+  font-size: 12px;
+  border-radius: 4px;
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
 }
-
-
+.search-form-btn{
+  position: relative;
+  bottom: 22px;
+  left: 212px;
+}
 
 
 
@@ -448,15 +453,16 @@ header{
   padding: 10px 0 0 20px;
 }
 .top-box{
-  height: 900px;
+  height: auto;
   width: 78%;
   float: left;
   background-color: #c0c0c0;
+  overflow:hidden;
 }
 .swipe-space{
-  width: 70%;
+  width: 75%;
   height: 280px;
-  margin: 30px 10%;
+  margin: 30px 5%;
   background-color: white;
   border-radius: 10px;
   border: solid black 1px;
@@ -464,7 +470,7 @@ header{
 .ranking-space{
   width: 85%;
   height: 220px;
-  margin: 40px 10% 0 10%;
+  margin: 40px 5%;
   background-color: white;
   border-radius: 10px;
   border: solid black 1px;
@@ -514,7 +520,7 @@ header{
 .newproduct-space{
   width: 85%;
   height: 220px;
-  margin: 40px 10% 30px 10%;
+  margin: 40px 5% 30px 5%;
   background-color: white;
   border-radius: 10px;
   border: solid black 1px;
@@ -540,10 +546,10 @@ header{
 }
 .sarch-products-box1{
   float: left;
-  width: 350px;
+  width: 28%;
   height: 220px;
   background-color: white;
-  margin: 10px 0 0 45px;
+  margin: 2% 3% 0 2%;
   border: solid black 1px;
 }
 .sarch-products-box2{
@@ -671,7 +677,7 @@ header{
 
 .newproduct-space3{
   width: 85%;
-  margin: 40px 10% 30px 5%;
+  margin: 40px 0 30px 1.8%;
   background-color: white;
   border-radius: 10px;
   border: solid black 1px;
@@ -731,7 +737,6 @@ header{
   list-style-type: none!important;
   background: -webkit-linear-gradient(top, #whitesmoke 0%, whitesmoke 100%);/*グラデーション*/
   background: linear-gradient(to bottom, whitesmoke 0%, #CCCCCC 100%);/*グラデーション*/
-  text-shadow: 3px 3px 1px whitesmoke;
   color: black;
 }
 
@@ -742,8 +747,6 @@ header{
   left : 0.5em;
   color: #FF6600;
 }
-
-
 
 
 /*footer用のCSS*/

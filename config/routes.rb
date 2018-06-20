@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  get 'genres/show'
+
   get '/users/:id/soft_delete' => 'users#soft_delete'
   devise_scope :user do
     get '/logout', to: 'devise/sessions#destroy', as: :logout
@@ -38,7 +40,7 @@ Rails.application.routes.draw do
   resources :tunes, only: [:new, :create, :destroy]
   end
 
-
+  resources :genres, only: [:show]
 
 
   get 'unsubscribe_comments/new' => 'unsubscribe_comments#new'

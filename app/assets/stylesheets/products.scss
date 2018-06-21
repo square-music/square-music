@@ -34,3 +34,43 @@
 #help-block{
   margin-bottom: -10px;
 }
+/*product_index*/
+.product_index_back{
+  background-color: #F2F2F2;
+  word-break: break-all;
+}
+.product_index_main{
+  background-color: white;
+  padding: 0 0 30px 0 !important;
+  margin-top: 50px;
+}
+.pi_title{
+  background-color: black;
+  color:white;
+  padding: 10px 30px;
+  margin-top:0 !important;
+  font-weight: 600;
+}
+.pi_box{
+  border-bottom: 1px solid gray;
+  height: 110px;
+  margin: 0px 30px;
+}
+.pi_image{
+  display: inline-block;
+  box-shadow: 0 0 5px gray;
+  margin: 10px 0 0 10px;
+}
+.pi_aname{
+  font-size:18px;
+}
+.pi_info{
+  font-size: 16px;
+}
+.pi_top{
+  margin-top: 20px;
+}
+.pi_link{
+  float: right;
+  font-size: 18px;
+}

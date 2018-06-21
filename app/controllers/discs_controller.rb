@@ -1,5 +1,5 @@
 class DiscsController < ApplicationController
-	before_action :authenticate_admin!, only: [:show, :edit]
+	   before_action :access_admin, only:[:show, :edit]
 
 	def show
 		@disc = Disc.find(params[:id])
@@ -24,7 +24,11 @@ class DiscsController < ApplicationController
 		Disc.create(product_id: product.id, disc_number: disc.disc_number + 1)
 		redirect_to edit_product_path(product)
 	end
-
+	def access_admin
+		unless   admin_signed_in?
+			redirect_to("/")
+		end
+  end
 	private
 	def disc_params
       params.require(:disc).permit(tunes_attributes: [:id, :tune_name, :tune_number, :artist_id, :disc_id,  :_destroy])

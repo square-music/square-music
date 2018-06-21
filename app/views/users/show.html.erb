@@ -49,32 +49,32 @@
    <div class="user-box col-lg-9">
       <h2>購入履歴</h2>
 
+<% if @orders %>
+  <% @orders.each do |order| %>
+
         <table class="table table-striped">
+
       <tr class="info">
         <th class="th-purchase">購入日</th>
         <th class="th-purchase">購入番号</th>
+        <th class="th-purchase">購入商品</th>
         <th class="th-purchase">合計金額</th>
-        <th colspan="2" class="th-purchase">購入商品</th>
-         <th class="th-purchase">購入数</th>
+　　　　　<th class="th-purchase"> 注文状況 </th>
         <th class="th-purchase">詳細</th>
       </tr>
       <tr>
-        <td class="td-purchase">2018/6/24</td>
-        <td class="td-purchase">555-5555-55</td>
-        <td class="td-purchase">3640円</td>
-        <td class="td-purchase">NO IMAGE</td>
-        <td class="td-purchase">めっちゃいいっていう名のCD</td>
-        <td class="td-purchase">計2点</td>
-      </tr>
-      <tr>
-        <td class="td-purchase">2018/6/24</td>
-        <td class="td-purchase">555-5555-5aaaaaaaaa5</td>
-        <td class="td-purchase">3640円</td>
-        <td class="td-purchase">NO IMAGE</td>
-        <td class="td-purchase">っていCD</td>
-        <td class="td-purchase">計2点</td>
+        <td class="td-purchase"><%= order.created_at.strftime('%Y/%m/%d') %></td>
+        <td class="td-purchase"><%= order.order_number %></td>
+        
+        <td class="td-purchase"><%= order.total_price%></td>
+        <td class="td-purchase"><%= order.status.shipment_status%></td>
+        <td class="td-purchase"><%= link_to "詳細","/orders/#{order.id}"%></td>
       </tr>
 
+<% end %>
+<% else %>
+<div>表示する履歴はありません</div>
+<% end %>
     </table>
   </div>
   </div>

@@ -1,6 +1,6 @@
 class OrdersController < ApplicationController
-before_action :authenticate_user!, only: [:new, :edit, :show]
-before_action :authenticate_admin!, only: [:index]
+
+before_action :access_admin, only: [:index]
    def new
       @order = Order.new
       @user = User.find(params[:user_id])
@@ -24,6 +24,7 @@ before_action :authenticate_admin!, only: [:index]
       order.sub_address_id = new_sub_address.id
     end
     order.user_id = user.id
+
     order.save
 
     cart = Cart.find_by(user_id: user.id)
@@ -55,13 +56,19 @@ before_action :authenticate_admin!, only: [:index]
    end
 
    def show
-       @order = Order.find(params[:id])
+       @order_items = OrderItem.where(order_id: params[:id])
    end
 
    def complete
-    @order = Order.find(params[:id])
+     @order = Order.find(params[:id])
    end
 
+   def access_admin
+     unless   admin_signed_in?
+       redirect_to("/")
+     end
+   end
+   
    private
       def order_params
         params.require(:order).permit(:total_price, :order_number,

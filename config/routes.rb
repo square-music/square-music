@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
    get "/orders" => "orders#index"
-
+  
    get "/orders/:id/complete" => "orders#complete"
   resources :users, only: [:index, :show, :edit, :update] do
     resources :orders , only: [:new, :create, :update, :destroy, :show]

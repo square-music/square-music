@@ -10,12 +10,13 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-    redirect_to user_path(user.id)
+    redirect_to user_path(@user.id)
   end
   end
   def show
   	@user = User.find(params[:id])
-     @unsubscribe_comment = UnsubscribeComment.find_by(user_id: params[:id])
+    @unsubscribe_comment = UnsubscribeComment.find_by(user_id: params[:id])
+    @orders = Order.where(user_id: params[:id])
 
   end
 
@@ -42,8 +43,8 @@ class UsersController < ApplicationController
 
   end
   def access_authority
-    unless  user_signed_in? && current_user.id == params[:id].to_i || admin_signed_in?
-      redirect_to("/")
+    unless   admin_signed_in? ||  user_signed_in? && current_user.id == params[:id].to_i
+      redirect_to user_session_path
     end
   end
     def access_admin

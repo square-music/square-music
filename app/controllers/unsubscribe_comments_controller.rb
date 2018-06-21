@@ -7,10 +7,6 @@ before_action :authenticate_user!, only: [:new]
     @unsubscribe_comment = UnsubscribeComment.new(unsubscribe_comment_params)
     @unsubscribe_comment.user_id = current_user.id
     if @unsubscribe_comment.save
-      user = current_user
-
-      redirect_to unsubscribe_comments_complete_path
-
     end
   end
 

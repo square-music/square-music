@@ -307,7 +307,16 @@
   padding-right: 50px;
   float: right;
 }
-
+.user_id {
+  float: left;
+}
+.flag_check {
+  float: right;
+  background-color: red;
+  color: white;
+  border-radius: 3px;
+  padding: 2px;
+}
 // ユーザ詳細
 .comment {
   padding-bottom: 20px;

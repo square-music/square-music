@@ -1,5 +1,5 @@
 class CartItemsController < ApplicationController
-
+ before_action :authenticate_user!, only: [:create]
 def create
 		product = Product.find_by(id:  params[:product_id])
 		cart = Cart.find_by(user_id: current_user.id)

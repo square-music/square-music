@@ -26,11 +26,11 @@
 
 			<div class="in-the-cart-field">
 				<div class="cart-price">
-				 価格：<%= @product.product_price %>円
+				 価格：<%= @product.product_price %>円<span class="tax">(税込)</span>
 			    </div>
 			  <%= form_for [@product, @cart_item] do |f| %>
 				<div class="quantity-setting">
-				 個数選択<%= f.number_field :cart_quantity, class: 'form-control', min: 1  %>
+				 個数選択<%= f.number_field :cart_quantity, class: 'form-control', min: 1 ,max: @product.stock %>
 				</div>
 				<div class="in-the-cart">
 			　<%= f.submit "カートに入れる", class: "btn btn-primary" %>
@@ -40,9 +40,9 @@
 
 			<div class="product-detail-field1">
 				<div><h2><%= @product.product_name %></h2>
-				</div>
+				  </div>
 				<div><h3><%= @product.artist.artist_name %></h3>
-				</div>
+				  </div>
 				<div>ジャンル：<%= @product.genre.genre_name %>
 				</div>
 				<div><%= @product.disc_amount %>枚組
@@ -51,51 +51,54 @@
 				</div>
 				<div>在庫数：<%= @product.stock %>
 				</div>
-
 			</div>
+
 			<div class="product-detail-field2">
 				<%= @product.description %>
 			</div>
-			<div class="product-detail-field3">
-				<table>
-					<% @product.discs.each do |disc| %>
 
-						Disc：<%= disc.disc_number %>
-						<br>
-						<br>
+			<div class="product-detail-field3">
+					<% @product.discs.each do |disc| %>
+					<table class=" table table-striped">
+						<th>Disc<%= disc.disc_number %></th>
+						  <br>
+						  <br>
 						<% disc.tunes.each do |tune| %>
 							<tr>
-							 <td><%= tune.tune_number %>：</td>
-							 <td><%= tune.tune_name %></td>
+							 <td><%= tune.tune_number %>：<%= tune.tune_name %></td>
 							</tr>
 						<% end %>
-					<% end %>
 				</table>
-
 			</div>
+		<% end %>
 		</div>
 
 　　　　　　<%= flash[:danger] %>
 
 		<div class="product-comment">
+			<% if @product.reviews.count == 0 %>
 			<div class="review-count">
-				<% if @product.reviews.count == 0 %>
 				 レビューはまだありません。
+			  </div>
+				<div style="height:50px">
+				 	商品を気に入ったらレビューしてね☆
+				  </div>
 				<% else %>
+				<div class="review-count">
 			     <%= @product.reviews.count %>件のレビュー
+			 </div>
 			    <% end %>
-		    </div>
 		     <ol>
-			  <% @product.reviews.each do |review| %>
+			     <% @product.reviews.each do |review| %>
 			  <li class="user-comment">
 			    <div>
-				 ユーザー：<%= review.user.user_name %>
+				  ユーザー：<%= review.user.user_name %>
 				</div>
 				<div>
-				 投稿日：<%= review.created_at.strftime('%Y/%m/%d') %>
+				   投稿日：<%= review.created_at.strftime('%Y/%m/%d') %>
 				</div>
 				<div class="comment-box">
-				 コメント：<%= review.comment %>
+				   コメント：<%= review.comment %>
 				</div>
 				<div class="comment-delete">
 					<% if review.user == current_user %>

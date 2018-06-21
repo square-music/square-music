@@ -1,86 +1,76 @@
 <div class="purchase">
- <div class="container">
-  <div class="row">
-    
-    <div class="col-lg-1">
-     </div>
-    <div class="col-lg-10">
-    
-    <h3>購入番号 5-555-5555-555</h3>
-    <div class="purchase-detail clearfix">
-      
-      <div class="purchase1 clearfix">
-        <div class="date">
-          購入日
-          <div class="date1">
-            2018年5月12日
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-1">
+        </div>
+          <div class="col-lg-10">
+            <h3>購入番号 <%= @order.order_number%> </h3>
+            <div class="status-edit">
+             <% if admin_signed_in? %>
+               <%= form_for([@user,@order]) do |f| %>
+               <%= f.collection_select(:status_id, @statuses, :id, :shipment_status, prompt: "選択する") %>
+               <%= f.submit "変更する", class: "btn btn-info" %>
+              <% end %>
+             <% end %>
+           </div>
+         <div class="purchase-detail clearfix">
+           
+           <div class="purchase1 clearfix">
+            <div class="date">
+              <h5> 購入日</h5>
+             <div class="date1">
+               <h4> <%= @order.created_at.strftime('%Y/%m/%d')%></h4>
+              </div>
+            </div>
+            <div class="order-user">
+                <h5>購入者</h5>
+              <div class="order-user">
+                 <h4> <%= @user.user_name%></h4>
+              </div>
+           </div>
+             <div class="order-address .order-address1">
+                <h5>送付先住所</h5>
+               <div class="order-address1">
+                 <h4> <%= @user.address%></h4>
+              </div>
+             </div>
+           <div class="price-box">
+                <h5>合計金額</h5>
+           <div class="price-box">
+                <h4><%= @order.total_price %>3,640円</h4>
           </div>
         </div>
 
-        <div class="order-user">
-         購入者
-         <div class="order-user">
-          かみなかのくん
-         </div>
-        </div>
-
-        <div class="order-address .order-address1">
-         送付先住所
-          <div class="order-address1">
-          神奈川県川崎市宮前区◯◯◯◯◯◯◯◯　◯◯◯◯ハイツ908
-         </div>
-        </div>
-
-        <div class="price-box">
-         合計金額
-         <div class="price-box">
-          3,640円
-         </div>
-        </div>
-
         <div class="status">
-          配送状況：配送準備中
+           配送状況：<%= @status.shipment_status %>
+         
         </div>
 
       </div>
-
+       
+           <% @order.order_items.each do |o| %>
       <div class="purchase2 clearfix">
-        <div class="purchase2-image">NO IMAGE
-        </div>
-        <div class="purchase-product">
-          めっちゃいいCDっていう名のCD
-        </div>
-        <div class="purchase-amount">
-          購入数:1
-        </div>
-        <div class="purchase-price">
-         小計:2,560円
-        </div>
-        <div class="purchase-artist">
-          めっちゃいいバンド
-        </div>
-      </div>
-    
-      <div class="purchase2 clearfix">
-        <div class="purchase2-image">NO IMAGE
-        </div>
-        <div class="purchase-product">
-          めっちゃダメなCDっていう名のCD
-        </div>
-        <div class="purchase-amount">
-          購入数:1
-        </div>
-        <div class="purchase-price">
-         小計:1,080円
-        </div>
-        <div class="purchase-artist">
-          めっちゃダメなバンド
-        </div>
-      </div>
+         <div class="purchase2-image">
+            <%= attachment_image_tag o.product, :image, :fill, 117, 117, format: 'jpeg' %>
+           </div>
+            <div class="purchase-product">
+              <h3><%= o.product.product_name %></h3>
+             </div>
+              <div class="purchase-amount">
+              <h4>購入数：<%= o.order_quantity %></h4>
+              </div>
+             <div class="purchase-price">
+             <h4>小計:円</h4>
+            </div>
+           <div class="purchase-artist">
+            <h4> <%= o.product.artist.artist_name %></h4>
+         </div>
+         </div>
+         <% end %>
 
-      <div class="cancel"><button class="btn btn-warning">注文をキャンセルする</button>
-      </div>
-    </div>
+          <div class="cancel"><button class="btn btn-warning">注文をキャンセルする</button>
+         </div>
+       </div>
     </div>
 
     <div class="col-lg-1">

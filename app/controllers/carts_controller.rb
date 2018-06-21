@@ -5,6 +5,7 @@ before_action :access_authority, only:   [:show]
   def show
     @cart_items = CartItem.where(cart_id: params[:id])
     @total_price = 0
+    @subtotal = 0
   end
   def access_authority
     unless  user_signed_in? && current_user.id == params[:id].to_i

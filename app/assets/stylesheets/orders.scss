@@ -8,6 +8,9 @@
   padding:30px 0 50px;
   background-color:#dcdcdc;
  }
+ .status-edit {
+  text-align:right;
+ }
  .purchase-detail {
   border:solid 1px;
   border-radius:5px;
@@ -74,9 +77,6 @@
  .purchase2-image {
   width:120px;
   height:120px;
-  border:solid 1px;
-  border-radius:5px;
-  border-color:#dcdcdc;
   margin:10px 30px 10px 10px;
   float:left;
  }
@@ -100,7 +100,7 @@
  }
 .purchase-artist {
   width:200px;
-  height:60px;
+  height:30px;
   float:left;
   line-height:60px;
 }
@@ -125,6 +125,7 @@
  	margin:0 auto 100px;
  	padding-top:20px;
  	border:outset;
+  background-color:white;
  }
  .complete-big-text {
  	font-size:40px;

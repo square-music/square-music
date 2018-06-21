@@ -3,6 +3,7 @@
     <div class="row">
       <div class="col-lg-2"></div>
       <div class="col-lg-8">
+        <%= flash[:message] %>
         <% if @cart_items.present? %>
         <h3>カート内商品</h3>
           <div class="cart-detail clearfix">
@@ -25,7 +26,9 @@
                   <% end %>
                 </div>
                 </div>
-                <div class="col-md-2 cart_item_box"><%= cart_item.product.product_price*cart_item.cart_quantity %> 円
+                <div class="col-md-2 cart_item_box">
+                  <% @subtotal = cart_item.product.product_price*cart_item.cart_quantity %>
+                  小計:<%= @subtotal.to_s(:delimited) %> 円
                   <% @total_price += cart_item.product.product_price*cart_item.cart_quantity %>
                 </div>
                 <div class="col-md-1 cart_item_box"><%= link_to '削除', product_cart_item_path(:product_id => cart_item.product.id, :id => cart_item.id), method: :delete, class: "btn btn-danger" %>
@@ -44,7 +47,7 @@
               <div class="col-md-9">
               </div>
                <div class="col-md-3">
-                <button class="btn btn-warning"><%= link_to '注文画面へ',new_user_order_path(current_user)%></button>
+                 <%= link_to '注文画面へ',new_user_order_path(current_user) ,class:"btn btn-warning btn-lg" %>
               </div>
             </div>
           </div>

@@ -252,7 +252,7 @@
   margin: 20px 0;
 }
 
-// 確認画面
+ /*確認画面*/
 .td_text {
   padding-left: 5px;
 }
@@ -298,7 +298,7 @@
 .user_confirm_headline {
   margin: 20px 0;
 }
- // ユーザー一覧
+/*ユーザー一覧*/
  .edit_link {
    padding-left: 50px;
    float: left;
@@ -630,12 +630,12 @@ header{
   float: left;
 }
 .product-detail-field1{
-  width: 40%;
+  width: 50%;
   float: left;
   margin-right: 15px;
 }
 .in-the-cart-field{
-  width: 160px;
+  width: 180px;
   height: 160px;
   background-color: #ffcc99;
   margin-right: 2%;
@@ -646,19 +646,24 @@ header{
 .cart-price{
   height:30px;
   font-size:20px;
-  margin:5px 20px 0 0;
+
+  margin:5px 3px 0 5px;
+
   text-align:right;
+}
+.tax {
+  font-size:5px;
 }
 .product-detail-field2{
   width: 73%;
-  float: right;
+  float: left;
   margin: 10px 1% 0 3%;
   border-top: dashed gray 1px;
 }
 .product-detail-field3{
-  width: 73%;
+  width: 40%;
   height: auto;
-  float: right;
+  float: left;
   margin: 5px 1% 20px 3%;
   border-top: dashed gray 1px;
 }

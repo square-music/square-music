@@ -26,7 +26,7 @@
 
 			<div class="in-the-cart-field">
 				<div class="cart-price">
-				 価格：<%= @product.product_price %>円
+				 価格:<%= @product.product_price.to_s(:delimited) %>円
 			    </div>
 			  <%= form_for [@product, @cart_item] do |f| %>
 				<div class="quantity-setting">
@@ -119,37 +119,20 @@
 		<% end %>
 
 		<div class="newproduct-space3 clearfix">
-			<div class="product-heading">新着一覧</div>
+			<div class="product-heading">関連商品一覧</div>
+
+			<!-- test -->
+			<% @same_genre.shuffle.first(5).each do |t| %>
+			<%= link_to product_path(t), :style=>"text-decoration: none; color:black;" do %>
 			<div class="rankin-product">
-				<div class="ranking-integer">発売日</div>
-				<div class="ranking-image"></div>
-				<div class="ranking-artist-text"><p>Artist名</p></div>
-				<div class="ranking-product-text"><p>商品名</p></div>
+
+				<div class="ranking-image"><%= attachment_image_tag t, :image, :fill, 92, 90, format: 'jpeg' %></div>
+				<div class="ranking-artist-text"><%= t.artist.artist_name %></div>
+				<div class="ranking-product-text"><%= t.product_name %></div>
 			</div>
-			<div class="rankin-product">
-				<div class="ranking-integer">発売日</div>
-				<div class="ranking-image"></div>
-				<div class="ranking-artist-text"><p>Artist名</p></div>
-				<div class="ranking-product-text"><p>商品名</p></div>
-			</div>
-			<div class="rankin-product">
-				<div class="ranking-integer">発売日</div>
-				<div class="ranking-image"></div>
-				<div class="ranking-artist-text"><p>Artist名</p></div>
-				<div class="ranking-product-text"><p>商品名</p></div>
-			</div>
-			<div class="rankin-product">
-				<div class="ranking-integer">発売日</div>
-				<div class="ranking-image"></div>
-				<div class="ranking-artist-text"><p>Artist名</p></div>
-				<div class="ranking-product-text"><p>商品名</p></div>
-			</div>
-			<div class="rankin-product">
-				<div class="ranking-integer">発売日</div>
-				<div class="ranking-image"></div>
-				<div class="ranking-artist-text"><p>Artist名</p></div>
-				<div class="ranking-product-text"><p>商品名</p></div>
-			</div>
+			<% end %>
+			<% end %>
+			<!-- test end -->
 		</div>
 	</div>
 </div>

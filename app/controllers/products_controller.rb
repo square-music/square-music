@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-	before_action :authenticate_admin!, only: [:new, :edit]
+	before_action :access_admin, only: [:new, :edit, :index]
 
 	def index
 	   @products = Product.all
@@ -88,22 +88,33 @@ class ProductsController < ApplicationController
 
 	def top
 		@genres = Genre.all
+		@same_genre = Product.all
 	end
 
 	def search
 		@search = Product.ransack(params[:q])
 		@products = @search.result
+		@search_products = @products.page(params[:page]).reverse_order
 		@q = Product.ransack(params[:q])
 		@genres = Genre.all
 	end
 
 	def show
 		@product = Product.find(params[:id])
+		@same_genre = Product.where(genre_id: @product.genre_id)
+		if @same_genre.length<=2 then
+			@same_genre = Product.all
+		end
+		@same_genre = @same_genre.where.not(id: params[:id])
 		@review = Review.new
 		@cart_item = CartItem.new
 		@genres = Genre.all
 	end
-
+	def access_admin
+		unless   admin_signed_in?
+			redirect_to("/")
+		end
+  end
 	private
 	  def product_params
 	    params.require(:product).permit(:product_name, :product_phonetic, :product_price, :disc_amount, :release, :stock, :image, :description, :artist_id, :label_id, :genre_id)

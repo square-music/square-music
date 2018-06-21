@@ -1,47 +1,37 @@
-<h1>index</h1>
-<p><%= link_to "new", new_product_path %></p>
-<p><%= link_to "logout", destroy_user_session_path, method: :delete %></p>
-<table class="table">
-		<h2>Product</h2>
-		<thead>
-			<tr>
-				<th>ID</th>
-				<th>Product_name</th>
-				<th>phonetic</th>
-				<th>Artist</th>
-				<th>Label</th>
-				<th>price</th>
-				<th>Stock</th>
-				<th>Description</th>
-				<th>Release</th>
-				<th>Disc_amount</th>
-				<th>Genre</th>
-				<th>Disc_Number</th>
-				<th>Jacket</th>
-			</tr>
-		</thead>
-		<tbody>
-			<% @products.each do |product| %>
-				<tr>
-					<td><%= product.id %></td>
-					<td><%= product.product_name %></td>
-					<td><%= product.product_phonetic %></td>
-					<td><%= product.artist.artist_name %></td>
-					<td><%= product.label.label_name %></td>
-					<td><%= product.product_price %></td>
-					<td><%= product.stock %></td>
-					<td><%= product.description %></td>
-					<td><%= product.release %></td>
-					<td><%= product.disc_amount %></td>
-					<td><%= product.genre.genre_name %></td>
-					<td>
-						<% product.discs.each do |disc| %>
-							<%= disc.id %>
+<div class="container-fulid">
+	<div class="row product_index_back">
+		<div class="col-lg-2"></div>
+		<div class="col-lg-8 product_index_main">
+			<h2 class="pi_title">登録商品一覧</h2>
+			<% @products.each do |p| %>
+			<div class="row">
+				<div class="pi_box">
+					<div class="col-lg-2">
+						<div class="pi_image">
+							<%= link_to product_path(p) do %>
+								<%= attachment_image_tag p, :image, :fill, 90, 90, format: 'jpeg' %>
+							<% end %>
+						</div>
+					</div>
+					<div class="col-lg-4">
+						<%= link_to product_path(p) do %>
+							<h3 class="pi_pname"><%= p.product_name %></h3>
 						<% end %>
-					</td>
-					<td><%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg' %></td>
-					<td><%= link_to '削除', product_path(product.id), method: :delete %></td>
-				</tr>
+						<p class="pi_aname"><%= p.artist.artist_name %></p>
+					</div>
+					<div class="col-lg-3">
+						<p class="pi_info pi_top">価格: <%= p.product_price.to_s(:delimited) %>円</p>
+						<p class="pi_info">発売日: <%= p.release %></p>
+					</div>
+					<div class="col-lg-3">
+						<p class="pi_info pi_top">在庫数: <%= p.stock %> 個</p>
+						<p class="pi_info">累計販売数: <%= p. order_item_count %> 個</p>
+						<span class="pi_link"><%= link_to '編集', edit_product_path(p) %></span>
+					</div>
+				</div>
+			</div>
 			<% end %>
-		</tbody>
-	</table>
+		</div>
+		<div class="col-lg-2"></div>
+	</div>
+</div>

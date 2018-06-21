@@ -9,19 +9,24 @@
         <table class="table table-striped order_index_table">
           <thead class="order_table_head">
             <tr>
-              <th class="col-sm-1 order-index-th">ID</th>
+              <th class="col-sm-2 order-index-th">ID</th>
               <th class="col-sm-3 order-index-th">氏名</th>
-              <th class="col-sm-3 order-index-th">フリガナ</th>
+              <th class="col-sm-3 order-index-th">住所</th>
               <th class="col-sm-3 order-index-th">メールアドレス</th>
-              <th class="col-sm-2 order-index-th"></th>
+              <th class="col-sm-1 order-index-th"></th>
             </tr>
           </thead>
           <% @users.each do |user| %>
           <tbody>
             <tr>
-              <td class="order_index_td"><%= user.id %></td>
+              <td class="order_index_td">
+                <div class="user_id"><%= user.id %></div>
+                <% if user.delete_flag == true %>
+                   <div class="flag_check">退会済み</div>
+                  <% end %>
+              </td>
               <td class="order_index_td"><%= user.user_name %></td>
-              <td class="order_index_td"><%= user.user_phonetic %></td>
+              <td class="order_index_td"><%= user.address %></td>
               <td class="order_index_td"><%= user.email %></td>
               <td class="order_index_td show_link_btn"><div><%= link_to "詳細",user_path(user.id)%></div>
            </td>

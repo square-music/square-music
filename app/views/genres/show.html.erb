@@ -19,19 +19,26 @@
 	</div>
 
 <div class="top-box2">
-		<h3 class="sarch-word">検索カテゴリー"ここに検索カテゴリーを抜粋する"</h3>
-	<% @products.each do |product| %>
+		<h3 class="sarch-word">検索カテゴリー"<%= @genre.genre_name %>"</h3>
+	<div class="float-space-onsearch">
+	<% @page_products.each do |product| %>
 
 		<div class="sarch-products-box1">
 			<%=link_to product_path(product), :style=>"text-decoration: none; color:black; " do %>
-				<span><p>商品名　<%= product.product_name %></p></span>
-    			<span><p>価格　<%= product.product_price %></p></span>
-    			<span><p>アーティスト名　<%= product.artist.artist_name %></p></span>
-   				<span><%= attachment_image_tag product, :image, :fill, 100, 100, format: 'jpeg' %></span>
+				<div class="search-product-image"><%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpeg' %></div>
+    		<div>
+    			<div class="search-product-name">商品名: <%= product.product_name %></div>
+    			<div class="search-product-artist">アーティスト: <%= product.artist.artist_name %></div>
+    			<div class="search-product-price">販売価格: <%= product.product_price.to_s(:delimited) %>円</div>
+    		</div>
    			<% end %>
     	</div>
 
 	<% end %>
+	</div>
+<div class="pagenate-space">
+	<%= paginate @page_products, class: "pagenate" %>
+</div>
 </div>
 
 </div>

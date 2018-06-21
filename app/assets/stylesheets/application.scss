@@ -307,8 +307,17 @@
   padding-right: 50px;
   float: right;
 }
-
-/*ユーザ詳細*/
+.user_id {
+  float: left;
+}
+.flag_check {
+  float: right;
+  background-color: red;
+  color: white;
+  border-radius: 3px;
+  padding: 2px;
+}
+// ユーザ詳細
 .comment {
   padding-bottom: 20px;
 }
@@ -476,7 +485,7 @@ header{
 }
 .ranking-space{
   width: 85%;
-  height: 220px;
+  overflow: hidden;
   margin: 40px 5%;
   background-color: white;
   border-radius: 10px;
@@ -484,11 +493,10 @@ header{
 }
 .rankin-product{
   width: 16%;
-  height: 140px;
   float: left;
   margin: 2% 2% 20px 2%;
   position: relative;
-  padding: .5em .75em;
+  padding: 10px .75em 15px .75em;
   background-color: #e8e8e8;
 }
 .rankin-product::after {
@@ -508,25 +516,24 @@ header{
 }
 .ranking-image{
   width: 70%;
-  height: 60px;
+  height: 90px;
   margin: 0 15% 3px 15%;
   background-color: white;
 }
 .ranking-artist-text{
-  font-size: 13px;
+  font-size: 11px;
   height: 13px;
   text-align: center;
-  padding-top: 5px;
 }
 .ranking-product-text{
-  font-size: 13px;
+  font-size: 11px;
   height: 13px;
-  padding-top: 10px;
+  padding-top: 5px;
   text-align: center;
 }
 .newproduct-space{
   width: 85%;
-  height: 220px;
+  overflow: hidden;
   margin: 40px 5% 30px 5%;
   background-color: white;
   border-radius: 10px;
@@ -546,17 +553,16 @@ header{
   width: 78%;
   float: left;
   background-color: #c0c0c0;
-  overflow:hidden;
 }
 .sarch-word{
   padding: 0 0 20px 10px;
 }
 .sarch-products-box1{
   float: left;
-  width: 28%;
-  height: 220px;
+  width: 40%;
+  height: 200px;
   background-color: white;
-  margin: 2% 3% 0 2%;
+  margin: 2% 4% 2% 2%;
   border: solid black 1px;
 }
 .sarch-products-box2{
@@ -567,10 +573,6 @@ header{
   margin: 20px 0 0 45px;
   border: solid black 1px;
 }
-.kaminari-plan{
-  text-align: center;
-  padding-top: 500px;
-}
 .newproduct-space2{
   width: 96%;
   height: 180px;
@@ -579,8 +581,30 @@ header{
   border-radius: 10px;
   border: solid black 1px;
 }
-
-
+.search-product-image{
+  margin: 25px 23px 25px 15px;
+  float: left;
+}
+.search-product-name{
+  margin: 60px 0 0 10px;
+}
+.search-product-price{
+  margin: 35px 0 0 70%;
+}
+.search-product-artist{
+  padding-top: 5px;
+}
+.float-space-onsearch{
+  width: 100%;
+  overflow: hidden;
+}
+.pagenate-space{
+  position: relative;
+  left: 44.5%;
+  top: 10px;
+  overflow: hidden;
+  margin-bottom: 40px;
+}
 
 
 
@@ -622,7 +646,9 @@ header{
 .cart-price{
   height:30px;
   font-size:20px;
+
   margin:5px 3px 0 5px;
+
   text-align:right;
 }
 .tax {

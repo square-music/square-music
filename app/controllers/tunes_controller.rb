@@ -1,5 +1,5 @@
 class TunesController < ApplicationController
-	before_action :authenticate_admin!, only: [:new]
+	before_action :access_admin, only: [:new]
 	def new
 	  	@disc = Disc.find(params[:disc_id])
 	  	product = Product.find_by(id: @disc.product_id)
@@ -30,6 +30,11 @@ class TunesController < ApplicationController
 	    tune.destroy
 	    redirect_to new_disc_tune_path(disc.id)
     end
+		def access_admin
+      unless   admin_signed_in?
+        redirect_to("/")
+      end
+  end
 	private
 	    def tune_params
 	    	params.permit(:tune_name, :tune_number, :artist_name, :artist_phonetic)

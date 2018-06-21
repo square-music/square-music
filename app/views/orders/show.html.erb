@@ -1,7 +1,9 @@
 <div class="purchase">
+
   <div class="container">
     <div class="row">
       <div class="col-lg-1">
+
         </div>
           <div class="col-lg-10">
             <h3>購入番号 <%= @order.order_number%> </h3>
@@ -49,6 +51,7 @@
       </div>
        
            <% @order.order_items.each do |o| %>
+
       <div class="purchase2 clearfix">
          <div class="purchase2-image">
             <%= attachment_image_tag o.product, :image, :fill, 117, 117, format: 'jpeg' %>

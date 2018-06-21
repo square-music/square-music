@@ -88,17 +88,24 @@ class ProductsController < ApplicationController
 
 	def top
 		@genres = Genre.all
+		@same_genre = Product.all
 	end
 
 	def search
 		@search = Product.ransack(params[:q])
 		@products = @search.result
+		@search_products = @products.page(params[:page]).reverse_order
 		@q = Product.ransack(params[:q])
 		@genres = Genre.all
 	end
 
 	def show
 		@product = Product.find(params[:id])
+		@same_genre = Product.where(genre_id: @product.genre_id)
+		if @same_genre.length<=2 then
+			@same_genre = Product.all
+		end
+		@same_genre = @same_genre.where.not(id: params[:id])
 		@review = Review.new
 		@cart_item = CartItem.new
 		@genres = Genre.all

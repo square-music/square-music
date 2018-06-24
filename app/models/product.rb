@@ -1,10 +1,11 @@
 class Product < ApplicationRecord
-	belongs_to :artist, optional: true
-	belongs_to :label, optional: true
-	belongs_to :genre, optional: true
+	belongs_to :artist
+	belongs_to :label
+	belongs_to :genre
 	has_many :discs, dependent: :destroy
 	has_many :reviews, dependent: :destroy
 	has_many :cart_items, dependent: :destroy
 	attachment :image
 	has_many :order_items ,:through =>:order_items
+	validates :product_name, :product_phonetic, :product_price, :disc_amount, :release, :stock, :description, :artist_id, :label_id, :genre_id, presence: true
 end

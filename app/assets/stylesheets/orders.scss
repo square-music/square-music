@@ -240,25 +240,24 @@ margin:0 10px 10px 0;
 
 .order_index{
   background-color: white;
-  border-radius: 5px;
-  padding: 20px;
+  margin: 50px 0;
+  border: 1px solid #F2F2F2;
+}
+.order_index_table{
+  margin-bottom: 0 !important;
+  word-break: break-all;
 }
 .order_table_head{
-  background-color: black;
-  color:white;
   font-size: 18px;
 }
 .order-index-th{
-   font-weight: 500;
-   border: 1px solid #1C1C1C;
+   font-weight: 600;
 }
 .order_index_td{
-  padding:20px 8px !important;
+  padding:15px 8px !important;
   font-size:16px;
   border: 1px solid #F2F2F2;
 }
 .show_link_btn{
   text-align: center;
 }
-
-

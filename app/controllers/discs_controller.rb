@@ -24,6 +24,14 @@ class DiscsController < ApplicationController
 		Disc.create(product_id: product.id, disc_number: disc.disc_number + 1)
 		redirect_to edit_product_path(product)
 	end
+
+	def destroy
+		disc = Disc.find(params[:id])
+		product = Product.find(params[:product_id])
+		disc.destroy
+		redirect_to edit_product_path(product)
+	end
+
 	def access_admin
 		unless   admin_signed_in?
 			redirect_to("/")

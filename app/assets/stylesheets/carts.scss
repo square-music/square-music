@@ -9,15 +9,12 @@
 }
 .cart-detail {
    border:solid 1px;
-   border-radius:5px;
   background-color:white;
   padding:10px 10px 10px 10px;
 }
 .cart-item {
   height:100px;
   border:solid 1px;
-  border-radius: 5px;
-  border-color:#dcdcdc;
   padding:10px 20px 10px 10px;
   margin-bottom:10px;
 }
@@ -34,4 +31,8 @@
 .cart_quantity_form{
   margin-top: 29px;
   width: 54px;
+}
+.cart1 {
+  background-color: black;
+  color: white;
 }

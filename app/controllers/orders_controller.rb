@@ -29,7 +29,7 @@ before_action :access_admin, only: [:index]
 
     cart = Cart.find_by(user_id: user.id)
     cart_items =CartItem.where(cart_id: cart.id)
-    
+
     cart_items.each do |cart_item|
       order_item = OrderItem.new
       order_item.product_id = cart_item.product.id

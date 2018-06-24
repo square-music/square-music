@@ -34,7 +34,8 @@
      	    <h4>商品の確認</h4>
      	       <% @cart.cart_items.each do |cart_item| %>
              <div class="pre-product clearfix">
-      	        <div class="product-image"><%= attachment_image_tag cart_item.product, :image, :fill, 80, 80, format: 'jpeg' %>
+      	        <div class="product-image">
+      	        	<%= attachment_image_tag cart_item.product, :image, :fill, 80, 80, format: 'jpeg', fallback: 'no_image.jpg', :size => '80x80' %>
       	         </div>
       	        <div class="preorder-product">
       	     	   <h4><%= cart_item.product.product_name %></h4>

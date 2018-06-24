@@ -21,7 +21,7 @@
 		<%= flash[:complete] %>
 		<div class="product-detail clearfix">
 			<div class="product-detail-image">
-				<%= attachment_image_tag @product, :image, :fill, 200, 200, format: 'jpeg' %>
+				<%= attachment_image_tag @product, :image, :fill, 200, 200, format: 'jpeg', fallback: 'no_image.jpg', :size => '200x200' %>
 			</div>
 
 			<div class="in-the-cart-field">

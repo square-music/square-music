@@ -5,11 +5,11 @@
 			<h2 class="pi_title">登録商品一覧</h2>
 			<% @products.each do |p| %>
 			<div class="row">
-				<div class="pi_box">
+				<div class="pi_box clearfix">
 					<div class="col-lg-2">
 						<div class="pi_image">
 							<%= link_to product_path(p) do %>
-								<%= attachment_image_tag p, :image, :fill, 90, 90, format: 'jpeg' %>
+								<%= attachment_image_tag p, :image, :fill, 90, 90, format: 'jpeg', fallback: 'no_image.jpg', :size => '90x90' %>
 							<% end %>
 						</div>
 					</div>
@@ -18,6 +18,9 @@
 							<h3 class="pi_pname"><%= p.product_name %></h3>
 						<% end %>
 						<p class="pi_aname"><%= p.artist.artist_name %></p>
+						<% if p.delete_flag == true %>
+							<p class="pi_delete">削除済み</p>
+						<% end %>
 					</div>
 					<div class="col-lg-3">
 						<p class="pi_info pi_top">価格: <%= p.product_price.to_s(:delimited) %>円</p>

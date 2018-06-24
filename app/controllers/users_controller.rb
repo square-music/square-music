@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :access_authority, only: [:show,:edit]
   before_action :access_admin, only: [:index]
 
-
+  layout "special_layout", only: [:index]
 
   def edit
     @user = User.find(params[:id])
@@ -11,7 +11,7 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     if @user.update(user_params)
     redirect_to user_path(@user.id)
-  end
+    end
   end
   def show
   	@user = User.find(params[:id])
@@ -28,6 +28,8 @@ class UsersController < ApplicationController
 
   def index
     @users = User.all
+    @search = User.ransack(params[:q])
+    @users = @search.resultr
 
   end
   def soft_delete

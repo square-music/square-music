@@ -16,33 +16,44 @@ class ProductsController < ApplicationController
 	end
 
     def create
-	    product = Product.new(product_params)
+	    @product = Product.new(product_params)
 	    	if artist = Artist.find_by(artist_name:  params[:artist][:artist_name])
-	    		product.artist_id = artist.id
+	    		@product.artist_id = artist.id
 	   		else
 	    		new_artist = Artist.create(artist_name:  params[:artist][:artist_name], artist_phonetic: params[:artist][:artist_phonetic])
-	    		product.artist_id = new_artist.id
+	    		@product.artist_id = new_artist.id
 	    	end
 	    	if label = Label.find_by(label_name: params[:label][:label_name])
-	        	product.label_id = label.id
+	        	@product.label_id = label.id
 	        else
 	       		new_label = Label.create(label_name: params[:label][:label_name])
-	        	product.label_id = new_label.id
+	        	@product.label_id = new_label.id
 	        end
 	        if genre = Genre.find_by(genre_name: params[:genre][:genre_name])
-	        	product.genre_id = genre.id
+	        	@product.genre_id = genre.id
 	        else
 	        	new_genre = Genre.create(genre_name: params[:genre][:genre_name])
-	        	product.genre_id = new_genre.id
+	        	@product.genre_id = new_genre.id
 	        end
-	    product.save
-	    i = 1
-	    while i <= product.disc_amount
-	      disc = Disc.create(product_id: product.id, disc_number: i)
-	      i += 1
+	    if @product.save
+	    	i = 1
+	    	while i <= @product.disc_amount
+	      	disc = Disc.create(product_id: @product.id, disc_number: i)
+	      	i += 1
+	    	end
+	    	disc = Disc.find_by(product_id: @product.id, disc_number: 1)
+	    	redirect_to new_disc_tune_path(disc)
+	    	return
+	    else
+	    	@artists = Artist.all
+	    	@labels = Label.all
+	    	@genres = Genre.all
+	    	@artist = Artist.new
+	    	@label = Label.new
+	    	@genre = Genre.new
+	    	render ('products/new')
+	    	return
 	    end
-	    disc = Disc.find_by(product_id: product.id, disc_number: 1)
-	    redirect_to new_disc_tune_path(disc)
 	end
 
 	def edit
@@ -51,6 +62,7 @@ class ProductsController < ApplicationController
 	    @labels = Label.all
 	    @genres = Genre.all
 	    @discs = Disc.where(product_id: @product.id)
+	    @disc = Disc.where(product_id: @product.id).last
 	    @artist = Artist.find(@product.artist_id)
 	    @label = Label.find(@product.label_id)
 	    @genre = Genre.find(@product.genre_id)
@@ -77,12 +89,12 @@ class ProductsController < ApplicationController
 	        	product.genre_id = new_genre.id
 	        end
 		product.update(product_params)
-		redirect_to edit_product_path(product)
+		redirect_to products_path
 	end
 
 	def destroy
 		product = Product.find(params[:id])
-		product.destroy
+		product.update(delete_flag: 'true')
 		redirect_to products_path
 	end
 

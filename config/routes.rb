@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   end
 
    get "/orders" => "orders#index"
-  
+
    get "/orders/:id/complete" => "orders#complete"
   resources :users, only: [:index, :show, :edit, :update] do
     resources :orders , only: [:new, :create, :update, :destroy, :show]
@@ -38,7 +38,7 @@ Rails.application.routes.draw do
    get "/orders/complete" => "orders#complete"
 
 
-  resources :discs, only: [:show, :edit, :update] do
+  resources :discs, only: [:update] do
   resources :tunes, only: [:new, :create, :destroy]
   end
 
@@ -48,6 +48,7 @@ Rails.application.routes.draw do
   get 'unsubscribe_comments/new' => 'unsubscribe_comments#new'
   post 'unsubscribe_comments' => 'unsubscribe_comments#create'
   post '/products/:product_id/discs' => 'discs#create'
+  delete '/products/:product_id/discs/:id' => 'discs#destroy'
   get "/order/complete" => "orders#complete"
 
   root 'products#top'

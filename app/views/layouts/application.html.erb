@@ -73,10 +73,20 @@
    <p class="message"><%= alert %></p>
 <% end %>
 <%= yield %>
-<footer>
-		<div class="footer-text">
-		</div>
-</footer clearfix>
+<footer class="clearfix">
+    <div class="footer">株式会社スクエアミュージック<br>
+    	〒444-4444 東京都四角区スクエア4丁目 スクエアレジデンス<br>
+    	Tel/Fax 44-4444-4444
+      </div>
+        <div class="footer-link">
+      	  <%= link_to "TOPへ" ,root_path ,:style=>"color:white;"%>
+      	｜<%= link_to "このサイトについて" ,about_path ,:style=>"color:white;"%>
+      	｜<%= link_to "よくある質問" ,question_path ,:style=>"color:white;"%>
+      	｜<%= link_to "お問い合わせ" ,new_contact_path ,:style=>"color:white;"%>
+      </div>
+		<div class="footer-logo">
+	  </div>
+    </footer>
   </body>
 
 </html>

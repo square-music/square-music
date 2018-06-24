@@ -1,0 +1,31 @@
+// Place all the styles related to the contacts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*new*/
+.contact {
+	padding:50px 0 50px;
+}
+.contact-h2 {
+	background-color: black;
+	color: white;
+}
+
+/*question*/
+.question {
+	padding-top: 50px;
+	padding-bottom: 50px;
+}
+.question-h2 {
+	background-color: black;
+	color: white;
+	margin-bottom:20px;
+}
+.question1 {
+	background-color: #808080;
+	color: white;
+	margin-top:20px;
+}
+.q-link {
+	margin-top:50px;
+}

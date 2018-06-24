@@ -15,7 +15,36 @@
   <div class="header-padding">
     <header>
 	<!-- ログイン状態の条件分岐 -->
-	<% if user_signed_in? %>
+	<% if admin_signed_in? %>
+	<div class="header-links">
+
+	<!-- 課題提出まで -->
+		<%= link_to cart_path(current_user.cart) do %><div class="link1">カート</div><% end %>
+		<div class="link2"><%= link_to "マイページ", user_path(current_user.id), :style=>"color:white;" %></div>
+	<!-- 課題提出までend -->
+
+		<div class="link3"><%= link_to "USER一覧", users_path, :style=>"color:white;" %></div>
+		<div class="link2"><%= link_to "購入履歴一覧", orders_path, :style=>"color:white;" %></div>
+		<div class="link3"><%= link_to "登録商品一覧", products_path, :style=>"color:white;" %></div>
+		<div class="link2"><%= link_to "商品登録", new_product_path, :style=>"color:white;" %></div>
+		<div class="link3"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, :style=>"color:white;" %></div>
+	</div>
+	<div class="header-sub">
+		<div class="header-text2">
+			<p class="header-text3">管理者としてログイン中</p>
+		</div>
+		<h1 class="header-text1"><a href="/" style="text-decoration: none;color: white">SQUARE MUSIC</a></h1>
+		<div class="search-space">
+			<%= search_form_for @search, url: products_search_path  do |f| %>
+				<div>
+				<%= f.text_field :product_name_or_product_phonetic_cont,class: "search-form" %>
+				</div>
+				<div class="search-form-btn"><%= f.submit "Search" %></div>
+			<% end %>
+		</div>
+	</div>
+
+	<% elsif user_signed_in? %>
 
 	<div class="header-links">
     <% cart = Cart.find_by(user_id: current_user.id) %>

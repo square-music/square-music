@@ -38,46 +38,26 @@
 		</div>
 		<div class="ranking-space">
 			<div class="product-heading">売上ランキング</div>
+
+			<% @same_genre.order("order_item_count DESC").first(5).each_with_index do |r, i|%>
+			<%= link_to product_path(r), :style=>"text-decoration:none; color:black;" do %>
 			<div class="rankin-product">
-				<div class="ranking-integer">1位</div>
-				<div class="ranking-image"></div>
-				<div class="ranking-artist-text"><p>Artist名</p></div>
-				<div class="ranking-product-text"><p>商品名</p></div>
+				<div class="ranking-integer"><%= "#{h(i + 1)}位" %></div>
+				<div class="ranking-image"><%= attachment_image_tag r, :image, :fill, 130, 130, format: 'jpeg' %></div>
+				<div class="ranking-artist-text"><%= r.artist.artist_name %></div>
+				<div class="ranking-product-text"><%= r.product_name %></div>
 			</div>
-			<div class="rankin-product">
-				<div class="ranking-integer">2位</div>
-				<div class="ranking-image"></div>
-				<div class="ranking-artist-text"><p>Artist名</p></div>
-				<div class="ranking-product-text"><p>商品名</p></div>
-			</div>
-			<div class="rankin-product">
-				<div class="ranking-integer">3位</div>
-				<div class="ranking-image"></div>
-				<div class="ranking-artist-text"><p>Artist名</p></div>
-				<div class="ranking-product-text"><p>商品名</p></div>
-			</div>
-			<div class="rankin-product">
-				<div class="ranking-integer">4位</div>
-				<div class="ranking-image"></div>
-				<div class="ranking-artist-text"><p>Artist名</p></div>
-				<div class="ranking-product-text"><p>商品名</p></div>
-			</div>
-			<div class="rankin-product">
-				<div class="ranking-integer">5位</div>
-				<div class="ranking-image"></div>
-				<div class="ranking-artist-text"><p>Artist名</p></div>
-				<div class="ranking-product-text"><p>商品名</p></div>
-			</div>
+			<% end %>
+			<% end %>
 		</div>
+
 		<div class="newproduct-space">
 			<div class="product-heading">新着一覧</div>
-
-
 			<% @same_genre.order("release DESC").first(5).each do |t| %>
 			<%= link_to product_path(t), :style=>"text-decoration: none; color:black;" do %>
 			<div class="rankin-product">
 				<div class="ranking-integer">発売日：<%= t.release %></div>
-				<div class="ranking-image"><%= attachment_image_tag t, :image, :fill, 92, 90, format: 'jpeg' %></div>
+				<div class="ranking-image"><%= attachment_image_tag t, :image, :fill, 130, 130, format: 'jpeg' %></div>
 				<div class="ranking-artist-text"><%= t.artist.artist_name %></div>
 				<div class="ranking-product-text"><%= t.product_name %></div>
 			</div>

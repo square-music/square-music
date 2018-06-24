@@ -20,6 +20,9 @@
 
 <div class="top-box2">
 		<h3 class="sarch-word">検索ワード"<%= params[:q][:product_name_or_product_phonetic_cont] %>"</h3>
+		<%if params[:q][:product_name_or_product_phonetic_cont] == "" %>
+			<div class="null-word">※ 検索ワードの指定が無いため、全商品を表示しています</div>
+		<% end %>
 
 <div class="float-space-onsearch">
 <% @search_products.each do |product| %>
@@ -28,21 +31,17 @@
     	<%= link_to product_path(product), :style=>"text-decoration: none; color:black;" do %>
     		<div class="search-product-image"><%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpeg' %></div>
     		<div>
-    			<div class="search-product-name">商品名: <%= product.product_name %></div>
-    			<div class="search-product-artist">アーティスト: <%= product.artist.artist_name %></div>
-    			<div class="search-product-price">販売価格: <%= product.product_price.to_s(:delimited) %>円</div>
+    			<div class="search-product-name"><%= product.product_name %></div>
+    			<div class="search-product-artist"><%= product.artist.artist_name %></div>
+    			<div class="search-product-price"><%= product.product_price.to_s(:delimited) %>円</div>
     		</div>
     	<% end %>
     </div>
-
  <% end %>
+
 </div>
 <div class="pagenate-space">
 <%= paginate @search_products, class: "pagenate" %>
 </div>
-
-		<div class="newproduct-space2">
-			<p>発売日が最も新しいProductを5つ表示</p>
-		</div>
 	</div>
 </div>

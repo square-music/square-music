@@ -95,7 +95,6 @@ class ProductsController < ApplicationController
 		@search = Product.ransack(params[:q])
 		@products = @search.result
 		@search_products = @products.page(params[:page]).reverse_order
-		@q = Product.ransack(params[:q])
 		@genres = Genre.all
 	end
 

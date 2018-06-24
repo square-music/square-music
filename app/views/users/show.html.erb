@@ -55,11 +55,10 @@
 
 
 
-
-
+<%= paginate @orders %>
 
 <% if @orders %>
-  <% @orders.each do |order| %>
+  <%  @orders.each do |order| %>
   <% order.order_items.each do |f| %>
   <% @item_count = order.order_items.count - 1 %>
   <div class="order_content  clearfix">

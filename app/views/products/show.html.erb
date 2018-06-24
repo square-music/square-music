@@ -75,7 +75,7 @@
 		</div>
 
 　　　　　　<%= flash[:danger] %>
-
+<!-- コメント機能 -->
 		<div class="product-comment">
 			<% if @product.reviews.count == 0 %>
 			<div class="review-count">
@@ -98,7 +98,22 @@
 				   投稿日：<%= review.created_at.strftime('%Y/%m/%d') %>
 				</div>
 				<div class="comment-box">
-				   コメント：<%= review.comment %>
+					<div>
+						<% if review.star == 1 %>
+							<div class="star-color">★</div>
+						<% elsif review.star == 2 %>
+							<div class="star-color">★★</div>
+						<% elsif review.star == 3 %>
+							<div class="star-color">★★★</div>
+						<% elsif review.star == 4 %>
+							<div class="star-color">★★★★</div>
+						<% elsif review.star == 5 %>
+							<div class="star-color">★★★★★</div>
+						<% end %>
+					</div>
+					<div>
+						コメント：<%= review.comment %>
+					</div>
 				</div>
 				<div class="comment-delete">
 					<% if review.user == current_user %>
@@ -113,27 +128,27 @@
            <% if user_signed_in? %>
 		<div class="product-comment-newbox">
 			レビューを書く
-<!-- テスト-->
+<!-- 星評価投稿機能 -->
 	<%= form_for [@product, @review] do |f| %>
 		<div class="evaluation">
-    		<input id="star1" type="radio" name="star" value="5" />
-    		<label for="star1">★</label>
-    		<input id="star2" type="radio" name="star" value="4" />
-    		<label for="star2">★</label>
-    		<input id="star3" type="radio" name="star" value="3" />
-    		<label for="star3">★</label>
-    		<input id="star4" type="radio" name="star" value="2" />
-    		<label for="star4">★</label>
-    		<input id="star5" type="radio" name="star" value="1" />
-    		<label for="star5">★</label>
+			<input id="star1" type="radio" name="star" value="5" />
+			<label for="star1">★</label>
+			<input id="star2" type="radio" name="star" value="4" />
+			<label for="star2">★</label>
+			<input id="star3" type="radio" name="star" value="3" />
+			<label for="star3">★</label>
+			<input id="star4" type="radio" name="star" value="2" />
+			<label for="star4">★</label>
+			<input id="star5" type="radio" name="star" value="1" />
+			<label for="star5">★</label>
 		</div>
-<!-- テスト終わり -->
-
+<!-- 星おわり -->
                 <%= f.text_area :comment, rows:'5', class: "form-control"%>
                  <%= f.submit "送信する", class: "btn btn-lg btn-primary btn-block pull-right" %>
              <% end %>
 		</div>
 		<% end %>
+<!-- コメントおわり -->
 
 		<div class="newproduct-space3 clearfix">
 			<div class="product-heading">関連商品一覧</div>

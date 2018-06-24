@@ -29,45 +29,48 @@
 
 
 /*swiper*/
+.swipe-space{
+  width: 90%;
+  height: 300px;
+  margin: 30px 5%;
+  background-color:  #c0c0c0;
+}
 .swiper-container {
     width: 100%;
-    height: 278px;
-    border-radius: 10px;
+    height: 300px;
 }
 .pic1 {
-  width:200px;
-  height:250px;
+  width:300px;
+  height:300px;
   background-image:url("1.jpg") ;
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
 .pic2 {
-  width:200px;
-  height:250px;
+  width:300px;
+  height:300px;
   background-image:url("2.jpg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
 .pic3 {
-  width:200px;
-  height:250px;
+  width:300px;
+  height:300px;
   background-image:url("3.jpg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
 .pic4 {
-  width:200px;
-  height:250px;
+  width:300px;
+  height:300px;
   background-image:url("4.jpg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
-
-
 
 
 
@@ -483,6 +486,8 @@ header{
 }
 .header-text1{
   color: white;
+  text-shadow: 3px 4px 6px gray,
+               0px -5px 16px gray;
   padding: 0 0 0 60px;
   display: inline-block;
   position: relative;
@@ -494,13 +499,15 @@ header{
 }
 .header-text3{
   color: white;
-  font-size: 12px;
+  font-size: 16px;
+  margin: 0 0 5px 0;
+  font-weight: bold;
 }
 .search-space{
   width: 250px;
   height: 18px;
   float: right;
-  margin: 2px 25px 0 0;
+  margin: 0 25px 0 0;
 }
 .search-form{
   width: 85%;
@@ -523,11 +530,10 @@ header{
 /*top用のCSS*/
 .top-main{
   overflow:hidden;
-  background-color:  #c0c0c0;
+  background-color: white;
 }
 .sidebar-space{
-  width: 22%;
-  background-color: #c0c0c0;
+  width: 20%;
   height: 600px;
   float: left;
 }
@@ -535,49 +541,43 @@ header{
   width: 18%;
   position: fixed;
   margin-top: 30px;
-  left: 3%;
+  left: 2%;
   z-index: 100;
   border: solid black 2px;
   background-color: white;
 }
 .genre-title{
-  height: 25px;
+  height: 32px;
   background-color: black;
-  padding-left: 10px;
+  padding-left: 5px;
 }
 .genre-title-text{
   color: white;
+  font-weight: bold;
+  font-size: 20px;
 }
 .genre-index{
   padding: 10px 0 0 20px;
 }
 .top-box{
   height: auto;
-  width: 78%;
+  width: 80%;
   float: left;
-  background-color: #c0c0c0;
   overflow:hidden;
 }
-.swipe-space{
-  width: 75%;
-  height: 280px;
-  margin: 30px 5%;
-  background-color: white;
-  border-radius: 10px;
-  border: solid black 1px;
-}
+
 .ranking-space{
-  width: 85%;
+  width: 96%;
   overflow: hidden;
-  margin: 40px 5%;
+  margin: 60px 2% 40px 2%;
   background-color: white;
-  border-radius: 10px;
-  border: solid black 1px;
+
+  border-top: solid;
 }
 .rankin-product{
-  width: 16%;
+  width: 205px;
   float: left;
-  margin: 2% 2% 20px 2%;
+  margin: 2% 5px 20px 5px;
   position: relative;
   padding: 10px .75em 15px .75em;
   background-color: #e8e8e8;
@@ -595,32 +595,34 @@ header{
 }
 .ranking-integer{
   height: 17px;
-  font-size: 12px;
+  font-size: 15px;
+  margin-bottom: 15px;
+  font-weight: bold;
 }
 .ranking-image{
   width: 70%;
-  height: 90px;
+  height: 130px;
   margin: 0 15% 3px 15%;
   background-color: white;
 }
 .ranking-artist-text{
-  font-size: 11px;
+  font-size: 15px;
   height: 13px;
+  padding-top: 7px;
   text-align: center;
 }
 .ranking-product-text{
-  font-size: 11px;
+  font-size: 15px;
   height: 13px;
-  padding-top: 5px;
+  margin-top: 15px;
   text-align: center;
 }
 .newproduct-space{
-  width: 85%;
+  width: 96%;
   overflow: hidden;
-  margin: 40px 5% 30px 5%;
+  margin: 40px 2% 60px 2%;
   background-color: white;
-  border-radius: 10px;
-  border: solid black 1px;
+  border-top: solid;
 }
 
 
@@ -632,20 +634,18 @@ header{
 
 /*商品検索用のCSS*/
 .top-box2{
-  height: auto;
   width: 78%;
   float: left;
-  background-color: #c0c0c0;
 }
 .sarch-word{
-  padding: 0 0 20px 10px;
+  padding: 10px 0 20px 20px;
 }
 .sarch-products-box1{
   float: left;
-  width: 40%;
+  width: 47%;
   height: 200px;
   background-color: white;
-  margin: 2% 4% 2% 2%;
+  margin: 1%;
   border: solid black 1px;
 }
 .sarch-products-box2{
@@ -666,19 +666,28 @@ header{
 }
 .search-product-image{
   margin: 25px 23px 25px 15px;
+  width: 152px;
+  height: 152px;
   float: left;
+  border: solid black 1px;
+  background-color: gray;
 }
 .search-product-name{
-  margin: 60px 0 0 10px;
+  margin: 50px 0 0 10px;
+  font-size: 18px;
 }
 .search-product-price{
-  margin: 35px 0 0 70%;
+  text-align: right;
+  font-size: 18px;
+  margin: 40px 30px 0 0;
 }
 .search-product-artist{
   padding-top: 5px;
+  font-size: 18px;
 }
 .float-space-onsearch{
-  width: 100%;
+  width: 98%;
+  margin-left: 3%;
   overflow: hidden;
 }
 .pagenate-space{
@@ -688,7 +697,13 @@ header{
   overflow: hidden;
   margin-bottom: 40px;
 }
-
+.null-word{
+  color: red;
+  font-size: 16px;
+  position: relative;
+  bottom: 25px;
+  left: 30px;
+}
 
 
 
@@ -744,8 +759,7 @@ header{
   border-top: dashed gray 1px;
 }
 .product-detail-field3{
-  width: 40%;
-  height: auto;
+  width: 45%;
   float: left;
   margin: 5px 1% 20px 3%;
   border-top: dashed gray 1px;
@@ -795,11 +809,11 @@ header{
 
 
 .newproduct-space3{
-  width: 85%;
-  margin: 40px 0 30px 1.8%;
+  width: 96%;
+  margin: 150px 2% 30px 2%;
   background-color: white;
-  border-radius: 10px;
-  border: solid black 1px;
+  border-top: solid;
+  overflow: hidden;
 }
 .quantity-setting{
   width: 100px;
@@ -819,7 +833,9 @@ header{
   background: -webkit-linear-gradient(top, #whitesmoke 0%, whitesmoke 100%);
   background: linear-gradient(to bottom, whitesmoke 0%, #FFFF00 100%);
   width: 200px;
-  margin: 5px;
+  margin: 15px 0 10px 0;
+  font-size: 16px;
+  font-weight: bold;
 }
 .product-heading::before,
 .product-heading::after {
@@ -866,21 +882,60 @@ header{
   left : 0.5em;
   color: #FF6600;
 }
+/*テスト*/
+.evaluation{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+.evaluation input[type='radio']{
+  display: none;
+}
+.evaluation label{
+  position: relative;
+  padding: 10px 10px 0;
+  color: gray;
+  cursor: pointer;
+  font-size: 50px;
+}
+.evaluation label .text{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+}
+.evaluation label:hover,
+.evaluation label:hover ~ label,
+.evaluation input[type='radio']:checked ~ label{
+  color: #ffcc00;
+}
 
+/*テスト終わり*/
 
+/*footer用のCSS*/
 /*footer用のCSS*/
 footer {
   height: 120px;
   background-color: black;
 }
-.footer-text{
+.footer {
+  color:white;
+  float:left;
+  margin:20px 0 0 20px;
+}
+.footer-link {
+  color:white;
+  float:left;
+  margin:40px 0 0 55px;
+}
+.footer-logo{
   width:400px;
   height:100px;
   float:right;
   margin-top:15px;
   background-image:url(logo2.png);
   background-repeat: no-repeat;
-  /*padding-top: 10px;*/
-  /*font-family: "Comic Sans MS";*/
-  /*color: white;*/
 }

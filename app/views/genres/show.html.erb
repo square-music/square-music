@@ -27,9 +27,9 @@
 			<%=link_to product_path(product), :style=>"text-decoration: none; color:black; " do %>
 				<div class="search-product-image"><%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpeg' %></div>
     		<div>
-    			<div class="search-product-name">商品名: <%= product.product_name %></div>
-    			<div class="search-product-artist">アーティスト: <%= product.artist.artist_name %></div>
-    			<div class="search-product-price">販売価格: <%= product.product_price.to_s(:delimited) %>円</div>
+    			<div class="search-product-name"><%= product.product_name %></div>
+    			<div class="search-product-artist"><%= product.artist.artist_name %></div>
+    			<div class="search-product-price"><%= product.product_price.to_s(:delimited) %>円</div>
     		</div>
    			<% end %>
     	</div>

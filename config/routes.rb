@@ -49,6 +49,11 @@ Rails.application.routes.draw do
   post '/products/:product_id/discs' => 'discs#create'
   get "/order/complete" => "orders#complete"
 
+  # コンタクト
+  resources :contacts, only: [:index, :new, :create, :destroy]
+  get '/about' => 'contacts#about'
+  get '/question' => 'contacts#question'
+
   root 'products#top'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html

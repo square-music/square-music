@@ -5,27 +5,38 @@
       <div class="col-lg-8">
         <%= flash[:message] %>
         <% if @cart_items.present? %>
-        <h3>カート内商品</h3>
-          <div class="cart-detail clearfix">
+         <div class="cart1"> 
+           <h2>カート内商品</h2></div>
+           <div class="cart-detail clearfix">
             <% @cart_items.each do |cart_item| %>
             <% @product = cart_item.product %>
               <div class="cart-item">
                 <div class="col-md-2 cart_item_image">
-                  <%= attachment_image_tag cart_item.product, :image, :fill, 80, 80, format: 'jpeg' %>
-                </div>
-                <div class="col-md-3 cart_item_box"><%= cart_item.product.product_name %>
-                </div>
-                <div class="col-md-2 cart_item_box"><%= cart_item.product.artist.artist_name %>
-                </div>
+                  <%= link_to product_path(@product) do %>
+                   <%= attachment_image_tag cart_item.product, :image, :fill, 80, 80, format: 'jpeg' %>
+                    <% end %>
+                  </div>
+                    <div class="col-md-3 cart_item_box"><%= cart_item.product.product_name %>
+                     </div>
+                    <div class="col-md-2 cart_item_box"><%= cart_item.product.artist.artist_name %>
+                  </div>
                 <div>
-                <div class="col-md-2">
-                  <%= form_for [@product, cart_item] do |f| %>
-                  <%= f.number_field :cart_quantity, class: 'cart_quantity_form', min: 0, max: cart_item.product.stock %>個
-                  <br>
-                  <%= f.submit '更新', class: 'btn btn-default btn-xs' %>
-                  <% end %>
+                  <div class="col-md-2">
+                    <%= form_for [@product, cart_item] do |f| %>
+                      <%= f.number_field :cart_quantity, class: 'cart_quantity_form', min: 0, max: cart_item.product.stock %>個
+                        <br>
+                       <%= f.submit '更新', class: 'btn btn-default btn-xs' %>
+                     <% end %>
+                  </div>
+                     </div>
+                       <div class="col-md-2 cart_item_box">
+                       <% @subtotal = cart_item.product.product_price*cart_item.cart_quantity %>
+                        小計:<%= @subtotal.to_s(:delimited) %> 円
+                       <% @total_price += cart_item.product.product_price*cart_item.cart_quantity %>
+                     </div>
+                   <div class="col-md-1 cart_item_box"><%= link_to '削除', product_cart_item_path(:product_id => cart_item.product.id, :id => cart_item.id), method: :delete, class: "btn btn-danger" %>
                 </div>
-                </div>
+
                 <div class="col-md-2 cart_item_box">
                   <% @subtotal = cart_item.product.product_price*cart_item.cart_quantity %>
                   小計:<%= @subtotal.to_s(:delimited) %> 円
@@ -35,6 +46,7 @@
                 <div class="col-md-1 cart_item_box"><%= link_to '削除', product_cart_item_path(:product_id => cart_item.product.id, :id => cart_item.id), method: :delete, class: "btn btn-danger" %>
                 </div>
               </div>
+
             <% end %>
             <div class="row">
               <div class="col-md-9"></div>
@@ -60,7 +72,10 @@
             </div>
           </div>
         <% else %>
-          <h4>カートに商品はありません</h4>
+          <h3>カート内商品</h3>
+          <div class="cart-detail clearfix">
+            カートに商品がありません ⇨ <%= link_to '商品を探す',root_path ,class: "btn btn-info" %>
+          </div>
         <% end %>
       </div>
       <div class="col-lg-2">

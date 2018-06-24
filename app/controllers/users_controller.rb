@@ -2,8 +2,7 @@ class UsersController < ApplicationController
   before_action :access_authority, only: [:show,:edit]
   before_action :access_admin, only: [:index]
 
-
-
+  
   def edit
     @user = User.find(params[:id])
   end
@@ -47,7 +46,7 @@ class UsersController < ApplicationController
       redirect_to user_session_path
     end
   end
-    def access_admin
+  def access_admin
       unless   admin_signed_in?
         redirect_to("/")
       end

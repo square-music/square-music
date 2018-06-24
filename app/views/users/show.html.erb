@@ -1,8 +1,11 @@
 <div class="user-show-back">
  <div class="container">
   <div class="row">
+    <div class="headline_box_2">
+      <h2 class="mypage_headline">マイページ</h2>
+    </div>
     <div class="user-show col-lg-3">
-      <h2>登録情報</h2>
+      <h3 class="user-show-headline">登録情報</h2>
         <table class="table table-striped">
          <tr>
           <td>名前</td><td><%= @user.user_name %></td>
@@ -11,16 +14,16 @@
           <td>かな</td><td><%= @user.user_phonetic %></td>
          </tr>
          <tr>
-          <td>〒</td><td><%= @user.postal %></td>
+          <td>郵便番号</td><td><%= @user.postal %></td>
          </tr>
          <tr>
           <td>住所</td><td><%= @user.address %></td>
          </tr>
          <tr>
-          <td>☎︎</td><td><%= @user.tell %></td>
+          <td>電話番号</td><td><%= @user.tell %></td>
          </tr>
          <tr>
-          <td>✉︎</td><td><%= @user.email %></td>
+          <td>メールアドレス</td><td><%= @user.email %></td>
          </tr>
         </table>
         <% if admin_signed_in? %>
@@ -39,43 +42,64 @@
           <h2>退会コメント</h2>
           <div class="comment"><%= @unsubscribe_comment.comment %></div>
         <% end %>
-
+        <div class="link_tag_1"><% cart = Cart.find_by(user_id: @user.id) %></div>
+    		<%= link_to "カートを見る",cart_path(cart)  %>
         <div class="link_tag_1">
         <%= link_to "ユーザー一覧に戻る",users_path %>
       </div>
       <% end %>
    </div>
 
-   <div class="user-box col-lg-9">
-      <h2>購入履歴</h2>
+   <div class="user-box clearfix col-lg-9">
+      <h3 class="user-box-headline">購入履歴</h2>
+
+
+
+
+
 
 <% if @orders %>
   <% @orders.each do |order| %>
+  <% order.order_items.each do |f| %>
+  <% @item_count = order.order_items.count - 1 %>
+  <div class="order_content  clearfix">
+    <div class="testtest clearfix">
+      <div class="test">
+        <h4>購入日</h4>
+        <h4><%= order.created_at.strftime('%Y/%m/%d') %></h4>
+      </div>
 
-        <table class="table table-striped">
+      <div class="text_3">
+        <h4>合計金額</h4>
+        <h4><%= order.total_price%>円</h4>
+      </div>
+      <div class="test_2">
+        <h4>購入番号</h4>
+        <h4><%= order.order_number %></h4>
+      </div>
+      <div class="test_4">
+        <h4>注文状況</h4>
+        <h4><%= order.status.shipment_status%></h4>
+      </div>
+    </div>
+    <div class="test_5 clearfix">
+    <div class="test_6"><%= attachment_image_tag f.product, :image, :fill,100,100, format: 'jpeg' %></div>
+      <div class="asd"><h3 class="test_7"><%= f.product.product_name %></h3>
+      <h3 class="test_8"><%= f.product.artist.artist_name %></h3></div>
+      <div class="test_10">
+        <% if @item_count > 0%>
+        <%= "他#{@item_count}点"%>
+        <% end %>
+        <%= link_to "詳細","#"%>
+      </div>
+    </div>
 
-      <tr class="info">
-        <th class="th-purchase">購入日</th>
-        <th class="th-purchase">購入番号</th>
-        <th class="th-purchase">購入商品</th>
-        <th class="th-purchase">合計金額</th>
-　　　　　<th class="th-purchase"> 注文状況 </th>
-        <th class="th-purchase">詳細</th>
-      </tr>
-      <tr>
-        <td class="td-purchase"><%= order.created_at.strftime('%Y/%m/%d') %></td>
-        <td class="td-purchase"><%= order.order_number %></td>
-        
-        <td class="td-purchase"><%= order.total_price%></td>
-        <td class="td-purchase"><%= order.status.shipment_status%></td>
-        <td class="td-purchase"><%= link_to "詳細","/orders/#{order.id}"%></td>
-      </tr>
+  </div>
+  <% end %>
+  <% end %>
 
 <% end %>
-<% else %>
-<div>表示する履歴はありません</div>
-<% end %>
-    </table>
+
   </div>
   </div>
  </div>

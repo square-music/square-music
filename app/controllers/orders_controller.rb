@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-
+before_action :access_authority, only: [:show]
 before_action :access_admin, only: [:index]
 
    def new
@@ -42,9 +42,9 @@ before_action :access_admin, only: [:index]
       cart_item.product.stock  < 0
       order_item.destroy
       order.destroy
-      redirect_to "/carts/#{cart.id}" 
+      redirect_to "/carts/#{cart.id}"
       flash[:message] = 'そんなにいっぱい買わないでください'
-      return 
+      return
     else
      cart_item.product.stock -= order_item.order_quantity
       cart_item.product.save
@@ -85,13 +85,17 @@ before_action :access_admin, only: [:index]
    def complete
     @order = Order.find(params[:id])
   end
-
+  def access_authority
+    unless   admin_signed_in? ||  user_signed_in? && current_user.id == params[:user_id].to_i
+      redirect_to user_session_path
+    end
+  end
    def access_admin
      unless   admin_signed_in?
        redirect_to("/")
      end
    end
-   
+
    private
       def order_params
         params.require(:order).permit(:total_price, :order_number,

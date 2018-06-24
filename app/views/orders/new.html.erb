@@ -9,6 +9,7 @@
           <div class="order-box">
 	       <div class="sendbox">
 	         <h4>請求先住所</h4>
+
 	       <div class="address-form">
 	   	     <%= @user.address %>
 	       </div>
@@ -54,23 +55,34 @@
 	         <% @total_quantity += cart_item.cart_quantity %>
 	         	<% end %>
 
-	      <table class="price-table">
-			<tr>
-			　<td>商品合計数 </td>
-			　<td><h4><%= @total_quantity %></h4></td>
-			</tr>
-			<tr>
-			　<td >ご請求額</td>
-			　<td><h4><%= @total_price.to_s(:delimited) %>円</h4></td>
+         	<% end %>
+      	<table class="price-table">
+		　<tr>
+		　　<td>商品合計数 </td>
+		　　<td><%= @total_quantity %></td>
+		　</tr>
+			<% if @total_price >= 10000 %>
+		  <% down_price=@total_price *0.1 %>
+		  <tr>
+			 	<td>割引額</td>
+				<td> -<%= down_price.floor.to_s(:delimited) %>円</td>
+		  </tr>
+			<% @total_price -= down_price %>
+		　<tr>
+		　　<td>ご請求額 </td>
+				<td> <%= @total_price.floor.to_s(:delimited) %>円</td>
+				<% else %>
+				<td> <%= @total_price.floor.to_s(:delimited) %>円</td>
+				<% end %>
+		　　 <%= f.hidden_field :order_number, :value => rand(1..9).to_s + "-" + rand(1000..9999).to_s + "-" + rand(1000..9999).to_s %>
+			<%= f.hidden_field :total_price, :value =>"#{@total_price}" %>
+			<%= f.hidden_field :status_id, :value =>1 %>
+		　</tr>
+		 <tr>
+		  <td colspan="2"><%= f.submit "注文" %></td>
+		</tr>
+	　　</table>
 
-			　　 <%= f.hidden_field :order_number, :value => rand(1..9).to_s + "-" + rand(1000..9999).to_s + "-" + rand(1000..9999).to_s %>
-				<%= f.hidden_field :total_price, :value =>"#{@total_price}" %>
-				<%= f.hidden_field :status_id, :value =>1 %>
-			</tr>
-		　　 <tr>
-			  <td colspan="2"><%= f.submit "注文を確定する" ,class: "btn btn-success" %></td>
-		　　</tr>
-		</table>
       </div>
 
      </div>

@@ -1,4 +1,3 @@
-
 <section class="signup_container">
   <div class="headline_box">
     <h2 class="signup_headline">会員登録</h2>
@@ -17,11 +16,15 @@
   </div>
   </div>
   <table border="1" class="signup_table">
+
+
     <%= form_for @user, url: {action: "confirm"} do |f| %>
+
+
       <%= devise_error_messages! %>
       <tr>
         <div class="field">
-          <td class="td_color"><%= f.label :氏名,class: "label_name"%><br /></td>
+          <td class="td_color"><%= f.label :氏名,class: "label_name"%><br /> </td>
           <td><%= f.text_field :user_name%></td>
         </div>
       </tr>
@@ -33,7 +36,8 @@
       </tr>
       <tr>
         <div class="field">
-          <td class="td_color"><%= f.label :郵便番号,class: "label_name" %><br /></td>
+          <td class="td_color"><%= f.label :郵便番号,class: "label_name" %><br />
+          <div><em class="em_text">(ハイフン抜きで入力して下さい)</em></div></td>
           <td><%= f.text_field :postal %></td>
         </div>
       </tr>
@@ -45,7 +49,8 @@
       </tr>
       <tr>
         <div class="field">
-          <td class="td_color"><%= f.label :電話番号,class: "label_name" %><br /></td>
+          <td class="td_color_pass"><%= f.label :電話番号,class: "label_name" %><br />
+          <div><em class="em_text">(ハイフン抜きで入力して下さい)</em></div></td>
           <td><%= f.text_field :tell %></td>
         </div>
       </tr>
@@ -58,14 +63,14 @@
       <tr>
         <div class="field">
           <td class="td_color_pass"><%= f.label :パスワード,class: "label_name" %>
-            <% if @minimum_password_length %>
-            <div><em class="em_text">(<%= @minimum_password_length %> 文字以上で入力して下さい)</em></div>
+            <div><em class="em_text">(6文字以上で入力して下さい)</em></div>
           </td>
           <td><%= f.password_field :password, autocomplete: "off" %></td>
 
-          <% end %><br />
+          <br />
         </div>
       </tr>
+
       <tr>
         <div class="field">
           <td class="td_color"><%= f.label :パスワード確認,class: "label_name" %><br /></td>
@@ -78,5 +83,6 @@
       <%= f.submit "確認",class: "signup_btn" %>
     </div>
     <% end %>
+
     <%= render "users/shared/links" %>
 </section>

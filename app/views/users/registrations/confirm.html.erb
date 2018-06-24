@@ -50,20 +50,21 @@
     <%= f.hidden_field :email%>
   </tr>
   <tr>
-    <td class="td_color"><%= f.label :パスワード,class: "label_name" %></td>
-    <td class="td_text"><%= @user.password %></td>
+    <td class="td_color"><% f.label :パスワード,class: "label_name" %></td>
+    <td class="td_text"><% @user.password %></td>
     <%= f.hidden_field :password%>
   </tr>
+
 </table>
 <div class="back_actions">
-    <%= link_to "編集ページに戻る", new_user_registration_path %>
+    <%= link_to "編集ページに戻る",  '/users/sign_up/back' %>
   </div>
 <div class="headline_box">
   <h2 class="Agreement_headline">利用規約</h2>
 </div>
 <div class="Agreement">
     利用規約
-  この利用規約（以下，「本規約」といいます。）は，＿＿＿＿＿（以下，「当社」といいます。）がこのウェブサイト上で提供するサービス（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。
+  この利用規約（以下，「本規約」といいます。）は，SQUARE MISIC（以下，「当社」といいます。）がこのウェブサイト上で提供するサービス（以下，「本サービス」といいます。）の利用条件を定めるものです。登録ユーザーの皆さま（以下，「ユーザー」といいます。）には，本規約に従って，本サービスをご利用いただきます。
 
   第1条（適用）
   本規約は，ユーザーと当社との間の本サービスの利用に関わる一切の関係に適用されるものとします。
@@ -126,12 +127,15 @@
   以上
 </div>
 <div class="checkbox_container">
-  <input type="checkbox"  class="checkbox"><p class="checkbox_text">規約に同意する</p>
+  <input type="checkbox"  class="checkbox" id="agree-check"><p class="checkbox_text">規約に同意する</p>
 </div>
 
 
+
+
   <div class="actions">
-    <%= f.submit "登録",class: "signup_btn" %>
+    <%= f.submit "登録",class: "signup_btn",id: "submit-btn" %>
+
   </div>
 
 <% end %>

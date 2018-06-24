@@ -14,4 +14,21 @@
   //= require jquery
   //= require bootstrap-sprockets
   //= require_tree .
+  $(function() {
 
+      agreeText();
+
+      $(':checkbox').change(function(){
+
+          agreeText();
+      });
+  });
+
+
+  function agreeText() {
+      if($('#agree-check').is(':checked')) {
+          $('#submit-btn').prop('disabled', false);
+      } else {
+          $('#submit-btn').prop('disabled', true);
+      }
+  }

@@ -1,7 +1,6 @@
 Rails.application.routes.draw do
 
   get 'genres/show'
-
   get '/users/:id/soft_delete' => 'users#soft_delete'
   get '/users/:id/restoration' => 'users#restoration'
   devise_scope :user do
@@ -15,11 +14,11 @@ Rails.application.routes.draw do
 
   devise_scope :user do
   post 'users/sign_up/confirm' => 'users/registrations#confirm'
-
+  get'users/sign_up/back' => 'users/registrations#back'
   end
 
    get "/orders" => "orders#index"
-  
+
    get "/orders/:id/complete" => "orders#complete"
   resources :users, only: [:index, :show, :edit, :update] do
     resources :orders , only: [:new, :create, :update, :destroy, :show]

@@ -93,7 +93,7 @@
 .td_color_pass {
   padding-bottom: 10px;
   background-color: #eeeeee;
-  width: 200px;
+  width: 220px;
 }
   /*ログイン画面*/
  .login_container {
@@ -111,7 +111,7 @@
 }
 .td_color {
   background-color: #eeeeee;
-  width: 200px;
+  width: 220px;
 
 }
 .post_btn, .change_btn, .signup_btn, .edit_btn{
@@ -331,24 +331,107 @@
 .link_tag_1 {
   padding-top: 10px;
 }
+.user-show, .user-box {
+  margin-bottom: 30px
+}
+.user-show-headline , .user-box-headline{
+  color: white;
+  background-color: black;
 
+}
+.th-purchase {
+  vertical-align: middle;
+}
 
+.table-striped th {
+  text-align: center;
+}
+.user-show .table-striped {
 
+  margin: 0 auto;
+}
+.table-striped img {
+  padding: 10px 0;
+}
 
+.order_content {
+  width: 700px;
+  margin: 0 auto;
+  border: 1px solid;
+  margin-bottom: 20px;
+  height: 188px;
+}
+.order_content img {
+  margin: 10px 0 10px 10px;
+}
+.testtest {
+  background-color: #eeeeee;
+  height: 68px;
+}
+.test {
+  float: left;
+  text-align: left;
+  width: 100px;
+  margin-right: 10px;
+  margin-left: 10px;
+}
+.test_2 {
+  float: right;
+  width: 120px;
+  text-align: left;
+  margin-right: 10px;
+}
+.text_3 {
+  float: left;
+  width: 100px;
+  text-align: left;
+  margin-right: 10px;
+}
+.test_4 {
+  float: right;
+  width: 100px;
+  text-align: left;
+  margin-right: 10px;
+}
+.test_5 {
+  height: 120px;
+}
+.test_6 {
+  float: left;
+}
+.test_7 {
+  // display: inline-block;
 
+}
+.test_8 {
+  // display: inline-block;
 
+}
+.asd {
+  width: 400px;
+  margin-left: 10px;
+  text-align: left;
+  float: left;
+}
+.test_10 {
+  display: inline-block;
+  margin: 50px 0;
+  padding-right: 10px;
+  float: right;
+  width: 130px;
+  text-align: left;
+  font-size: 18px;
+}
+.headline_box_2 {
+  background-color: black;
 
+  margin: 0 auto;
+}
+.mypage_headline {
+  color: white;
+  padding-left: 10px;
 
-
-
-
-
-
-
-
-
-
-
+}
 
 /*以下　岡田*/
 /*header用のCSS*/

@@ -36,13 +36,30 @@
                      </div>
                    <div class="col-md-1 cart_item_box"><%= link_to '削除', product_cart_item_path(:product_id => cart_item.product.id, :id => cart_item.id), method: :delete, class: "btn btn-danger" %>
                 </div>
-             </div>
+
+                <div class="col-md-2 cart_item_box">
+                  <% @subtotal = cart_item.product.product_price*cart_item.cart_quantity %>
+                  小計:<%= @subtotal.to_s(:delimited) %> 円
+                  <% @total_price += cart_item.product.product_price*cart_item.cart_quantity %>
+
+                </div>
+                <div class="col-md-1 cart_item_box"><%= link_to '削除', product_cart_item_path(:product_id => cart_item.product.id, :id => cart_item.id), method: :delete, class: "btn btn-danger" %>
+                </div>
+              </div>
+
             <% end %>
             <div class="row">
               <div class="col-md-9"></div>
               <div class="col-md-3">
                 <p>
-                  合計金額：<%= @total_price.to_s(:delimited) %>円
+                  <% if @total_price >= 10000 %>
+                  <% down_price=@total_price *0.1 %>
+                  <% @total_price-=down_price %>
+                  <p>割引額 : -<%= down_price.floor.to_s(:delimited) %>円</p>
+                  <p>合計金額：<%= @total_price.floor.to_s(:delimited) %>円</p>
+                  <% else %>
+                  合計金額：<%= @total_price.floor.to_s(:delimited) %>円
+                  <% end %>
                 </p>
               </div>
             </div>

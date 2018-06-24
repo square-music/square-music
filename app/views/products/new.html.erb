@@ -3,11 +3,11 @@
 		<div class="col-lg-2 product_new_side"></div>
 		<div class="col-lg-8 product_new_main">
 			<div class="row product_new_topbottom">
-				<div class="product_new_heading">
-					<h1>商品登録</h1>
-				</div>
 			</div>
 			<div class="row product_new_form">
+				<div class="product_new_heading">
+					<h2 class="product_header">商品登録</h2>
+				</div>
 				<%= form_for @product, html: {class: 'form-horizontal'} do |f| %>
 					<div class="form-group">
 						<label for="product_name" class="control-label col-xs-3">商品名</label>
@@ -77,7 +77,7 @@
 					<div class="form-group">
 						<label for="disc_amount" class="control-label col-xs-3">ディスク枚数</label>
 						<div class="col-xs-3">
-							<%= f.number_field :disc_amount, min: 0, class: 'form-control' %>
+							<%= f.number_field :disc_amount, min: 1, :value => 1, class: 'form-control' %>
 						</div>
 					</div>
 					<div class="form-group">

@@ -14,21 +14,19 @@
   background-color: black;
 }
 .product_new_topbottom{
-  height: 100px;
-  z-index: 1;
+  height: 50px;
 }
 
-.product_new_heading{
-  text-align: center;
-}
-.product_new_heading h1{
-  display: inline-block;
+.product_header{
+  padding:10px 0 10px 30px ;
+  margin: 0 0 30px 0 !important;
+  background-color: black;
+  color: white;
+  font-weight: 600;
 }
 .product_new_form{
   border: 1px solid gray;
-  border-radius: 10px;
-  box-shadow: 0 0 10px black;
-  padding-top: 50px;
+  box-shadow: 0 0 2px black;
 }
 /*product edit*/
 #help-block{
@@ -36,13 +34,15 @@
 }
 /*product_index*/
 .product_index_back{
-  background-color: #F2F2F2;
   word-break: break-all;
 }
 .product_index_main{
   background-color: white;
-  padding: 0 0 30px 0 !important;
-  margin-top: 50px;
+  padding: 0 !important;
+  margin: 50px 0 30px 0;
+  border-bottom: 1px solid gray;
+  border-right: 1px solid gray;
+  border-left:1px solid gray;
 }
 .pi_title{
   background-color: black;
@@ -51,15 +51,26 @@
   margin-top:0 !important;
   font-weight: 600;
 }
+
 .pi_box{
   border-bottom: 1px solid gray;
-  height: 110px;
-  margin: 0px 30px;
+  margin: 0px 15px;
+}
+.product_index_main .row:last-child .pi_box{
+  border-bottom: none;
+  margin: 0px 15px;
 }
 .pi_image{
   display: inline-block;
   box-shadow: 0 0 5px gray;
   margin: 10px 0 0 10px;
+}
+.pi_pname{
+  margin-top: 0 !important;
+}
+.pi_delete{
+  font-weight: 600;
+  color: red;
 }
 .pi_aname{
   font-size:18px;

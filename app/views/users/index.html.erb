@@ -1,17 +1,33 @@
-<div class="purchase">
- <div class="container-fulid">
+<div class="container-fulid">
   <div class="row">
     <div class="col-lg-1">
-     </div>
+    </div>
     <div class="col-lg-10">
-      <div class="order_index">
-        <h2>ユーザー一覧</h2>
+      <div class="row user_search">
+        <div class="col-lg-8"></div>
+        <div class="col-lg-4">
+          <%= search_form_for @search, html: {class: 'form-inline'} do |f| %>
+            <%= f.label :user_name_or_email_or_address_or_user_phonetic_cont, "ユーザー情報検索" %>
+            <%= f.search_field :user_name_or_email_or_address_or_user_phonetic_cont, class:'form-control', :size => '30' %>
+            <br>
+            <label class="radio-inline">指定なし</label>
+            <%= f.radio_button :delete_flag_eq, '', {:checked => true} %>
+            <label class="radio-inline">会員</label>
+            <%= f.radio_button :delete_flag_eq, false %>
+            <label class="radio-inline">退会済み</label>
+            <%= f.radio_button :delete_flag_eq, true %>
+            <%= f.submit "検索" , class: 'btn btn-default btn-sm user-btn' %>
+          <% end %>
+        </div>
+      </div>
+      <div class="user_index">
+        <h2 class="user_header">ユーザー一覧</h2>
         <table class="table table-striped order_index_table">
           <thead class="order_table_head">
             <tr>
-              <th class="col-sm-2 order-index-th">ID</th>
+              <th class="col-sm-1 order-index-th">ID</th>
               <th class="col-sm-3 order-index-th">氏名</th>
-              <th class="col-sm-3 order-index-th">住所</th>
+              <th class="col-sm-4 order-index-th">住所</th>
               <th class="col-sm-3 order-index-th">メールアドレス</th>
               <th class="col-sm-1 order-index-th"></th>
             </tr>
@@ -28,8 +44,11 @@
               <td class="order_index_td"><%= user.user_name %></td>
               <td class="order_index_td"><%= user.address %></td>
               <td class="order_index_td"><%= user.email %></td>
-              <td class="order_index_td show_link_btn"><div><%= link_to "詳細",user_path(user.id)%></div>
-           </td>
+              <td class="order_index_td show_link_btn">
+                <div>
+                  <%= link_to "詳細",user_path(user.id)%>
+                </div>
+              </td>
             </tr>
           <% end %>
           </tbody>
@@ -40,5 +59,3 @@
     </div>
   </div>
  </div>
-</div>
-<div class="link3"><%= link_to "ログアウト", destroy_user_session_path, method: :delete %></div>

@@ -1,12 +1,19 @@
 <div class="container-fulid">
 	<div class="row">
+		<h2 class=" tn_header">曲名登録</h2>
+	<div class="row">
 		<div class="col-lg-1"></div>
-		<div class="col-lg-10">
-			<h1>Tunes#new</h1>
-			<p>product_id:<%= @disc.product.id %> /disc_id:<%= @disc.id %> /disc_number:<%= @disc.disc_number %></p>
+		<div class='col-lg-2 tn_side'>
+			<div>
+				<h2 class="tn_dn">Disc<%= @disc.disc_number %></h2>
+				<%= attachment_image_tag @product, :image, :fill, 150, 150, format: 'jpeg', fallback: 'no_image.jpg', :size => '200x200' ,class: 'tn_image' %>
+				<h3><%= @product.product_name %></h3>
+				<h4><%= @product.artist.artist_name %></h4>
+			</div>
+		</div>
+		<div class="col-lg-8 tn_main">
 			<% if @tunes.present? %>
 			<table class="table table-striped tune_new_table">
-				<h2>Tunes</h2>
 				<thead class="tune_table_head">
 					<tr>
 						<th class="col-sm-2">曲順</th>
@@ -21,25 +28,34 @@
 							<td><%= tune.tune_number %></td>
 							<td><%= tune.tune_name %></td>
 							<td><%= tune.artist.artist_name %></td>
-							<td><%= link_to "delete", disc_tune_path(@disc.id, tune.id),  method: :delete, class: "btn btn-danger btn-sm" %></td>
+							<td><%= link_to "delete", disc_tune_path(@disc.id, tune.id),  method: :delete, class: "btn btn-danger btn-sm tn_delete" %></td>
 						</tr>
 					<% end %>
 				</tbody>
 			</table>
+			<% else %>
+				<div class="">
+				</div>
 			<% end %>
-			<div class="row">
-				<%= form_tag(disc_tunes_path, method: :post) do %>
+			<div class="row tn_form">
+				<%= form_for [@disc,@tune] do |f| %>
 					<div class="form-group tune-form-group col-xs-1">
 						<label for="tune_number">曲順</label>
-						<%= number_field_tag :tune_number,'', class: "form-control" %>
+						<% if @tunes.present? %>
+							<%= f.number_field :tune_number, class: "form-control", :value => @last_tune.tune_number.to_i+1, min: 1 %>
+						<% else %>
+							<%= f.number_field :tune_number, class: "form-control", :value =>1 %>
+						<% end %>
+
 					</div>
 					<div class="form-group tune-form-group col-lg-3">
 						<label for="tune_name">曲名</label>
-						<%= text_field_tag :tune_name,'', class: "form-control" %>
+						<%= f.text_field :tune_name, class: "form-control" %>
 					</div>
+					<%= fields_for @artist do |a| %>
 					<div class="form-group tune-form-group col-lg-3">
 						<label for="artist_name">アーティスト</label>
-						<%= text_field_tag :artist_name,'', :list => "artist_list", :autocomplete => "off", class: "form-control" %>
+						<%= a.text_field :artist_name, :list => "artist_list", :autocomplete => "off", class: "form-control" %>
 						<datalist id="artist_list">
 							<% @artists.each do |artist| %>
 								<option value="<%= artist.artist_name %>"><%= artist.artist_name %></option>
@@ -48,25 +64,42 @@
 					</div>
 					<div class="form-group tune-form-group col-lg-3">
 						<label for="artist_phonetic">ふりがな</label>
-						<%= text_field_tag :artist_phonetic,'', :autocomplete => "off", class: "form-control" %>
+						<%= a.text_field :artist_phonetic, :autocomplete => "off", class: "form-control" %>
 					</div>
+					<% end %>
 					<div class="form-group tune-new-btn col-lg-1">
-						<%= submit_tag '登録', class: "btn btn-primary" %>
+						<%= f.submit '登録', class: "btn btn-primary" %>
 					</div>
 				<% end %>
 			</div>
 			<div class="row tune_new_navi">
 				<div class="tune_new_navi_list">
-					<% unless @discs.count == 1 %>
-						<h4>
+					<div class="col-lg-7"></div>
+					<div class="col-lg-3 tn_disc_box">
+						<% unless @discs.count == 1 %>
 							<% @discs.each do |disc| %>
-								<%= link_to "Disc#{disc.disc_number}", new_disc_tune_path(disc.id) %>
+							<span>
+								<%= link_to "Disc#{disc.disc_number}", new_disc_tune_path(disc.id), class: 'tn_disc' %>
+							</span>
 							<% end %>
-						</h4>
 					<% end %>
-					<%= link_to "入力終了", products_path, class: "btn btn-success" %>
+					</div>
+					<div class="col-lg-2">
+						<%= link_to "商品詳細へ", product_path(@product), class: "btn btn-success tn_top_btn" %>
+					</div>
 				</div>
 			</div>
+			<% if @tunes.count == 0 %>
+			<div class="row tn0"></div>
+			<% elsif @tunes.count == 1 %>
+			<div class="row tn1"></div>
+			<% elsif @tunes.count == 2 %>
+			<div class="row tn2"></div>
+			<% elsif @tunes.count == 3 %>
+			<div class="row tn3"></div>
+			<% elsif @tunes.count == 4 %>
+			<div class="row tn4"></div>
+			<% end %>
 		</div>
 		<div class="col-lg-1"></div>
 	</div>

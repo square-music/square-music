@@ -6,6 +6,7 @@ class ContactsController < ApplicationController
 
 	def index
 		@contact = Contact.all
+		@user = User.find(params :user_id)
 	end
 
 	def create
@@ -22,7 +23,7 @@ class ContactsController < ApplicationController
 	end
 
 	def contact_params
-        params.require(:contact).permit(:user_id, :order_number, :type)
+        params.require(:contact).permit(:user_id, :content, :type)
       end
       
 end

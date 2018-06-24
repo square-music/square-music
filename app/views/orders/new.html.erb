@@ -55,25 +55,25 @@
 	         <% @total_quantity += cart_item.cart_quantity %>
 	         	<% end %>
 
-         	<% end %>
+         	
       	<table class="price-table">
 		　<tr>
 		　　<td>商品合計数 </td>
 		　　<td><%= @total_quantity %></td>
 		　</tr>
-			<% if @total_price >= 10000 %>
-		  <% down_price=@total_price *0.1 %>
-		  <tr>
-			 	<td>割引額</td>
-				<td> -<%= down_price.floor.to_s(:delimited) %>円</td>
-		  </tr>
-			<% @total_price -= down_price %>
-		　<tr>
-		　　<td>ご請求額 </td>
-				<td> <%= @total_price.floor.to_s(:delimited) %>円</td>
-				<% else %>
-				<td> <%= @total_price.floor.to_s(:delimited) %>円</td>
-				<% end %>
+		<% if @total_price >= 10000 %>
+		<% down_price=@total_price *0.1 %>
+		<tr>
+			<td>割引額</td>
+			<td> -<%= down_price.floor.to_s(:delimited) %>円</td>
+		</tr>
+		<% @total_price -= down_price %>
+	　<tr>
+	　　<td>ご請求額 </td>
+			<td> <%= @total_price.floor.to_s(:delimited) %>円</td>
+			<% else %>
+			<td> <%= @total_price.floor.to_s(:delimited) %>円</td>
+			<% end %>
 		　　 <%= f.hidden_field :order_number, :value => rand(1..9).to_s + "-" + rand(1000..9999).to_s + "-" + rand(1000..9999).to_s %>
 			<%= f.hidden_field :total_price, :value =>"#{@total_price}" %>
 			<%= f.hidden_field :status_id, :value =>1 %>

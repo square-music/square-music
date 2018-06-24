@@ -3,11 +3,11 @@
 		<div class="col-lg-2 product_new_side"></div>
 		<div class="col-lg-8 product_new_main">
 			<div class="row product_new_topbottom">
-				<div class="product_new_heading">
-					<h1>商品情報編集</h1>
-				</div>
 			</div>
 			<div class="row product_new_form">
+				<div class="product_new_heading">
+					<h2 class="product_header">商品情報編集</h2>
+				</div>
 				<%= form_for @product, html: {class: 'form-horizontal'} do |f| %>
 					<div class="form-group">
 						<label for="product_name" class="control-label col-xs-3">商品名</label>
@@ -85,8 +85,11 @@
 							</h4>
 						</div>
 						<% end %>
-						<div class="col-xs-2">
-							<%= link_to 'Disc追加', "/products/#{@product.id}/discs" , method: :post, class: "btn btn-success", data: {confirm: 'この商品にDiscを追加しますか'} %>
+						<div class="col-xs-1">
+							<%= link_to 'Disc追加', "/products/#{@product.id}/discs" , method: :post, class: "btn btn-sm btn-success", data: {confirm: 'この商品にDiscを追加しますか？'} %>
+						</div>
+						<div class="col-xs-1">
+							<%= link_to 'Disc削除', "/products/#{@product.id}/discs/#{@disc.id}" , method: :delete, class: "btn btn-danger btn-sm", data: {confirm: "Disc#{@disc.disc_number}を削除しますか？"} %>
 						</div>
 					</div>
 					<div class="form-group">
@@ -115,9 +118,14 @@
 						</div>
 					</div>
 					<div class="form-group">
-						<div class="col-xs-offset-9 col-xs-3">
-							<%= f.submit '登録', class: "btn btn-primary" %>
+						<div class="col-xs-offset-9 col-xs-1">
+							<%= f.submit '登録', class: "btn btn-lg btn-primary" %>
 						</div>
+						<div class="col-xs-2">
+						<%if @product.delete_flag == false %>
+						<a><%= link_to '削除', product_path(@product), method: :delete, class: 'btn btn-sm btn-danger', data: {confirm: "この商品を削除しますか？"}  %></a>
+						<% end %>
+					</div>
 					</div>
 				<% end %>
 			</div>

@@ -31,7 +31,7 @@
 			    </div>
 			  <%= form_for [@product, @cart_item] do |f| %>
 				<div class="quantity-setting">
-				 個数選択<%= f.number_field :cart_quantity, class: 'form-control', min: 1 ,max: @product.stock %>
+				 個数選択<%= f.number_field :cart_quantity, class: 'form-control', min: 1 ,max: @product.stock, :value => 1 %>
 				</div>
 				<div class="in-the-cart">
 			　<%= f.submit "カートに入れる", class: "btn btn-primary" %>

@@ -761,7 +761,7 @@ header{
 
 /*コメント*/
 .product-comment{
-  width: 85%;
+  width: 93%;
   margin: 10px 0 0 2%;
   background-color: white;
   border: solid black 1px;
@@ -775,11 +775,10 @@ header{
   border-radius: 5px
 }
 .product-comment-newbox{
-  width: 85%;
-  height:180px;
+  width: 93%;
+  height: 300px;
   margin: 0 0 0 2%;
-  background: -webkit-linear-gradient(top, #whitesmoke 0%, whitesmoke 100%);/*グラデーション*/
-  background: linear-gradient(to bottom, whitesmoke 0%, #aaaaaa 100%);/*グラデーション*/
+  background-color: white;
   margin-right: 3px;
   border-left: solid black 1px;
   border-right: solid black 1px;
@@ -795,7 +794,9 @@ header{
 .comment-box {
   margin:5px 0;
 }
-
+.star-color{
+  color: #FFCC00;
+}
 
 
 
@@ -886,10 +887,10 @@ header{
 }
 .evaluation label{
   position: relative;
-  padding: 10px 10px 0;
+  padding: 2px 2px 0;
   color: gray;
   cursor: pointer;
-  font-size: 50px;
+  font-size: 25px;
 }
 .evaluation label .text{
   position: absolute;

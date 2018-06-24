@@ -17,6 +17,13 @@
   border-radius: 5px;
   border-color:#dcdcdc;
 }
+.user_header{
+  padding:10px 0 10px 30px ;
+  margin: 0 0 0 0 !important;
+  background-color: black;
+  color: white;
+  font-weight: 600;
+}
 .user-box {
   background-color:white;
   text-align:center;
@@ -34,4 +41,15 @@
 .th-purchase {
   text-align:center !important;
   padding:0 !important;
+}
+.user-btn{
+  margin-left: 52px;
+}
+.user_index{
+  background-color: white;
+  margin-bottom: 50px;
+  border: 1px solid #F2F2F2;
+}
+.user_search{
+  margin-top: 50px;
 }

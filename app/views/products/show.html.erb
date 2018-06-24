@@ -1,14 +1,13 @@
 
 <!-- main部分 -->
 <div class="top-main clearfix">
-<div class="sidebar-space"></div>
-	<div class="genre-box">
+   <div class="sidebar-space"></div>
+	  <div class="genre-box">
 		<div class="genre-title">
 			<p class="genre-title-text">カテゴリーで探す</p>
-		</div>
-		<ul class="genre-list">
-<!-- ジャンル検索 -->
-
+		  </div>
+		  <ul class="genre-list">
+		  	<!-- ジャンル検索 -->
 			<% @genres.each do |genre| %>
 				<%=link_to genre_path(genre), :style=>"text-decoration: none;" do %>
 				<li class="genre-list-item">
@@ -17,8 +16,9 @@
 				<% end %>
 			<% end %>
 		</ul>
-	</div>
+	   </div>
 	<div class="top-box2">
+		<%= flash[:complete] %>
 		<div class="product-detail clearfix">
 			<div class="product-detail-image">
 				<%= attachment_image_tag @product, :image, :fill, 200, 200, format: 'jpeg' %>
@@ -57,9 +57,8 @@
 			<div class="product-detail-field2">
 				<%= @product.description %>
 			</div>
-
+				<% @product.discs.each do |disc| %>
 			<div class="product-detail-field3">
-					<% @product.discs.each do |disc| %>
 					<table class=" table table-striped">
 						<th>Disc<%= disc.disc_number %></th>
 						  <br>
@@ -91,6 +90,7 @@
 			    <% end %>
 		     <ol>
 			     <% @product.reviews.each do |review| %>
+			  <li class="user-comment">
 			    <div>
 				  ユーザー：<%= review.user.user_name %>
 				</div>

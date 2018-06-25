@@ -22,6 +22,7 @@
 		<%= link_to cart_path(current_user.cart) do %><div class="link1">カートを確認</div><% end %>
 		<div class="link2"><%= link_to "マイページ", user_path(current_user.id), :style=>"color:white;" %></div>
 <!-- 課題提出までend -->
+
 		<div class="link3"><%= link_to "USER一覧", users_path, :style=>"color:white;" %></div>
 		<div class="link2"><%= link_to "購入履歴一覧", orders_path, :style=>"color:white;" %></div>
 		<div class="link3"><%= link_to "登録商品一覧", products_path, :style=>"color:white;" %></div>
@@ -80,10 +81,10 @@
 </header>
 
 
-
 <% if notice %>
 　　<p class="message"><%= notice %></p>
 <% end %>
+
 <% if alert %>
    <p class="message"><%= alert %></p>
 <% end %>

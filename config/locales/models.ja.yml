@@ -1,0 +1,13 @@
+ja:
+  activerecord:
+    attributes:
+      user:
+        email: メールアドレス
+        password: パスワード
+        user_name: 氏名
+        user_phonetic: フリガナ
+        postal: 郵便番号
+        address: 住所
+        tell: 電話番号
+        password_confirmation: 確認用パスワード
+        remember_me: 次回から自動的にログイン

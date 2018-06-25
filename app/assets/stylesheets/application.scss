@@ -156,6 +156,13 @@
   margin: 20px 0;
 }
 /*新規登録*/
+.sign_up_box {
+  padding: 60px 0;
+}
+.signup_container {
+  height: 745px;
+}
+
 .signup_headline {
   margin: 20px 0 ;
 }
@@ -186,7 +193,7 @@
   color: red;
 }
 .completion_headline {
-  margin: 10px auto;
+  margin: 20px auto;
   width: 1000px;
 }
 
@@ -254,13 +261,29 @@
 }
 
  /*確認画面*/
+ .user_completion {
+   height: 745px;
+   padding-top: 30px;
+ }
+ .user_confirm_container {
+   height: 745px;
+ }
+ .user_confirm_box {
+   padding: 20px 0;
+ }
 .td_text {
   padding-left: 5px;
 }
-
-
+.Agreement_headline {
+  margin: 10px 0;
+}
+.user_confirm_table_box {
+  margin-top: 20px;
+}
 .user_edit_container  {
   margin: 0 auto;
+  height: 745px;
+  padding-top: 30px;
 }
  /*unsubscribe_comment*/
 .unsubscribe_headsline {
@@ -441,7 +464,10 @@
   margin: 20px 0 30px 0;
 }
 
-
+/*ユーザー編集*/
+.useredit_headline {
+  margin: 20px 0;
+}
 
 
 

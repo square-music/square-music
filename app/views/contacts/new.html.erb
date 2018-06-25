@@ -6,10 +6,10 @@
 	    <h2 class="contact-h2">お問い合わせフォーム</h2>
          <div class="contact-main">
            <%= form_for @contact do |d| %>
-           問い合わせ概要
-           <%= d.text_field :type ,class: 'form-control'%>
-           問い合わせ詳細
-           <%= d.text_area :content ,class: 'form-control' %>
+           <h4>・タイトル</h4>
+           <%= d.text_field :type ,class: 'form-control',:placeholder =>"商品について　など" %>
+           <h4>・詳細</h4>
+           <%= d.text_area :content ,class: 'form-control',:placeholder =>"購入した商品については、購入番号もおしらせください。"%><br>
           <%= d.submit "問い合わせる" ,class: "btn btn-success" %>
            <% end %>
        	   </div>

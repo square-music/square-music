@@ -10,11 +10,11 @@ class CartItemsController < ApplicationController
 			cart_item.cart_quantity += i.to_i
 		    cart_item.save
 			redirect_to product_path(product)
-			 flash[:complete] = "カートに商品が入りました"
+			 flash[:success] = "カートに商品が入りました"
 			 return
 		    else
 		    redirect_to product_path(product)
-		     flash[:complete] = "もっと買ってください"
+		     flash[:warning] = "もっと買ってください"
 		     return
 		    end
 		else
@@ -23,11 +23,11 @@ class CartItemsController < ApplicationController
 			new_cart_item.cart_id = cart.id
 			if new_cart_item.save
 			 redirect_to product_path(product)
-			 flash[:complete] = "カートに商品が入りました"
+			 flash[:success] = "カートに商品が入りました"
 			return
 		    else
 		     redirect_to product_path(product)
-		     flash[:complete] = "もっと買ってください"
+		     flash[:warning] = "もっと買ってください"
 		    return
 		    end
 		end
@@ -44,6 +44,9 @@ class CartItemsController < ApplicationController
 		cart_item = CartItem.find(params[:id])
 		cart = Cart.find_by(user_id: current_user.id)
 		cart_item.update(cart_item_params)
+		if cart_item.cart_quantity == 0
+			cart_item.destroy
+		end
 		redirect_to cart_path(cart.id)
 	end
 

@@ -47,9 +47,13 @@
                 <div class="order-address .order-address1">
                       <h5>送付先住所</h5>
                      <div>
-                       <h4> <%= @user.address%></h4>
+                       <h4> <%= @order.sub_address.sub_address %></h4>
                     </div>
                  </div>
+                 <div class="-price">割引額
+                  <div>-ごひゃくえん
+                  </div>
+                </div>
                 <div class="price-box">
                      <h5>請求金額</h5>
                   <div>
@@ -68,7 +72,7 @@
        <div class="purchase2">
          <div class="purchase2-image">
             <%= link_to product_path(o.product) do %>
-            <%= attachment_image_tag o.product, :image, :fill, 117, 117, format: 'jpeg' %>
+            <%= attachment_image_tag o.product, :image, :fill, 117, 117, format: 'jpeg',fallback: 'no_image.jpg', :size => '117x117' %>
             <% end %>
            </div>
               <div class="purchase-artist-box">
@@ -79,35 +83,32 @@
                      <h4> <%= o.product.artist.artist_name %></h4>
                    </div>
                    <div class="purchase-price">
-                  <h5>単価：<%= o.order_item_price %>円</h5>
+                  <h5>単価：<%= o.order_item_price.to_s(:delimited) %>円</h5>
                  </div>
                </div>
                 <div class="purchase-subtotal">
-                 <% @subtotal = o.order_item_price*o.order_quantity %>
-                <h4> 小計：<%= @subtotal.to_s(:delimited) %>円</h4>
+                   <% @subtotal = o.order_item_price*o.order_quantity %>
+                 <h5> 小計：<%= @subtotal.to_s(:delimited) %>円</h5>
               </div>
-               <div class="purchase-amount">
-              <h4>購入数：<%= o.order_quantity %></h4>
+            <div class="purchase-amount">
+              <h5>購入数：<%= o.order_quantity %></h5>
             </div>
          </div>
           <% end %>
-
-          <div class="mypage-link">
-             <%= link_to "マイページへ戻る", user_path(@user), class: "btn btn-info" %>
+             <div class="mypage-link">
+               <%= link_to "マイページへ戻る", user_path(@user), class: "btn btn-info" %>
              </div>
             <% if @order.status_id == 1 %>
             <%= form_for ([@user,@order]) do |s| %>
-                 <div class="cancel">
-                  <%= s.hidden_field :status_id, :value => 5 %>
-                  <%= s.submit "キャンセルリクエスト", class: "btn btn-warning" %>
-                 </div>
-                 <% end %>
-             <% end %>
+         <div class="cancel">
+            <%= s.hidden_field :status_id, :value => 5 %>
+            <%= s.submit "キャンセルリクエスト", class: "btn btn-warning" , data: { confirm: 'キャンセルリクエストを送信しますか?'} %>
+              </div>
+            <% end %>
+         <% end %>
        </div>
-    </div>
-
-    <div class="col-lg-1">
-    </div>
+     </div>
+    <div class="col-lg-1"></div>
   </div>
  </div>
 </div>

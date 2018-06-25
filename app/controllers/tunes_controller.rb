@@ -18,7 +18,7 @@ class TunesController < ApplicationController
 	  	tunes = Tune.where(disc_id: disc.id)
 	  	tunes.each do |t|
 	  		if t.tune_number == tune.tune_number
-	  			flash[:notice] = 'その曲順はすでに登録されています。'
+	  			flash[:warning] = 'その曲順はすでに登録されています。'
 	  			redirect_to new_disc_tune_path(disc.id)
 	  			return
 	  		end

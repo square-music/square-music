@@ -89,7 +89,7 @@
         <% if @item_count > 0%>
         <%= "他#{@item_count}点"%>
         <% end %>
-        <%= link_to "詳細","#"%>
+        <%= link_to "詳細",user_order_path(:user_id => current_user,:id => order.id)%>
       </div>
     </div>
 

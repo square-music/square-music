@@ -4,6 +4,7 @@
       <div class="col-lg-3">
       </div>
        <div class="order col-lg-6">
+       	<%= flash[:message] %>
          <h2 class="order-color">注文内容の確認</h2>
          <%= form_for([@user,@order]) do |f| %>
           <div class="order-box">
@@ -16,7 +17,7 @@
 	         <h4>送付先住所の入力</h4>
 	        <div class="address-form">
 	        	<%= fields_for(@sub_address) do |s| %>
-	        	<%= s.text_field :sub_address, class: 'form-control',:list =>"sub_address_list", :autocomplete => "off" %>
+	        	<%= s.text_field :sub_address, class: 'form-control',:list =>"sub_address_list", :autocomplete => "off",:value => "#{@user.address}" %>
 	        	<datalist id="sub_address_list">
 					<% @sub_addresses.each do |sub_address| %>
 						<option value="<%= sub_address.sub_address %>"><%= sub_address.sub_address %></option>
@@ -61,25 +62,27 @@
 		　　<td>商品合計数 </td>
 		　　<td><%= @total_quantity %></td>
 		　</tr>
-		<% if @total_price >= 10000 %>
-		<% down_price=@total_price *0.1 %>
-		<tr>
+		　　　　<% if @total_price >= 10000 %>
+		　　　　　<% down_price=@total_price *0.1 %>
+		　<tr>
 			<td>割引額</td>
 			<td> -<%= down_price.floor.to_s(:delimited) %>円</td>
-		</tr>
-		<% @total_price -= down_price %>
-	　<tr>
-	　　<td>ご請求額 </td>
-			<td> <%= @total_price.floor.to_s(:delimited) %>円</td>
+		　</tr>
+		　　　<% @total_price -= down_price %>
+	　　　<tr>
+	　　　　<td>ご請求額 </td>
+		　　<td> <%= @total_price.floor.to_s(:delimited) %>円</td>
 			<% else %>
+			<td>ご請求額 </td>
 			<td> <%= @total_price.floor.to_s(:delimited) %>円</td>
 			<% end %>
+
 		　　 <%= f.hidden_field :order_number, :value => rand(1..9).to_s + "-" + rand(1000..9999).to_s + "-" + rand(1000..9999).to_s %>
-			<%= f.hidden_field :total_price, :value =>"#{@total_price}" %>
 			<%= f.hidden_field :status_id, :value =>1 %>
+			 <%= f.hidden_field :total_price, :value =>"#{@total_price}" %>
 		　</tr>
 		 <tr>
-		  <td colspan="2"><%= f.submit "注文" %></td>
+		  <td colspan="2"><%= f.submit "注文を確定する",class: "btn btn-warning"%></td>
 		</tr>
 	　　</table>
 

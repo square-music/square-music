@@ -49,7 +49,7 @@
 .pic2 {
   width:300px;
   height:300px;
-  background-image:url("2.jpg");
+  background-image:url("3.jpg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -57,7 +57,7 @@
 .pic3 {
   width:300px;
   height:300px;
-  background-image:url("3.jpg");
+  background-image:url("4.jpg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -65,11 +65,21 @@
 .pic4 {
   width:300px;
   height:300px;
-  background-image:url("4.jpg");
+  background-image:url("can.jpg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -94,12 +104,14 @@
   background-color: #eeeeee;
   width: 220px;
 }
+
+
+
   /*ログイン画面*/
  .login_container {
    width: 800px;
    margin: 0 auto;
  }
-
 #user_email, #user_password,#user_current_password, #user_password_confirmation, #user_tell, #user_address, #user_postal, #user_user_name, #user_user_phonetic {
   width: 400px;
   margin-left: 5px;
@@ -111,7 +123,6 @@
 .td_color {
   background-color: #eeeeee;
   width: 220px;
-
 }
 .post_btn, .change_btn, .signup_btn, .edit_btn{
 
@@ -140,6 +151,10 @@
   line-height: 1.5;
   margin: 0 auto;
 }
+
+
+
+
   /*ログイン画面*/
  .login_container {
    width: 800px;
@@ -156,11 +171,13 @@
 .login_headline {
   margin: 20px 0;
 }
+
+
+
 /*新規登録*/
 .signup_headline {
   margin: 20px 0 ;
 }
-
 .em_text {
   padding-left: 5px;
 }
@@ -190,8 +207,6 @@
   margin: 10px auto;
   width: 1000px;
 }
-
-
 .text_1 {
   width: 800px;
   margin: 0 auto;
@@ -238,8 +253,10 @@
   width: 100px;
   height: 30px;
 }
-/*パスワードリマインダー編集*/
 
+
+
+/*パスワードリマインダー編集*/
 .password_reminder_headline {
   margin: 20px 0;
 }
@@ -254,15 +271,18 @@
   margin: 20px 0;
 }
 
+
+
  /*確認画面*/
 .td_text {
   padding-left: 5px;
 }
-
-
 .user_edit_container  {
   margin: 0 auto;
 }
+
+
+
  /*unsubscribe_comment*/
 .unsubscribe_headsline {
   margin: 20px 0;
@@ -284,8 +304,10 @@
   width: 600px;
   height: 300px;
 }
-/*user_confirm*/
 
+
+
+/*user_confirm*/
 .user_confirm_table {
   width: 700px;
   margin: 0 auto;
@@ -300,6 +322,9 @@
 .user_confirm_headline {
   margin: 20px 0;
 }
+
+
+
 /*ユーザー一覧*/
  .edit_link {
    padding-left: 50px;
@@ -319,7 +344,10 @@
   border-radius: 3px;
   padding: 2px;
 }
-// ユーザ詳細
+
+
+
+/*// ユーザ詳細*/
 .comment {
   padding-bottom: 20px;
 }
@@ -336,23 +364,19 @@
 .user-show-headline , .user-box-headline{
   color: white;
   background-color: black;
-
 }
 .th-purchase {
   vertical-align: middle;
 }
-
 .table-striped th {
   text-align: center;
 }
 .user-show .table-striped {
-
   margin: 0 auto;
 }
 .table-striped img {
   padding: 10px 0;
 }
-
 .order_content {
   width: 700px;
   margin: 0 auto;
@@ -398,7 +422,6 @@
 .order_content_5 {
   float: left;
 }
-
 .order_content_product {
   width: 400px;
   margin-left: 10px;
@@ -424,6 +447,16 @@
   padding-left: 10px;
 
 }
+
+
+
+
+
+
+
+
+
+
 
 /*以下　岡田*/
 /*header用のCSS*/
@@ -476,14 +509,14 @@ header{
   border-bottom: solid white 2px;
 
 }
-.header-text1{
-  color: white;
-  text-shadow: 3px 4px 6px gray,
-               0px -5px 16px gray;
-  padding: 0 0 0 60px;
+.header-logo{
+  background-image:url(main-logo.png);
+  height:40px;
+  width:275px;
   display: inline-block;
   position: relative;
-  bottom: 42px;
+  bottom: 26px;
+  margin-left:30px;
 }
 .header-text2{
   text-align: right;
@@ -514,6 +547,8 @@ header{
   bottom: 22px;
   left: 212px;
 }
+
+
 
 
 
@@ -756,6 +791,9 @@ header{
 }
 
 
+
+
+
 /*コメント*/
 .product-comment{
   width: 93%;
@@ -763,9 +801,13 @@ header{
   background-color: white;
   border: solid black 1px;
 }
+.comment-scroll {
+  overflow: scroll;
+  height:380px;
+}
 .review-count {
-  background: -webkit-linear-gradient(top, #whitesmoke 0%, whitesmoke 100%);/*グラデーション*/
   background: linear-gradient(to bottom, whitesmoke 0%, #aaaaaa 100%);/*グラデーション*/
+  font-size:18px;
 }
 .review {
   border:solid 1px;
@@ -773,13 +815,13 @@ header{
 }
 .product-comment-newbox{
   width: 93%;
-  height: 300px;
+  height: 238px;
   margin: 0 0 0 2%;
   background-color: white;
   margin-right: 3px;
-  border-left: solid black 1px;
-  border-right: solid black 1px;
-  border-bottom: solid black 1px;
+  border-left: solid  1px;
+  border-right: solid 1px;
+  border-bottom: solid 1px;
 }
 .user-comment {
   list-style: none;
@@ -791,9 +833,45 @@ header{
 .comment-box {
   margin:5px 0;
 }
+.review-comment {
+  background: linear-gradient(to bottom, whitesmoke 0%, #aaaaaa 100%);
+  font-size:18px;
+}
 .star-color{
   color: #FFCC00;
 }
+/*星*/
+.evaluation{
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: center;
+}
+.evaluation input[type='radio']{
+  display: none;
+}
+.evaluation label{
+  position: relative;
+  padding: 2px 2px 0;
+  color: gray;
+  cursor: pointer;
+  font-size: 25px;
+}
+.evaluation label .text{
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  text-align: center;
+  font-size: 12px;
+  color: gray;
+}
+.evaluation label:hover,
+.evaluation label:hover ~ label,
+.evaluation input[type='radio']:checked ~ label{
+  color: #ffcc00;
+}
+
+
 
 
 
@@ -872,38 +950,12 @@ header{
   left : 0.5em;
   color: #FF6600;
 }
-/*テスト*/
-.evaluation{
-  display: flex;
-  flex-direction: row-reverse;
-  justify-content: center;
-}
-.evaluation input[type='radio']{
-  display: none;
-}
-.evaluation label{
-  position: relative;
-  padding: 2px 2px 0;
-  color: gray;
-  cursor: pointer;
-  font-size: 25px;
-}
-.evaluation label .text{
-  position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  text-align: center;
-  font-size: 12px;
-  color: gray;
-}
-.evaluation label:hover,
-.evaluation label:hover ~ label,
-.evaluation input[type='radio']:checked ~ label{
-  color: #ffcc00;
-}
 
-/*テスト終わり*/
+
+
+
+
+
 
 /*footer用のCSS*/
 /*footer用のCSS*/
@@ -919,7 +971,7 @@ footer {
 .footer-link {
   color:white;
   float:left;
-  margin:40px 0 0 55px;
+  margin:40px 0 0 90px;
 }
 .footer-logo{
   width:400px;

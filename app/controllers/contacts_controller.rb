@@ -5,18 +5,25 @@ class ContactsController < ApplicationController
 	end
 
 	def index
-		@contact = Contact.all
-		@user = User.find(params :user_id)
+		@contacts = Contact.all.reverse_order
 	end
 
 	def create
-		contact = Contact.ner(contact_params)
+		contact = Contact.new(contact_params)
+		contact.user_id = current_user.id
+		 if contact.save
+		redirect_to root_path
+		 flash[:success] = "問い合わせ情報を送信しました"
+		else
+		redirect_to new_contact_path
+		flash[:danger] = "内容を記入してください。"
+		end
 	end
 
 	def destroy
-	end
-
-	def about
+		contact = Contact.find(params[:id])
+		contact.destroy
+		redirect_to contacts_path
 	end
 
 	def question

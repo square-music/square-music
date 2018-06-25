@@ -100,6 +100,7 @@
  .login_container {
    width: 800px;
    margin: 0 auto;
+   height: 745px;
  }
 
 #user_email, #user_password,#user_current_password, #user_password_confirmation, #user_tell, #user_address, #user_postal, #user_user_name, #user_user_phonetic {
@@ -146,6 +147,7 @@
  .login_container {
    width: 800px;
    margin: 0 auto;
+   padding-top: 50px;
  }
 .login_btn {
   background-color: black;
@@ -248,6 +250,10 @@
   height: 30px;
 }
 /*パスワードリマインダー編集*/
+.password_reminder_container {
+  height: 745px;
+  padding-top: 50px;
+}
 
 .password_reminder_headline {
   margin: 20px 0;
@@ -266,7 +272,7 @@
  /*確認画面*/
  .user_completion {
    height: 745px;
-   padding-top: 30px;
+   padding-top: 50px;
  }
  .user_confirm_container {
    height: 745px;
@@ -325,6 +331,15 @@
 .user_confirm_headline {
   margin: 20px 0;
 }
+/*管理者新規*/
+.admin_login_container  {
+  height: 745px;
+  padding-top: 50px;
+}
+.admin_signup_container {
+  height: 745px;
+  padding-top: 50px;
+}
 /*ユーザー一覧*/
  .edit_link {
    padding-left: 50px;
@@ -364,7 +379,6 @@
 .user-show-headline , .user-box-headline{
   color: white;
   background-color: black;
-
 }
 .th-purchase {
   vertical-align: middle;
@@ -452,16 +466,17 @@
 .mypage_headline {
   color: white;
   padding-left: 10px;
-
 }
 .td_user {
   width: 167px;
+  text-align: left;
 }
 .td_user_text {
   width: 191px;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  text-align: left;
 }
 .order_content_headline {
   margin: 20px 0 30px 0;

@@ -67,11 +67,11 @@
 <!-- 条件分岐終わり -->
 			<a href="/"><div class="header-logo"></div></a>
 			<div class="search-space">
-			<%= search_form_for @search, url: products_search_path  do |f| %>
+			<%= search_form_for @search, url: products_search_path, html: {class: 'form-inline'}  do |f| %>
 				<div>
-				<%= f.text_field :product_name_or_product_phonetic_cont, class: "search-form" %>
+				<%= f.text_field :product_name_or_product_phonetic_cont, class: "search-form form-control",:size => '30', placeholder: '商品名検索' %>
 				</div>
-				<div class="search-form-btn"><%= f.submit "Search" %></div>
+				<div class="search-form-btn"><%= f.submit "Search", class: 'btn btn-default btn-sm' %></div>
 			<% end %>
 		</div>
 	</div>

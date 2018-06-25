@@ -60,29 +60,29 @@
 
 		　<tbody>
       		    <tr>
-		　　			<td>商品数：</td>
+		　　			<td>商品数</td>
 		　　			<td><%= @total_quantity %>点</td>
 		　　     </tr>
 			<% if @total_price >= 10000 %>
 				<% @discount = @total_price*0.1 %>
 				<% @discount = @discount.floor %>
 				<tr>
-					<td>合計金額：</td>
+					<td>合計金額</td>
 					<td><%= @total_price.to_s(:delimited) %>円</td>
 				</tr>
 				<tr>
-					<td>まとめ買い割：</td>
+					<td>まとめ買い割</td>
 					<td class="c_discount">-<%= @discount.to_s(:delimited) %>円</td>
 				</tr>
 				<% @total_price -= @discount %>
 				<tr class="c_pay">
-					<th>支払金額：</th>
+					<th>支払金額（税込）</th>
 					<th><%= @total_price.to_s(:delimited)  %>円</th>
 				</tr>
 				<%= f.hidden_field :total_price, :value =>"#{@total_price}" %>
 			<% else %>
 				<tr>
-					<th>支払金額：</th>
+					<th>支払金額（税込）</th>
 					<th><%= @total_price.to_s(:delimited)  %>円</th>
 				</tr>
 				<%= f.hidden_field :total_price, :value =>"#{@total_price}" %>

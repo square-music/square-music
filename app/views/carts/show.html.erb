@@ -49,17 +49,17 @@
                 <table>
                   <tbody>
                     <tr>
-                      <td>合計金額：</td>
+                      <td>合計金額</td>
                       <td><%= @total_price.to_s(:delimited) %>円</td>
                     </tr>
                     <tr>
-                      <td>まとめ買い割：</td>
+                      <td>まとめ買い割</td>
                       <td class="c_discount">-<%= @discount.to_s(:delimited) %>円</td>
                     </tr>
                     <% @total_price -= @discount %>
                     <tr class="c_pay">
-                      <th>支払金額：</th>
-                      <th><%= @total_price.to_s(:delimited) %>円(税込）</th>
+                      <th>支払金額(税込）</th>
+                      <th><%= @total_price.to_s(:delimited) %>円</th>
                     </tr>
                   </tbody>
                 </table>
@@ -67,8 +67,8 @@
                   <table>
                     <tbody>
                       <tr>
-                        <th>支払金額：</th>
-                        <th><%= @total_price.to_s(:delimited) %>円(税込）</th>
+                        <th>支払金額(税込）</th>
+                        <th><%= @total_price.to_s(:delimited) %>円</th>
                     </tr>
                     </tbody>
                   </table>

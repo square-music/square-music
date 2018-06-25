@@ -38,21 +38,14 @@
   line-height:30px;
   float:left;
  }
- .price-box {
-  width:120px;
-  height:30px;
-  line-height:30px;
-  float:left;
-  margin-left:10px;
- }
  .order-address{
-  width:300px;
+  width:420px;
   height:30px;
   line-height:30px;
   float:left;
  }
  .order-address1 {
-  width:300px;
+  width:420px;
   float:left;
   line-height: none;
  }
@@ -112,6 +105,14 @@
 .mypage-link {
   margin-top:10px;
   float:left;
+}
+/*渡辺*/
+.os_table{
+  font-size: 20px;
+  margin-left: 40px;
+}
+.on_btn{
+  padding-top: 10px;
 }
 
 
@@ -237,10 +238,12 @@ margin:0 10px 10px 0;
 
 
 /*order/index*/
-
+.order_search{
+  margin-left: 80px;
+}
 .order_index{
   background-color: white;
-  margin: 50px 0;
+  margin-bottom: 100px;
   border: 1px solid #F2F2F2;
 }
 .order_index_table{

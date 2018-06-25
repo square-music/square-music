@@ -62,13 +62,13 @@
   <% order.order_items.each do |f| %>
   <% @item_count = order.order_items.count - 1 %>
   <div class="order_content  clearfix">
-    <div class="order_content_head clearfix">
+    <div class="order_content_head clearfix row">
       <div class="order_content_1">
         <h4>購入日</h4>
         <h4><%= order.created_at.strftime('%Y/%m/%d') %></h4>
       </div>
 
-      <div class="order_content_2">
+      <div class="order_content_2 ">
         <h4>合計金額</h4>
         <h4><%= order.total_price%>円</h4>
       </div>
@@ -82,9 +82,11 @@
       </div>
     </div>
     <div class="order_content_bottom clearfix">
-    <div class="order_content_5"><%= attachment_image_tag f.product, :image, :fill,100,100, format: 'jpeg' %></div>
-      <div class="order_content_product"><h4 class="order_content_headline"><%= f.product.product_name %></h4>
-      <h4><%= f.product.artist.artist_name %></h4></div>
+
+    <div class="order_content_5"><%= attachment_image_tag f.product, :image, :fill, 90, 90, format: 'jpeg', fallback: 'no_image.jpg', :size => '100x100' %></div>
+      <div class="order_content_product"><h3><%= f.product.product_name %></h3>
+      <h3 ><%= f.product.artist.artist_name %></h3></div>
+
       <div class="order_content_6">
         <% if @item_count > 0%>
         <%= "他#{@item_count}点"%>

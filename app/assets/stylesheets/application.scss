@@ -1071,17 +1071,22 @@ footer {
   background-color: black;
 }
 .footer {
+  width: 33%;
   color:white;
   float:left;
-  margin:20px 0 0 20px;
+  padding: 20px 0 0 20px;
 }
 .footer-link {
+  width: 33%;
   color:white;
   float:left;
-  margin:40px 0 0 90px;
+  padding: 40px 0 0 90px;
+}
+.footer-blank{
+  width:4%;
 }
 .footer-logo{
-  width:400px;
+  width: 29%;
   height:100px;
   float:right;
   margin-top:15px;

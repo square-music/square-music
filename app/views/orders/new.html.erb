@@ -57,6 +57,7 @@
 
          	<% end %>
       	<table class="price-table">
+
 		　<tbody>
       		    <tr>
 		　　			<td>商品数：</td>
@@ -85,6 +86,7 @@
 					<th><%= @total_price.to_s(:delimited)  %>円</th>
 				</tr>
 				<%= f.hidden_field :total_price, :value =>"#{@total_price}" %>
+
 			<% end %>
 		　　 <%= f.hidden_field :order_number, :value => rand(1..9).to_s + "-" + rand(1000..9999).to_s + "-" + rand(1000..9999).to_s %>
 			<%= f.hidden_field :status_id, :value =>1 %>

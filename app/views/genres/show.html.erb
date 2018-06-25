@@ -25,10 +25,12 @@
 
 		<div class="sarch-products-box1">
 			<%=link_to product_path(product), :style=>"text-decoration: none; color:black; " do %>
-				<div class="search-product-image"><%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg', fallback: 'no_image.jpg', :size => '150x150' %></div>
+
+
+				<div class="search-product-image"><%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpeg', fallback: 'no_image.jpg', :size => '150x150' %></div>
     		<div>
-    			<div class="search-product-name"><%= product.product_name %></div>
-    			<div class="search-product-artist"><%= product.artist.artist_name %></div>
+    			<div class="search-product-name"><%= product.product_name.truncate(18) %></div>
+    			<div class="search-product-artist"><%= product.artist.artist_name.truncate(18) %></div>
     			<div class="search-product-price"><%= product.product_price.to_s(:delimited) %>円</div>
     		</div>
    			<% end %>
@@ -39,6 +41,20 @@
 <div class="pagenate-space">
 	<%= paginate @page_products, class: "pagenate" %>
 </div>
+<div class="newproduct-space">
+			<div class="product-heading">新着一覧</div>
+			<% @new.order("release DESC").first(5).each do |t| %>
+			<%= link_to product_path(t), :style=>"text-decoration: none; color:black;" do %>
+			<div class="rankin-product">
+				<div class="ranking-integer">発売日：<%= t.release %></div>
+				<div class="ranking-image"><%= attachment_image_tag t, :image, :fill, 130, 130, format: 'jpeg' %></div>
+				<div class="ranking-artist-text"><%= t.artist.artist_name.truncate(14) %></div>
+				<div class="ranking-product-text"><%= t.product_name.truncate(14) %></div>
+			</div>
+			<% end %>
+			<% end %>
+
+		</div>
 </div>
 
 </div>

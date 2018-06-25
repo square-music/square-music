@@ -34,7 +34,7 @@
 			<%= link_to product_path(t), :style=>"text-decoration: none; color:black;" do %>
 			<div class="rankin-product">
 				<div class="ranking-integer">発売日：<%= t.release %></div>
-				<div class="ranking-image"><%= attachment_image_tag t, :image, :fill, 130, 130, format: 'jpeg' %></div>
+				<div class="ranking-image"><%= attachment_image_tag t, :image, :fill, 130, 130, format: 'jpeg', fallback: 'no_image.jpg', :size => '130x130' %></div>
 				<div class="ranking-artist-text"><%= t.artist.artist_name.truncate(14) %></div>
 				<div class="ranking-product-text"><%= t.product_name.truncate(14) %></div>
 			</div>

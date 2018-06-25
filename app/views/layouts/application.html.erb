@@ -18,13 +18,12 @@
 	<!-- admin条件分岐 -->
 	<% if admin_signed_in? %>
 	<div class="header-links">
-		
 
-		<div class="link3"><%= link_to "USER一覧", users_path, :style=>"color:white;" %></div>
-		<div class="link2"><%= link_to "購入履歴一覧", orders_path, :style=>"color:white;" %></div>
-		<div class="link3"><%= link_to "登録商品一覧", products_path, :style=>"color:white;" %></div>
-		<div class="link2"><%= link_to "商品登録", new_product_path, :style=>"color:white;" %></div>
-		<div class="link3"><%= link_to "お問い合わせ一覧", contacts_path, :style=>"color:white;" %></div>
+		<div class="link2"><%= link_to "USER一覧", users_path, :style=>"color:white;" %></div>
+		<div class="link3"><%= link_to "購入履歴一覧", orders_path, :style=>"color:white;" %></div>
+		<div class="link2"><%= link_to "登録商品一覧", products_path, :style=>"color:white;" %></div>
+		<div class="link3"><%= link_to "商品登録", new_product_path, :style=>"color:white;" %></div>
+		<div class="link2"><%= link_to "お問い合わせ一覧", contacts_path, :style=>"color:white;" %></div>
 		<div class="link3"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, :style=>"color:white;" %></div>
 	</div>
 	<div class="header-sub">

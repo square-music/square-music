@@ -25,6 +25,9 @@
   display: block;
   clear: both;
  }
+ img{
+   box-shadow: 0 0 1px gray;
+ }
 
 
 
@@ -546,14 +549,14 @@ header{
   font-weight: bold;
 }
 .search-space{
-  width: 250px;
+  width: 260px;
   height: 18px;
   float: right;
   margin: 0 25px 0 0;
 }
 .search-form{
   width: 85%;
-  height: 22px;
+  height: 28px;
   padding: 6px 12px;
   font-size: 12px;
   border-radius: 4px;
@@ -561,8 +564,8 @@ header{
 }
 .search-form-btn{
   position: relative;
-  bottom: 22px;
-  left: 212px;
+  bottom: 29px;
+  left: 215px;
 }
 
 

@@ -90,7 +90,7 @@ class ProductsController < ApplicationController
 	        	product.genre_id = new_genre.id
 	        end
 		product.update(product_params)
-		flash[:success] = '曲を削除しました'
+		flash[:success] = '商品情報を編集しました'
 		redirect_to products_path
 	end
 

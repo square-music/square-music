@@ -103,12 +103,12 @@
                     <td class="c_discount">-<%= @discount.to_s(:delimited) %>円</td>
                   </tr>
                   <tr class="c_pay">
-                    <td>請求金額：</td>
+                    <td>請求金額（税込）：</td>
                     <td><%= @order.total_price.to_s(:delimited) %>円</td>
                   </tr>
                   <% else %>
                   <tr>
-                    <th>請求金額：</th>
+                    <th>請求金額（税込）：</th>
                     <th><%= @order.total_price.to_s(:delimited) %>円</th>
                   </tr>
                   <% end %>

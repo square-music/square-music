@@ -79,7 +79,7 @@ layout "special_layout", only: [:index]
 
    def index
     @search = Order.ransack(params[:q])
-    @orders = @search.result.order(created_at: :DESC)
+    @orders = @search.result.page(params[:page]).reverse_order
    end
 
    def show

@@ -6,13 +6,27 @@
         <div class="contact-box">
 
 	        <h2 class="contact-h2">お問い合わせ一覧</h2>
-           <div class="contact-user">
-            
-
-       	   </div>
-       </div>
-     </div>
-	   <div class="col-lg-2"></div>
-    </div>
+        <div class="contact-index">
+            <% @contacts.each do |contact| %>
+          <div class="contact-box">
+            <div class="contact-user">
+              ユーザー：<%= link_to "#{contact.user.user_name}",user_path(contact.user) %></h4>
+               </div>
+                 <div class="contact-type">
+                   お問い合わせ日：<%= contact.created_at.strftime('%Y/%m/%d')  %><br>
+                     タイトル：<%= contact.type %>
+                   </div>
+                  <div class="contact-content">
+                    内容：<%= contact.content %>
+                </div>
+              <div class="contact-delete">
+               <%= link_to '削除', contact_path(contact), method: :delete, class: "btn btn-danger",data: { confirm: 'キャンセルしますか?' } %>
+              </div>
+             </div>
+           <% end %>
+         </div>
+        </div>
+     <div class="col-lg-2"></div>
+   </div>
   </div>
 </div>

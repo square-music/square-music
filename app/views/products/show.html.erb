@@ -1,22 +1,5 @@
+<%= render 'products/sidebar', genres: @genres %>
 
-<!-- main部分 -->
-<div class="top-main clearfix">
-   <div class="sidebar-space"></div>
-	  <div class="genre-box">
-		<div class="genre-title">
-			<p class="genre-title-text">カテゴリーで探す</p>
-		  </div>
-		  <ul class="genre-list">
-		  	<!-- ジャンル検索 -->
-			<% @genres.each do |genre| %>
-				<%=link_to genre_path(genre), :style=>"text-decoration: none;" do %>
-				<li class="genre-list-item">
-					<%= genre.genre_name %>
-				</li>
-				<% end %>
-			<% end %>
-		</ul>
-	   </div>
 	<div class="top-box2">
 		<%= flash[:complete] %>
 		<div class="product-detail clearfix">
@@ -34,7 +17,12 @@
 				 個数選択<%= f.number_field :cart_quantity, class: 'form-control', min: 1 ,max: @product.stock, :value => 1 %>
 				</div>
 				<div class="in-the-cart">
+					<% if @product.stock == 0 %>
+					申し訳ありません<br>
+					現在入荷待ちです
+					<% else %>
 			　<%= f.submit "カートに入れる", class: "btn btn-primary" %>
+			        <% end %>
 				</div>
 			　<% end %>
 			</div>
@@ -46,6 +34,8 @@
 				<div><h3><%= @product.artist.artist_name %></h3>
 				  </div>
 				<div>ジャンル：<%= @product.genre.genre_name %>
+				</div>
+				<div>レーベル：<%= @product.label.label_name %>
 				</div>
 				<div><%= @product.disc_amount %>枚組
 				</div>
@@ -84,11 +74,16 @@
 				<div style="height:50px">
 				 	商品を気に入ったらレビューしてね☆
 				  </div>
-				<% else %>
-				<div class="review-count">
+			<% else %>
+				  <div class="review-count">
 			     <%= @product.reviews.count %>件のレビュー
-			 </div>
-			    <% end %>
+			       </div>
+			 <% end %>
+			   <% if @product.reviews.count >= 3 %>
+			     <div class="comment-scroll">
+			   <% else %>
+			  	  <div>
+			  	<% end %>
 		     <ol>
 			     <% @product.reviews.each do |review| %>
 			  <li class="user-comment">
@@ -127,10 +122,10 @@
 			 <% end %>
 			</ol>
 		</div>
-
+	</div>
            <% if user_signed_in? %>
 		<div class="product-comment-newbox">
-			レビューを書く
+			<p class="review-comment">レビューを書く</p>
 <!-- 星評価投稿機能 -->
 	<%= form_for [@product, @review] do |f| %>
 		<div class="evaluation">

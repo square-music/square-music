@@ -19,7 +19,7 @@ layout "special_layout", only: [:index]
         cart_items.each do |cart_item|
           if cart_item.product.stock < cart_item.cart_quantity
             redirect_to "/carts/#{@cart.id}"
-           flash[:message] = "在庫はそんなにありませんよ？？ちゃんと見てください"
+           flash[:danger] = "在庫はそんなにありませんよ？？ちゃんと見てください"
           end
         end
    end
@@ -34,7 +34,7 @@ layout "special_layout", only: [:index]
         order.sub_address_id = new_sub_address.id
       end
     order.user_id = user.id
-    order.save
+    if order.save
 
     cart = Cart.find_by(user_id: user.id)
     cart_items = CartItem.where(cart_id: cart.id)
@@ -51,7 +51,11 @@ layout "special_layout", only: [:index]
         order_item.product.order_item_count += order_item.order_quantity
         order_item.product.save
     end
-
+    else
+      redirect_to new_user_order_path(user_id: user.id)
+      flash[:danger] = "送付先、または支払い方法を入力してください"
+      return
+    end
       redirect_to "/orders/#{order.id}/complete"
       return
    end
@@ -68,6 +72,7 @@ layout "special_layout", only: [:index]
           order_item.product.order_item_count -= order_item.order_quantity
           order_item.product.save
        end
+       flash[:success] = "注文をキャンセルしました"
       end
       redirect_to user_order_path
    end

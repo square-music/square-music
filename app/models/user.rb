@@ -4,7 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
-         has_many :reviews
 
          validates :email, {presence:true}
          validates :user_name, {presence:true}
@@ -16,8 +15,10 @@ class User < ApplicationRecord
   def active_for_authentication?
     super && !delete_flag?
   end
+  has_many :reviews
   has_many :sub_addresses
   has_many :orders
+  has_many :contacts
   has_one :cart
   has_one :unsubscribe_comment
 end

@@ -49,7 +49,7 @@
 .pic2 {
   width:300px;
   height:300px;
-  background-image:url("2.jpg");
+  background-image:url("3.jpg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -57,7 +57,7 @@
 .pic3 {
   width:300px;
   height:300px;
-  background-image:url("3.jpg");
+  background-image:url("4.jpg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -65,7 +65,7 @@
 .pic4 {
   width:300px;
   height:300px;
-  background-image:url("4.jpg");
+  background-image:url("can.jpg");
   background-size: contain;
   background-position: center;
   background-repeat: no-repeat;
@@ -318,7 +318,10 @@
   border-radius: 3px;
   padding: 2px;
 }
-// ユーザ詳細
+
+
+
+/*// ユーザ詳細*/
 .comment {
   padding-bottom: 20px;
 }
@@ -438,6 +441,13 @@
   margin: 20px 0 30px 0;
 }
 
+
+
+
+
+
+
+
 /*以下　岡田*/
 /*header用のCSS*/
 header{
@@ -489,14 +499,15 @@ header{
   border-bottom: solid white 2px;
 
 }
-.header-text1{
-  color: white;
-  text-shadow: 3px 4px 6px gray,
-               0px -5px 16px gray;
-  padding: 0 0 0 60px;
-  display: inline-block;
-  position: relative;
-  bottom: 42px;
+.header-logo{
+ background-image:url(main-logo.png);
+ height:40px;
+ width:270px;
+ margin-left:30px;
+ display:inline-block;
+ position:relative;
+ bottom: 26px;
+ background-repeat: no-repeat;
 }
 .header-text2{
   text-align: right;
@@ -781,8 +792,12 @@ header{
   background-color: white;
   border: solid black 1px;
 }
+.comment-scroll {
+  overflow: scroll;
+  height:380px;
+}
 .review-count {
-  background: -webkit-linear-gradient(top, #whitesmoke 0%, whitesmoke 100%);/*グラデーション*/
+  font-size:18px;
   background: linear-gradient(to bottom, whitesmoke 0%, #aaaaaa 100%);/*グラデーション*/
 }
 .review {
@@ -791,13 +806,13 @@ header{
 }
 .product-comment-newbox{
   width: 93%;
-  height: 230px;
+  height: 238px;
   margin: 0 0 0 2%;
   background-color: white;
   margin-right: 3px;
-  border-left: solid black 1px;
-  border-right: solid black 1px;
-  border-bottom: solid black 1px;
+  border-left: solid  1px;
+  border-right: solid  1px;
+  border-bottom: solid  1px;
 }
 .user-comment {
   list-style: none;
@@ -808,6 +823,10 @@ header{
 }
 .comment-box {
   margin:5px 0;
+}
+.review-comment {
+  background: linear-gradient(to bottom, whitesmoke 0%, #aaaaaa 100%);
+  font-size:18px;
 }
 .star-back{
   color: gray;
@@ -824,6 +843,13 @@ header{
 .comment-position{
   word-break: break-all;
 }
+
+
+
+
+
+
+
 
 
 
@@ -969,7 +995,7 @@ footer {
 .footer-link {
   color:white;
   float:left;
-  margin:40px 0 0 55px;
+  margin:40px 0 0 90px;
 }
 .footer-logo{
   width:400px;

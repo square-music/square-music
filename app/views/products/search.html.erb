@@ -1,21 +1,4 @@
-<div class="top-main">
-	<div class="sidebar-space"></div>
-		<div class="genre-box">
-		<div class="genre-title">
-			<p class="genre-title-text">カテゴリーで探す</p>
-		</div>
-		<ul class="genre-list">
-<!-- ジャンル検索 -->
-
-			<% @genres.each do |genre| %>
-				<%=link_to genre_path(genre), :style=>"text-decoration: none;" do %>
-				<li class="genre-list-item">
-					<%= genre.genre_name %>
-				</li>
-				<% end %>
-			<% end %>
-		</ul>
-	</div>
+<%= render 'products/sidebar', genres: @genres %>
 
 
 <div class="top-box2">

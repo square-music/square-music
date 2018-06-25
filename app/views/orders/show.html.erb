@@ -41,7 +41,7 @@
                 <div class="order-user">
                   <h5>購入者</h5>
                    <div>
-                     <h4> <%= @user.user_name%></h4>
+                     <h4> <%= @order.sub_address.sub_address %></h4>
                    </div>
                  </div>
                 <div class="order-address .order-address1">
@@ -62,7 +62,7 @@
        <div class="purchase2">
          <div class="purchase2-image">
             <%= link_to product_path(o.product) do %>
-            <%= attachment_image_tag o.product, :image, :fill, 117, 117, format: 'jpeg' %>
+            <%= attachment_image_tag o.product, :image, :fill, 117, 117, format: 'jpeg' ,fallback: 'no_image.jpg', :size => '117x117'%>
             <% end %>
            </div>
               <div class="purchase-artist-box">
@@ -124,7 +124,7 @@
             <%= form_for ([@user,@order]) do |s| %>
                  <div class="cancel">
                   <%= s.hidden_field :status_id, :value => 5 %>
-                  <%= s.submit "キャンセルリクエスト", class: "btn btn-warning" %>
+                  <%= s.submit "キャンセルリクエスト", class: "btn btn-warning", data: { confirm: 'キャンセルリクエストを送信しますか?'}  %>
                  </div>
                  <% end %>
              <% end %>

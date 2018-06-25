@@ -16,7 +16,7 @@
 	         <h4>送付先住所の入力</h4>
 	        <div class="address-form">
 	        	<%= fields_for(@sub_address) do |s| %>
-	        	<%= s.text_field :sub_address, class: 'form-control',:list =>"sub_address_list", :autocomplete => "off" %>
+	        	<%= s.text_field :sub_address, class: 'form-control',:list =>"sub_address_list", :autocomplete => "off",:value => "#{@user.address}"%>
 	        	<datalist id="sub_address_list">
 					<% @sub_addresses.each do |sub_address| %>
 						<option value="<%= sub_address.sub_address %>"><%= sub_address.sub_address %></option>
@@ -91,7 +91,7 @@
 		　　 <%= f.hidden_field :order_number, :value => rand(1..9).to_s + "-" + rand(1000..9999).to_s + "-" + rand(1000..9999).to_s %>
 			<%= f.hidden_field :status_id, :value =>1 %>
 		 		<tr>
-		  			<td colspan="2" class="on_btn"><%= f.submit "注文" %></td>
+		  			<td colspan="2" class="on_btn"><%= f.submit "注文を確定する",class: "btn btn-warning" %></td>
 				</tr>
 			</tbody>
 	　　</table>

@@ -5,9 +5,10 @@
 	  注文が完了しました
      </div>
 	  <div class="complete-text">
+	  	ご購入ありがとうございます。
 	  お客様の注文番号は<span class="under">
 	  	<%= @order.order_number %></span>です。<br>
-	  	この番号は失くさないようにして下さい。<br>
+	   引き続きSQUARE MUSICをよろしくお願いします。<br>
 	  	<br>
 	  	注文した商品の詳細は<%= link_to 'こちら',user_order_path(:user_id => @order.user.id)%><br>
 	  	<br>

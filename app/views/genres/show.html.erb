@@ -29,8 +29,8 @@
 
 				<div class="search-product-image"><%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpeg', fallback: 'no_image.jpg', :size => '150x150' %></div>
     		<div>
-    			<div class="search-product-name"><%= product.product_name.truncate(18) %></div>
-    			<div class="search-product-artist"><%= product.artist.artist_name.truncate(18) %></div>
+    			<div class="search-product-name"><%= product.product_name.truncate(17) %></div>
+    			<div class="search-product-artist"><%= product.artist.artist_name.truncate(17) %></div>
     			<div class="search-product-price"><%= product.product_price.to_s(:delimited) %>円</div>
     		</div>
    			<% end %>
@@ -48,8 +48,8 @@
 			<div class="rankin-product">
 				<div class="ranking-integer">発売日：<%= t.release %></div>
 				<div class="ranking-image"><%= attachment_image_tag t, :image, :fill, 130, 130, format: 'jpeg', fallback: 'no_image.jpg', :size => '130x130' %></div>
-				<div class="ranking-artist-text"><%= t.artist.artist_name.truncate(14) %></div>
-				<div class="ranking-product-text"><%= t.product_name.truncate(14) %></div>
+				<div class="ranking-artist-text"><%= t.artist.artist_name.truncate(13) %></div>
+				<div class="ranking-product-text"><%= t.product_name.truncate(13) %></div>
 			</div>
 			<% end %>
 			<% end %>

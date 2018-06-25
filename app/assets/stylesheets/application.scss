@@ -701,9 +701,9 @@ header{
   height: 22px;
 }
 .ranking-image{
-  width: 70%;
+  width: 130px;
   height: 130px;
-  margin: 0 15% 3px 15%;
+  margin: 0 auto;
   background-color: #e8e8e8;;
 }
 .ranking-artist-text{
@@ -854,18 +854,21 @@ header{
   font-size:5px;
 }
 .product-detail-field2{
-  width: 90%;
+  width: 78%;
   float: left;
-  margin: 10px 1% 0 7%;
+  margin: 10px 1% 0 2%;
   border-top: dashed gray 1px;
   height: auto;
 }
 .product-detail-field3{
-  width: 45%;
+  width: 90%;
   float: left;
-  margin: 5px 1% 20px 7%;
+  margin: 5px 1% 20px 2%;
   border-top: dashed gray 1px;
 }
+
+
+
 
 
 /*コメント*/
@@ -891,7 +894,7 @@ header{
   width: 93%;
   height: 238px;
   margin: 0 0 0 2%;
-  background-color: white;
+  background-color: #d4d6d8;
   margin-right: 3px;
   border-left: solid  1px;
   border-right: solid  1px;

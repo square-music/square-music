@@ -2,7 +2,7 @@ class ProductsController < ApplicationController
 	before_action :access_admin, only: [:new, :edit, :index]
 
 	def index
-	   @products = Product.all
+	   @products = Product.page(params[:page]).reverse_order
 	end
 
     def new
@@ -45,6 +45,7 @@ class ProductsController < ApplicationController
 	    	redirect_to new_disc_tune_path(disc)
 	    	return
 	    else
+	    	flash[:warning] = "入力されていない情報があります"
 	    	@artists = Artist.all
 	    	@labels = Label.all
 	    	@genres = Genre.all
@@ -89,12 +90,14 @@ class ProductsController < ApplicationController
 	        	product.genre_id = new_genre.id
 	        end
 		product.update(product_params)
+		flash[:success] = '曲を削除しました'
 		redirect_to products_path
 	end
 
 	def destroy
 		product = Product.find(params[:id])
 		product.update(delete_flag: 'true')
+		flash[:danger] = '商品を削除しました'
 		redirect_to products_path
 	end
 

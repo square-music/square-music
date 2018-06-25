@@ -36,3 +36,21 @@
   background-color: black;
   color: white;
 }
+
+/*割引表示部分*/
+.c_price{
+  margin-bottom: 20px;
+  font-size:16px;
+}
+.c_discount{
+  color:blue;
+  font-weight: 600;
+}
+
+.c_pay{
+  border-top: dotted 1px gray;
+  font-weight: 600;
+}
+.c_table_box{
+  margin-bottom: 20px;
+}

@@ -18,7 +18,7 @@ class TunesController < ApplicationController
 	  	tunes = Tune.where(disc_id: disc.id)
 	  	tunes.each do |t|
 	  		if t.tune_number == tune.tune_number
-	  			flash[:notice] = 'その曲順はすでに登録されています。'
+	  			flash[:warning] = 'その曲順はすでに登録されています。'
 	  			redirect_to new_disc_tune_path(disc.id)
 	  			return
 	  		end
@@ -33,17 +33,10 @@ class TunesController < ApplicationController
 	    tune.disc_id = disc.id
 	    if tune.save
 	    	redirect_to new_disc_tune_path(disc.id)
+	    	flash[:success] = '曲を登録しました！'
 	    	return
 	    else
-	    	@disc = Disc.find(params[:disc_id])
-	    	@tune = Tune.new
-	  		@product = Product.find_by(id: @disc.product_id)
-	  		@artists = Artist.all
-	  		@artist = Artist.find_by(id: @product.artist_id)
-	    	@tunes = Tune.where(disc_id: @disc.id).order('tune_number')
-	    	@last_tune =Tune.where(disc_id: @disc.id).order('tune_number').last
-	    	@discs = Disc.where(product_id: @disc.product_id)
-	    	render :new
+	    	redirect_to new_disc_tune_path(disc.id)
 	    	return
 	    end
 	end

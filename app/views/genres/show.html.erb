@@ -25,7 +25,7 @@
 
 		<div class="sarch-products-box1">
 			<%=link_to product_path(product), :style=>"text-decoration: none; color:black; " do %>
-				<div class="search-product-image"><%= attachment_image_tag product, :image, :fill, 150, 150, format: 'jpeg' %></div>
+				<div class="search-product-image"><%= attachment_image_tag product, :image, :fill, 200, 200, format: 'jpeg', fallback: 'no_image.jpg', :size => '150x150' %></div>
     		<div>
     			<div class="search-product-name"><%= product.product_name %></div>
     			<div class="search-product-artist"><%= product.artist.artist_name %></div>

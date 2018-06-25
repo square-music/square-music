@@ -50,7 +50,7 @@
 				</div>
 				<div>発売日：<%= @product.release %>
 				</div>
-				<div>在庫数：<%= @product.stock %>
+				<div>在庫数：<%= @product.stock.to_s(:delimited) %>
 				</div>
 			</div>
 

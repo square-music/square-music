@@ -49,13 +49,7 @@
                      <div>
                        <h4> <%= @user.address%></h4>
                     </div>
-                 </div>
-                <div class="price-box">
-                     <h5>請求金額</h5>
-                  <div>
-                    <h4><%= @order.total_price.to_s(:delimited) %>円</h4>
-                  </div>
-              </div>
+                </div>
                 <div class="status">
                   <h5>配送状況</h5>
                   <div>
@@ -79,11 +73,12 @@
                      <h4> <%= o.product.artist.artist_name %></h4>
                    </div>
                    <div class="purchase-price">
-                  <h5>単価：<%= o.order_item_price %>円</h5>
+                  <h5>単価：<%= o.order_item_price.to_s(:delimited) %>円</h5>
                  </div>
                </div>
                 <div class="purchase-subtotal">
                  <% @subtotal = o.order_item_price*o.order_quantity %>
+                 <% @total_price += @subtotal %>
                 <h4> 小計：<%= @subtotal.to_s(:delimited) %>円</h4>
               </div>
                <div class="purchase-amount">
@@ -91,6 +86,36 @@
             </div>
          </div>
           <% end %>
+          <div class="row">
+            <div class="col-sm-8"></div>
+            <div class="col-sm-4">
+              <table class="os_table">
+                <tbody>
+                  <%if @total_price >= 10000 %>
+                  <tr>
+                    <td>合計金額：</td>
+                    <td><%= @total_price.to_s(:delimited) %>円</td>
+                  </tr>
+                  <tr>
+                    <% @discount = @total_price*0.1 %>
+                    <% @discount = @discount.floor %>
+                    <td>まとめ買い割：</td>
+                    <td class="c_discount">-<%= @discount.to_s(:delimited) %>円</td>
+                  </tr>
+                  <tr class="c_pay">
+                    <td>請求金額：</td>
+                    <td><%= @order.total_price.to_s(:delimited) %>円</td>
+                  </tr>
+                  <% else %>
+                  <tr>
+                    <th>請求金額：</th>
+                    <th><%= @order.total_price.to_s(:delimited) %>円</th>
+                  </tr>
+                  <% end %>
+                </tbody>
+              </table>
+            </div>
+          </div>
 
           <div class="mypage-link">
              <%= link_to "マイページへ戻る", user_path(@user), class: "btn btn-info" %>

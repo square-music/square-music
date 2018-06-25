@@ -2,6 +2,8 @@ class OrdersController < ApplicationController
 before_action :access_authority, only: [:show]
 before_action :access_admin, only: [:index]
 
+layout "special_layout", only: [:index]
+
   def new
       @order = Order.new
       @user = User.find(params[:user_id])
@@ -12,6 +14,7 @@ before_action :access_admin, only: [:index]
       @subtotal = 0
       @total_quantity = 0
       @total_price = 0
+      @discount = 0
       cart_items = CartItem.where(cart_id: @cart.id)
         cart_items.each do |cart_item|
           if cart_item.product.stock < cart_item.cart_quantity
@@ -70,7 +73,8 @@ before_action :access_admin, only: [:index]
    end
 
    def index
-    @orders = Order.all
+    @search = Order.ransack(params[:q])
+    @orders = @search.result.order(created_at: :DESC)
    end
 
    def show
@@ -80,6 +84,8 @@ before_action :access_admin, only: [:index]
     @statuses = Status.all
     @limit = Status.limit(4)
     @subtotal = 0
+    @total_price = 0
+    @discount = 0
    end
 
    def complete

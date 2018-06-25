@@ -57,30 +57,41 @@
 
          	<% end %>
       	<table class="price-table">
-		　<tr>
-		　　<td>商品合計数 </td>
-		　　<td><%= @total_quantity %></td>
-		　</tr>
-		<% if @total_price >= 10000 %>
-		<% down_price=@total_price *0.1 %>
-		<tr>
-			<td>割引額</td>
-			<td> -<%= down_price.floor.to_s(:delimited) %>円</td>
-		</tr>
-		<% @total_price -= down_price %>
-	　<tr>
-	　　<td>ご請求額 </td>
-			<td> <%= @total_price.floor.to_s(:delimited) %>円</td>
+		　<tbody>
+      		    <tr>
+		　　			<td>商品数：</td>
+		　　			<td><%= @total_quantity %>点</td>
+		　　     </tr>
+			<% if @total_price >= 10000 %>
+				<% @discount = @total_price*0.1 %>
+				<% @discount = @discount.floor %>
+				<tr>
+					<td>合計金額：</td>
+					<td><%= @total_price.to_s(:delimited) %>円</td>
+				</tr>
+				<tr>
+					<td>まとめ買い割：</td>
+					<td class="c_discount">-<%= @discount.to_s(:delimited) %>円</td>
+				</tr>
+				<% @total_price -= @discount %>
+				<tr class="c_pay">
+					<th>支払金額：</th>
+					<th><%= @total_price.to_s(:delimited)  %>円</th>
+				</tr>
+				<%= f.hidden_field :total_price, :value =>"#{@total_price}" %>
 			<% else %>
-			<td> <%= @total_price.floor.to_s(:delimited) %>円</td>
+				<tr>
+					<th>支払金額：</th>
+					<th><%= @total_price.to_s(:delimited)  %>円</th>
+				</tr>
+				<%= f.hidden_field :total_price, :value =>"#{@total_price}" %>
 			<% end %>
 		　　 <%= f.hidden_field :order_number, :value => rand(1..9).to_s + "-" + rand(1000..9999).to_s + "-" + rand(1000..9999).to_s %>
-			<%= f.hidden_field :total_price, :value =>"#{@total_price}" %>
 			<%= f.hidden_field :status_id, :value =>1 %>
-		　</tr>
-		 <tr>
-		  <td colspan="2"><%= f.submit "注文" %></td>
-		</tr>
+		 		<tr>
+		  			<td colspan="2" class="on_btn"><%= f.submit "注文" %></td>
+				</tr>
+			</tbody>
 	　　</table>
 
       </div>

@@ -38,19 +38,42 @@
                 </div>
               </div>
             <% end %>
-            <div class="row">
+            <div class="row c_table_box">
               <div class="col-md-9"></div>
               <div class="col-md-3">
-                <p>
-                  <% if @total_price >= 10000 %>
-                  <% down_price=@total_price *0.1 %>
-                  <% @total_price-=down_price %>
-                  <p>割引額 : -<%= down_price.floor.to_s(:delimited) %>円</p>
-                  <p>合計金額：<%= @total_price.floor.to_s(:delimited) %>円</p>
-                  <% else %>
-                  合計金額：<%= @total_price.floor.to_s(:delimited) %>円
-                  <% end %>
-                </p>
+                <% if @total_price >= 10000 %>
+                  <%
+                    @discount = @total_price*0.1
+                    @discount = @discount.floor
+                  %>
+                <table>
+                  <tbody>
+                    <tr>
+                      <td>合計金額：</td>
+                      <td><%= @total_price.to_s(:delimited) %>円</td>
+                    </tr>
+                    <tr>
+                      <td>まとめ買い割：</td>
+                      <td class="c_discount">-<%= @discount.to_s(:delimited) %>円</td>
+                    </tr>
+                    <% @total_price -= @discount %>
+                    <tr class="c_pay">
+                      <th>支払金額：</th>
+                      <th><%= @total_price.to_s(:delimited) %>円(税込）</th>
+                    </tr>
+                  </tbody>
+                </table>
+                <%else%>
+                  <table>
+                    <tbody>
+                      <tr>
+                        <th>支払金額：</th>
+                        <th><%= @total_price.to_s(:delimited) %>円(税込）</th>
+                    </tr>
+                    </tbody>
+                  </table>
+                <% end %>
+
               </div>
             </div>
             <div class="row">

@@ -25,10 +25,10 @@
 					<div class="form-group">
 						<label for="artist_name" class="control-label col-xs-3">アーティスト</label>
 						<div class="col-xs-7">
-							<%= a.text_field :artist_name, class: 'form-control', :list => "artist_list", :autocomplete => "off" %>
-							<datalist id="artist_list">
+							<%= a.text_field :artist_name, class: 'form-control', :list => "artist_nlist", :autocomplete => "off" %>
+							<datalist id="artist_nlist">
 								<% @artists.each do |artist| %>
-									<option value="<%= artist.artist_name %>"><%= artist.artist_name %></option>
+									<option value="<%= artist.artist_name %>">
 								<% end %>
 							</datalist>
 						</div>
@@ -36,7 +36,12 @@
 					<div class="form-group">
 						<label for="artist_phonetic" class="control-label col-xs-3">アーティスト・フリガナ</label>
 						<div class="col-xs-7">
-							<%= a.text_field :artist_phonetic, class: 'form-control', :autocomplete => "off" %>
+							<%= a.text_field :artist_phonetic, class: 'form-control',:list => "artist_plist", :autocomplete => "off" %>
+							<datalist id="artist_plist">
+								<% @artists.each do |artist| %>
+									<option value="<%= artist.artist_phonetic %>">
+								<% end %>
+							</datalist>
 						</div>
 					</div>
 					<% end %>

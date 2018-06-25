@@ -100,19 +100,21 @@ class ProductsController < ApplicationController
 
 	def top
 		@genres = Genre.all
-		@same_genre = Product.all
+		@same_genre = Product.where(delete_flag: false)
 	end
 
 	def search
 		@search = Product.ransack(params[:q])
 		@products = @search.result
-		@search_products = @products.page(params[:page]).reverse_order
+		@delete_flag_search = @products.where(delete_flag: false)
+		@search_products = @delete_flag_search.page(params[:page]).reverse_order
 		@genres = Genre.all
+		@same_genre = Product.where(delete_flag: false)
 	end
 
 	def show
 		@product = Product.find(params[:id])
-		@same_genre = Product.where(genre_id: @product.genre_id)
+		@same_genre = Product.where(genre_id: @product.genre_id, delete_flag: false)
 		if @same_genre.length<=2 then
 			@same_genre = Product.all
 		end

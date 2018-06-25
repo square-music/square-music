@@ -32,3 +32,18 @@
           $('#submit-btn').prop('disabled', true);
       }
   }
+
+  window.addEventListener('DOMContentLoaded', function() {
+  var swiper = new Swiper('.sample01 .swiper-container', {
+    pagination: '.swiper-pagination',
+    paginationClickable: true,
+    slidesPerView: 3,
+    spaceBetween: 10,
+    centeredSlides : true,
+    effect: "slide",
+    autoplay: '5000',
+    nextButton: '.swiper-button-next',
+    prevButton: '.swiper-button-prev',
+    loop: true
+  });
+}, false);

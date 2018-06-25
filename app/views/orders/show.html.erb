@@ -16,7 +16,7 @@
                  <div class="col-lg-3">
                   <% if admin_signed_in? && @order.status_id != 5 %>
                     <%= form_for([@user,@order]) do |f| %>
-                      <%= f.collection_select(:status_id, @limit, :id, :shipment_status, prompt: "選択する") %>
+                      <%= f.collection_select(:status_id, @limit, :id, :shipment_status) %>
                        <%= f.submit "変更する", class: "btn btn-info" %>
                     <% end %>
                   <% end %>

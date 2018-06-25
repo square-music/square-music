@@ -7,7 +7,7 @@
          <div class="contact-main">
            <%= form_for @contact do |d| %>
            <h4>・タイトル</h4>
-           <%= d.text_field :type ,class: 'form-control',:placeholder =>"商品について　など" %>
+           <%= d.text_field :type ,class: 'form-control',:placeholder =>"注文した商品について　リクエスト　恋の悩み　など" %>
            <h4>・詳細</h4>
            <%= d.text_area :content ,class: 'form-control',:placeholder =>"購入した商品については、購入番号もおしらせください。"%><br>
           <%= d.submit "問い合わせる" ,class: "btn btn-info" %>

@@ -6,7 +6,9 @@
 
 	        <h2 class="contact-h2">お問い合わせ一覧</h2>
        <% if @contacts.count == 0 %>
-        お問い合わせはありません
+        <div class="no-contact">
+          お問い合わせはありません
+        </div>
         <% else %>
            <div class="contact-index">
              <% @contacts.each do |contact| %>

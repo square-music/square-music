@@ -70,8 +70,9 @@
 		<% @total_price -= down_price %>
 	　<tr>
 	　　<td>ご請求額 </td>
-			<td> <%= @total_price.floor.to_s(:delimited) %>円</td>
+			<td> <%= @total_price.floor.to_s(:delimited) %>円</td>		
 			<% else %>
+			<td>ご請求額 </td>
 			<td> <%= @total_price.floor.to_s(:delimited) %>円</td>
 			<% end %>
 		　　 <%= f.hidden_field :order_number, :value => rand(1..9).to_s + "-" + rand(1000..9999).to_s + "-" + rand(1000..9999).to_s %>

@@ -14,7 +14,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
     end
   end
   def back
-
+      @user = User.new(sign_up_params)
     render :action => 'new'
   end
 

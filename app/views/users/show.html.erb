@@ -4,26 +4,26 @@
     <div class="headline_box_2">
       <h2 class="mypage_headline">マイページ</h2>
     </div>
-    <div class="user-show col-lg-3">
+    <div class="user-show col-lg-4">
       <h3 class="user-show-headline">登録情報</h2>
         <table class="table table-striped">
          <tr>
-          <td>名前</td><td><%= @user.user_name %></td>
+          <td class="td_user"><h4>名前</h4></td><td><h4 class="td_user_text"><%= @user.user_name %></h4></td>
          </tr>
          <tr>
-          <td>かな</td><td><%= @user.user_phonetic %></td>
+          <td><h4>かな</h4></td><td><h4 class="td_user_text"><%= @user.user_phonetic %></h4></td>
          </tr>
          <tr>
-          <td>郵便番号</td><td><%= @user.postal %></td>
+          <td><h4>郵便番号</h4></td><td><h4 class="td_user_text"><%= @user.postal %></h4></td>
          </tr>
          <tr>
-          <td>住所</td><td><%= @user.address %></td>
+          <td><h4>住所</h4></td><td><h4 class="td_user_text"><%= @user.address %></h4></td>
          </tr>
          <tr>
-          <td>電話番号</td><td><%= @user.tell %></td>
+          <td><h4>電話番号</h4></td><td><h4 class="td_user_text"><%= @user.tell %></h4></td>
          </tr>
          <tr>
-          <td>メールアドレス</td><td><%= @user.email %></td>
+          <td><h4>メールアドレス</h4></td><td ><h4 class="td_user_text"><%= @user.email %></h4></td>
          </tr>
         </table>
         <% if admin_signed_in? %>
@@ -50,12 +50,12 @@
       <% end %>
    </div>
 
-   <div class="user-box clearfix col-lg-9">
+   <div class="user-box clearfix col-lg-8">
       <h3 class="user-box-headline">購入履歴</h2>
 
 
 
-<%= paginate @orders %>
+
 
 <% if @orders %>
   <%  @orders.each do |order| %>
@@ -83,13 +83,13 @@
     </div>
     <div class="order_content_bottom clearfix">
     <div class="order_content_5"><%= attachment_image_tag f.product, :image, :fill,100,100, format: 'jpeg' %></div>
-      <div class="order_content_product"><h3><%= f.product.product_name %></h3>
-      <h3 ><%= f.product.artist.artist_name %></h3></div>
+      <div class="order_content_product"><h4 class="order_content_headline"><%= f.product.product_name %></h4>
+      <h4><%= f.product.artist.artist_name %></h4></div>
       <div class="order_content_6">
         <% if @item_count > 0%>
         <%= "他#{@item_count}点"%>
         <% end %>
-        <%= link_to "詳細","#"%>
+        <%= link_to "詳細","/users/#{@user.id}/orders/#{order.id}"%>
       </div>
     </div>
 
@@ -98,7 +98,7 @@
   <% end %>
 
 <% end %>
-
+<%= paginate @orders, class: "pagenate" %>
   </div>
   </div>
  </div>

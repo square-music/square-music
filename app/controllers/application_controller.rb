@@ -4,6 +4,8 @@ class ApplicationController < ActionController::Base
  before_action :configure_permitted_parameters, if: :devise_controller?
  before_action :search
 
+add_flash_types :success, :info, :warning, :danger
+
  def search
  	@search = Product.ransack(params[:q])
  end

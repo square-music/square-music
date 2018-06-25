@@ -43,9 +43,9 @@
               <div class="col-md-3">
                 <p>
                   <% if @total_price >= 10000 %>
-                  <% down_price=@total_price *0.1 %>
-                  <% @total_price-=down_price %>
-                  <p>割引額 : -<%= down_price.floor.to_s(:delimited) %>円</p>
+                  <% down_price = @total_price *0.1 %>
+                  <% @total_price -= down_price %>
+                  <p>まとめ買い割引: -<%= down_price.floor.to_s(:delimited) %>円</p>
                   <p>合計金額：<%= @total_price.floor.to_s(:delimited) %>円</p>
                   <% else %>
                   合計金額：<%= @total_price.floor.to_s(:delimited) %>円

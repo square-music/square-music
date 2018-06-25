@@ -26,39 +26,41 @@
 		<div class="link3"><%= link_to "USER一覧", users_path, :style=>"color:white;" %></div>
 		<div class="link2"><%= link_to "購入履歴一覧", orders_path, :style=>"color:white;" %></div>
 		<div class="link3"><%= link_to "登録商品一覧", products_path, :style=>"color:white;" %></div>
+		<div class="link3"><%= link_to "お問い合わせ一覧", contacts_path, :style=>"color:white;" %></div>
+		
 		<div class="link2"><%= link_to "商品登録", new_product_path, :style=>"color:white;" %></div>
 		<div class="link3"><%= link_to "ログアウト", destroy_admin_session_path, method: :delete, :style=>"color:white;" %></div>
-	</div>
+	 </div>
 	<div class="header-sub">
-		<div class="header-text2">
-			<p class="header-text3">管理者としてログイン中</p>
+	   <div class="header-text2">
+		  <p class="header-text3">管理者としてログイン中</p>
 		</div>
-		<h1 class="header-text1"><a href="/" style="text-decoration: none;color: white">SQUARE MUSIC</a></h1>
+		   <a href="/"><div class="header-logo"></div></a>
 		<div class="search-space">
 			<%= search_form_for @search, url: products_search_path  do |f| %>
-				<div>
-				<%= f.text_field :product_name_or_product_phonetic_cont,class: "search-form" %>
-				</div>
-				<div class="search-form-btn"><%= f.submit "Search" %></div>
-			<% end %>
-		</div>
+			 <div>
+			     <%= f.text_field :product_name_or_product_phonetic_cont,class: "search-form" %>
+			   </div>
+			 <div class="search-form-btn"><%= f.submit "Search" %></div>
+		  <% end %>
+	   </div>
 	</div>
 
 	<% elsif user_signed_in? %>
 
 	<div class="header-links">
-    <% cart = Cart.find_by(user_id: current_user.id) %>
+       <% cart = Cart.find_by(user_id: current_user.id) %>
 		<%= link_to cart_path(cart) do %>
-		<div class="link1">カート</div><% end %>
-		<div class="link2"><%= link_to "マイページ", user_path(current_user.id), :style=>"color:white;" %></div>
-		<div class="link3"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, :style=>"color:white;" %></div>
+	 <div class="link1">カート</div><% end %>
+	 <div class="link2"><%= link_to "マイページ", user_path(current_user.id), :style=>"color:white;" %></div>
+	 <div class="link3"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, :style=>"color:white;" %></div>
 
 	</div>
 	<div class="header-sub">
 		<div class="header-text2">
 			<p class="header-text3">ようこそ! <%= current_user.user_name %>さん</p>
 		</div>
-		<h1 class="header-text1"><a href="/" style="text-decoration: none;color: white">SQUARE MUSIC</a></h1>
+		 <a href="/"><div class="header-logo"></div></a>
 		<div class="search-space">
 			<%= search_form_for @search, url: products_search_path  do |f| %>
 				<div>
@@ -79,7 +81,7 @@
 			<div class="header-text2">
 				<p class="header-text3">ようこそ! ゲストさん</p>
 			</div>
-			<h1 class="header-text1"><a href="/" style="text-decoration: none;color: white">SQUARE MUSIC</a></h1>
+			 <a href="/"><div class="header-logo"></div></a>
 			<div class="search-space">
 			<%= search_form_for @search, url: products_search_path  do |f| %>
 				<div>
@@ -91,15 +93,13 @@
 	</div>
 	<% end %>
 <!-- ログイン状態の条件分岐終わり -->
-
 	</div>
-
 </header>
-<% if notice %>
-　　<p class="message"><%= notice %></p>
-<% end %>
-<% if alert %>
-   <p class="message"><%= alert %></p>
+<% flash.each do |name, msg| %>
+  <div class="alert alert-<%= name %>">
+    <a class="close" data-dismiss="alert">×</a>
+    <%= msg %>
+  </div>
 <% end %>
 <%= yield %>
 <footer class="clearfix">
@@ -109,7 +109,6 @@
       </div>
         <div class="footer-link">
       	  <%= link_to "TOPへ" ,root_path ,:style=>"color:white;"%>
-      	｜<%= link_to "このサイトについて" ,about_path ,:style=>"color:white;"%>
       	｜<%= link_to "よくある質問" ,question_path ,:style=>"color:white;"%>
       	｜<%= link_to "お問い合わせ" ,new_contact_path ,:style=>"color:white;"%>
       </div>

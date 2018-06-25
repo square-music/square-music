@@ -16,7 +16,7 @@ class UsersController < ApplicationController
   def show
   	@user = User.find(params[:id])
     @unsubscribe_comment = UnsubscribeComment.find_by(user_id: params[:id])
-    @orders = Order.where(user_id: params[:id]).page(params[:page]).per(5)
+    @orders = Order.where(user_id: params[:id]).page(params[:page]).per(10).order(created_at: :desc)
 
   end
 

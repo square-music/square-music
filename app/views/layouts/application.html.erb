@@ -14,13 +14,14 @@
   <body>
   <div class="header-padding">
     <header>
-	<!-- ログイン状態の条件分岐 -->
+<!-- ログイン状態の条件分岐 -->
+	<!-- admin条件分岐 -->
 	<% if admin_signed_in? %>
 	<div class="header-links">
-
-	<!-- 課題提出まで -->
-
-	<!-- 課題提出までend -->
+<!-- 課題提出まで -->
+		<%= link_to cart_path(current_user.cart) do %><div class="link1">カートを確認</div><% end %>
+		<div class="link2"><%= link_to "マイページ", user_path(current_user.id), :style=>"color:white;" %></div>
+<!-- 課題提出までend -->
 
 		<div class="link3"><%= link_to "USER一覧", users_path, :style=>"color:white;" %></div>
 		<div class="link2"><%= link_to "購入履歴一覧", orders_path, :style=>"color:white;" %></div>
@@ -32,23 +33,15 @@
 		<div class="header-text2">
 			<p class="header-text3">管理者としてログイン中</p>
 		</div>
-		<h1 class="header-text1"><a href="/" style="text-decoration: none;color: white">SQUARE MUSIC</a></h1>
-		<div class="search-space">
-			<%= search_form_for @search, url: products_search_path  do |f| %>
-				<div>
-				<%= f.text_field :product_name_or_product_phonetic_cont,class: "search-form" %>
-				</div>
-				<div class="search-form-btn"><%= f.submit "Search" %></div>
-			<% end %>
-		</div>
-	</div>
+	<!-- admin条件分岐終わり -->
 
+	<!-- user条件分岐 -->
 	<% elsif user_signed_in? %>
 
 	<div class="header-links">
     <% cart = Cart.find_by(user_id: current_user.id) %>
 		<%= link_to cart_path(cart) do %>
-		<div class="link1">カート</div><% end %>
+		<div class="link1">カートを確認</div><% end %>
 		<div class="link2"><%= link_to "マイページ", user_path(current_user.id), :style=>"color:white;" %></div>
 		<div class="link3"><%= link_to "ログアウト", destroy_user_session_path, method: :delete, :style=>"color:white;" %></div>
 
@@ -57,19 +50,11 @@
 		<div class="header-text2">
 			<p class="header-text3">ようこそ! <%= current_user.user_name %>さん</p>
 		</div>
-		<h1 class="header-text1"><a href="/" style="text-decoration: none;color: white">SQUARE MUSIC</a></h1>
-		<div class="search-space">
-			<%= search_form_for @search, url: products_search_path  do |f| %>
-				<div>
-				<%= f.text_field :product_name_or_product_phonetic_cont, class: "search-form" %>
-				</div>
-				<div class="search-form-btn"><%= f.submit "Search" %></div>
-			<% end %>
-		</div>
-	</div>
+	<!-- user条件分岐終わり -->
 
+
+	<!-- ゲスト条件分岐 -->
 	<% else %>
-
 	<div class="header-links">
 		<div class="link2"><%= link_to "新規登録", new_user_registration_path, :style=>"color:white;" %></div>
 		<div class="link3"><%= link_to "ログイン", new_user_session_path, :style=>"color:white;" %></div>
@@ -78,7 +63,11 @@
 			<div class="header-text2">
 				<p class="header-text3">ようこそ! ゲストさん</p>
 			</div>
-			<h1 class="header-text1"><a href="/" style="text-decoration: none;color: white">SQUARE MUSIC</a></h1>
+	<!-- ゲスト条件分岐終わり -->
+
+	<% end %>
+<!-- 条件分岐終わり -->
+				<h1 class="header-text1"><a href="/" style="text-decoration: none;color: white">SQUARE MUSIC</a></h1>
 			<div class="search-space">
 			<%= search_form_for @search, url: products_search_path  do |f| %>
 				<div>
@@ -88,17 +77,20 @@
 			<% end %>
 		</div>
 	</div>
-	<% end %>
-<!-- ログイン状態の条件分岐終わり -->
-
 	</div>
-
 </header>
+
+
+<% if notice %>
+　　<p class="message"><%= notice %></p>
+<% end %>
 
 <% if alert %>
    <p class="message"><%= alert %></p>
 <% end %>
 <%= yield %>
+
+
 <footer class="clearfix">
     <div class="footer">株式会社スクエアミュージック<br>
     	〒444-4444 東京都四角区スクエア4丁目 スクエアレジデンス<br>

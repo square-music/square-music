@@ -6,7 +6,6 @@ class ContactsController < ApplicationController
 
 	def index
 		@contacts = Contact.all.reverse_order
-		@user = User.find(params :user_id)
 	end
 
 	def create

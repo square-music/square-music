@@ -1,13 +1,15 @@
 <div class="contact">
   <div class="container">
    <div class="row">
-  	<div class="col-lg-2"></div>
+    <div class="col-lg-2"></div>
   	  <div class="col-lg-8">
-        <div class="contact-box">
 
 	        <h2 class="contact-h2">お問い合わせ一覧</h2>
-        <div class="contact-index">
-            <% @contacts.each do |contact| %>
+       <% if @contacts.count == 0 %>
+        お問い合わせはありません
+        <% else %>
+           <div class="contact-index">
+             <% @contacts.each do |contact| %>
           <div class="contact-box">
             <div class="contact-user">
               ユーザー：<%= link_to "#{contact.user.user_name}",user_path(contact.user) %></h4>
@@ -20,13 +22,14 @@
                     内容：<%= contact.content %>
                 </div>
               <div class="contact-delete">
-               <%= link_to '削除', contact_path(contact), method: :delete, class: "btn btn-danger",data: { confirm: 'キャンセルしますか?' } %>
+               <%= link_to '削除', contact_path(contact), method: :delete, class: "btn btn-danger",data: { confirm: '削除しますか？?' } %>
               </div>
              </div>
-           <% end %>
-         </div>
+             <% end %>
+          </div>
+          <% end %>
         </div>
-     <div class="col-lg-2"></div>
+      <div class="col-lg-2"></div>
    </div>
   </div>
 </div>

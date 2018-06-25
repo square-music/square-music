@@ -18,7 +18,7 @@ class TunesController < ApplicationController
 	  	tunes = Tune.where(disc_id: disc.id)
 	  	tunes.each do |t|
 	  		if t.tune_number == tune.tune_number
-	  			flash[:warning] = 'その曲順はすでに登録されています。'
+	  			flash[:warning] = 'その曲順はすでに登録されています'
 	  			redirect_to new_disc_tune_path(disc.id)
 	  			return
 	  		end
@@ -45,6 +45,7 @@ class TunesController < ApplicationController
 	    tune = Tune.find(params[:id])
 	    disc = Disc.find_by(id: params[:disc_id])
 	    tune.destroy
+	    flash[:danger] = '曲を削除しました'
 	    redirect_to new_disc_tune_path(disc.id)
     end
 		def access_admin

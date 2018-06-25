@@ -1,6 +1,6 @@
 <div class="container-fulid">
   <div class="row user_search">
-        <div class="col-lg-7"></div>
+        <div class="col-lg-6"></div>
         <div class="col-lg-5">
           <div class="order_search">
             <%= search_form_for @search, html: {class: 'form-inline'} do |f| %>
@@ -9,6 +9,7 @@
             <%= f.submit "検索" , class: 'btn btn-default btn-sm' %>
           <% end %>
           </div>
+          <div class="col-lg-1"></div>
         </div>
       </div>
   <div class="row">
@@ -31,12 +32,12 @@
           <tbody>
             <% @orders.each do |order|  %>
             <tr>
-              <td class="order_index_td"><%= order.order_number %></td>
-              <td class="order_index_td"><%= order.user.user_name %></td>
-              <td class="order_index_td"><%= order.created_at.strftime('%Y/%m/%d %H:%M') %></td>
-              <td class="order_index_td"><%= order.total_price.to_s(:delimited) %> 円</td>
-              <td class="order_index_td"><%= order.status.shipment_status %></td>
-              <td class="order_index_td show_link_btn"><%= link_to '詳細', user_order_path(order.user.id,order.id) %></a></td>
+              <td class="order_index_td col-sm-2"><%= order.order_number %></td>
+              <td class="order_index_td col-sm-2"><%= order.user.user_name %></td>
+              <td class="order_index_td col-sm-3"><%= order.created_at.strftime('%Y/%m/%d %H:%M') %></td>
+              <td class="order_index_td col-sm-2"><%= order.total_price.to_s(:delimited) %> 円</td>
+              <td class="order_index_td col-sm-2"><%= order.status.shipment_status %></td>
+              <td class="order_index_td show_link_btn col-sm-1"><%= link_to '詳細', user_order_path(order.user.id,order.id) %></a></td>
             </tr>
             <% end %>
           </tbody>

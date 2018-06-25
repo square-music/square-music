@@ -1,4 +1,5 @@
 class ContactsController < ApplicationController
+before_action :access_admin, only: [:index]
 
 	def new
 		@contact = Contact.new
@@ -26,8 +27,11 @@ class ContactsController < ApplicationController
 		redirect_to contacts_path
 	end
 
-	def about
-	end
+	def access_admin
+     unless   admin_signed_in?
+       redirect_to("/")
+     end
+    end
 
 	def question
 	end

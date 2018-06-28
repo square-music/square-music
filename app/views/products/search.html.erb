@@ -18,6 +18,8 @@
     		<div>
     			<div class="search-product-name"><%= product.product_name.truncate(17) %></div>
     			<div class="search-product-artist"><%= product.artist.artist_name.truncate(17) %></div>
+    			<div class="search-product-genre"><%= product.genre.genre_name.truncate(17)%></div>
+    			<div class="search-product-stock">残り<%= product.stock.to_s(:delimited) %>個</div>
     			<div class="search-product-price"><%= product.product_price.to_s(:delimited) %>円</div>
     		</div>
     	<% end %>

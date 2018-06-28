@@ -22,4 +22,4 @@
 /publics/uploads
 
 .DS_Store
-
+.cache

@@ -35,29 +35,35 @@
              <div class="date">
                <h5> 購入日</h5>
               <div>
-                <h4> <%= @order.created_at.strftime('%Y/%m/%d')%></h4>
+                <h5> <%= @order.created_at.strftime('%Y/%m/%d')%></h5>
                 </div>
               </div>
                 <div class="order-user">
                   <h5>購入者</h5>
                    <div>
-                     <h4> <%= @order.sub_address.sub_address %></h4>
+                     <h5> <%= @order.user.user_name %></h5>
                    </div>
                  </div>
                 <div class="order-address .order-address1">
                       <h5>送付先住所</h5>
                      <div>
-                       <h4> <%= @user.address%></h4>
+                       <h5> <%= @order.sub_address.sub_address %></h5>
                     </div>
-                </div>
+                    </div>
+                    <div class="order-payment">
+                      支払い方法
+                        <div>
+                        <h5><%= @order.payment.payment_method %></h5>
+                       </div>
+                    </div>
                 <div class="status">
                   <h5>配送状況</h5>
                   <div>
-                    <h4><%= @status.shipment_status %></h4>
+                    <h5><%= @status.shipment_status %></h5>
                 </div>
              </div>
           </div>
-       
+
            <% @order.order_items.each do |o| %>
        <div class="purchase2">
          <div class="purchase2-image">
@@ -79,10 +85,10 @@
                 <div class="purchase-subtotal">
                  <% @subtotal = o.order_item_price*o.order_quantity %>
                  <% @total_price += @subtotal %>
-                <h4> 小計：<%= @subtotal.to_s(:delimited) %>円</h4>
+                <h5> 小計：<%= @subtotal.to_s(:delimited) %>円</h5>
               </div>
                <div class="purchase-amount">
-              <h4>購入数：<%= o.order_quantity %></h4>
+              <h5>購入数：<%= o.order_quantity %></h5>
             </div>
          </div>
           <% end %>

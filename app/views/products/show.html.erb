@@ -12,20 +12,26 @@
 
 				 価格：<%= @product.product_price.to_s(:delimited) %>円<span class="tax">(税込)</span>
 			    </div>
-			  <%= form_for [@product, @cart_item] do |f| %>
-				<div class="quantity-setting">
-				 個数選択<%= f.number_field :cart_quantity, class: 'form-control', min: 1 ,max: @product.stock, :value => 1 %>
-				</div>
-				<div class="in-the-cart">
-					<% if @product.stock == 0 %>
-					申し訳ありません<br>
-					現在入荷待ちです
-					<% else %>
-			　<%= f.submit "カートに入れる", class: "btn btn-primary" %>
+
+				<% if @product.release < Time.now %>
+					<%= form_for [@product, @cart_item] do |f| %>
+					<div class="quantity-setting">
+				 		個数選択<%= f.number_field :cart_quantity, class: 'form-control', min: 1 ,max: @product.stock, :value => 1 %>
+					</div>
+					<div class="in-the-cart">
+						<% if @product.stock == 0 %>
+							申し訳ありません<br>
+							現在入荷待ちです
+						<% else %>
+							<%= f.submit "カートに入れる", class: "btn btn-primary" %>
+			        	<% end %>
+			        	</div>
 			        <% end %>
+				<% else %>
+			  		<div class="before-release"><br><br><br>発売日前の商品です</div>
+			    <% end %>
 				</div>
-			　<% end %>
-			</div>
+
 
 
 			<div class="product-detail-field1">

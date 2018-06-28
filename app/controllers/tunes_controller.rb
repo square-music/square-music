@@ -48,13 +48,14 @@ class TunesController < ApplicationController
 	    flash[:danger] = '曲を削除しました'
 	    redirect_to new_disc_tune_path(disc.id)
     end
-		def access_admin
-      unless   admin_signed_in?
-        redirect_to("/")
-      end
-  end
+
 	private
 		def tune_params
 	    	params.require(:tune).permit(:tune_name, :tune_number, :artist_name, :artist_phonetic)
 	 	end
+		def access_admin
+      unless   admin_signed_in?
+        redirect_to("/")
+      end
+    end
 end

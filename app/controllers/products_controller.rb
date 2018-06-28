@@ -126,15 +126,14 @@ class ProductsController < ApplicationController
 		@cart_item = CartItem.new
 		@genres = Genre.all
 	end
-	def access_admin
-		unless   admin_signed_in?
-			redirect_to("/")
-		end
-  end
+
 	private
 	  def product_params
 	    params.require(:product).permit(:product_name, :product_phonetic, :product_price, :disc_amount, :release, :stock, :image, :description, :artist_id, :label_id, :genre_id)
 	  end
-
-
+		def access_admin
+			unless   admin_signed_in?
+				redirect_to("/")
+			end
+	  end
 end

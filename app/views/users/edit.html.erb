@@ -1,54 +1,53 @@
 <div class="user_edit_container">
-<div class="headline_box">
-  <h2 class="useredit_headline">登録情報編集 </h2>
-</div>
-<table class="edit_table" border="1">
-<%= form_for(@user) do |f| %>
-<% if @user.errors.any? %>
-<% @user.errors.full_messages.each do |message| %>
-<%= message %>
-<% end %>
-<% end %>
-  <tr>
-    <div class="filed">
-        <td class="td_color"><%= f.label :氏名,class: "label_name" %><br /></td>
-        <td><%= f.text_field :user_name%></td>
-    </div>
-  </tr>
-  <tr>
-    <div class="field">
-      <td class="td_color"><%= f.label :フリガナ,class: "label_name" %><br /></td>
-      <td><%= f.text_field :user_phonetic %></td>
-    </div>
-  </tr>
-  <tr>
-    <div class="field">
-      <td class="td_color"><%= f.label :郵便番号,class: "label_name" %><br /></td>
-      <td><%= f.text_field :postal %></td>
-    </div>
-  </tr>
-  <tr>
-    <div class="field">
-      <td class="td_color"><%= f.label :住所,class: "label_name" %><br /></td>
-      <td><%= f.text_field :address %></td>
-    </div>
-  </tr>
-  <tr>
-    <div class="field">
-      <td class="td_color"><%= f.label :電話番号,class: "label_name" %><br /></td>
-      <td><%= f.text_field :tell %></td>
-    </div>
-  </tr>
-  <tr>
-    <div class="field">
-      <td class="td_color"><%= f.label :メールアドレス,class: "label_name" %><br /></td>
-      <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
-    </div>
-  </tr>
-
-</table>
+  <div class="headline_box">
+    <h2 class="useredit_headline">登録情報編集 </h2>
+  </div>
+  <% if @user.errors.full_messages %>
+    <div class="errors_message"><% @user.errors.full_messages.each do |message| %></div>
+    <%= message %>
+    <% end %>
+  <% end %>
+  <table class="edit_table" border="1">
+    <%= form_for(@user) do |f| %>
+    <tr>
+      <div class="filed">
+          <td class="td_color"><%= f.label :氏名,class: "label_name" %><br /></td>
+          <td><%= f.text_field :user_name%></td>
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
+        <td class="td_color"><%= f.label :フリガナ,class: "label_name" %><br /></td>
+        <td><%= f.text_field :user_phonetic %></td>
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
+        <td class="td_color"><%= f.label :郵便番号,class: "label_name" %><br /></td>
+        <td><%= f.text_field :postal %></td>
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
+        <td class="td_color"><%= f.label :住所,class: "label_name" %><br /></td>
+        <td><%= f.text_field :address %></td>
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
+        <td class="td_color"><%= f.label :電話番号,class: "label_name" %><br /></td>
+        <td><%= f.text_field :tell %></td>
+      </div>
+    </tr>
+    <tr>
+      <div class="field">
+        <td class="td_color"><%= f.label :メールアドレス,class: "label_name" %><br /></td>
+        <td><%= f.email_field :email, autofocus: true, autocomplete: "email" %></td>
+      </div>
+    </tr>
+  </table>
   <div class="actions">
     <%= f.submit "編集", class:"edit_btn" %>
   </div>
-<% end %>
+  <% end %>
 </div>

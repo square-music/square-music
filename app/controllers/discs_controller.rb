@@ -32,13 +32,14 @@ class DiscsController < ApplicationController
 		redirect_to edit_product_path(product)
 	end
 
+
+	private
+	def disc_params
+      params.require(:disc).permit(tunes_attributes: [:id, :tune_name, :tune_number, :artist_id, :disc_id,  :_destroy])
+  end
 	def access_admin
 		unless   admin_signed_in?
 			redirect_to("/")
 		end
   end
-	private
-	def disc_params
-      params.require(:disc).permit(tunes_attributes: [:id, :tune_name, :tune_number, :artist_id, :disc_id,  :_destroy])
-    end
 end

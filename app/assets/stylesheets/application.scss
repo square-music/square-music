@@ -15,10 +15,13 @@
  */
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+
  * {
    margin: 0;
    padding: 0;
    box-sizing: border-box;
+
  }
  .clearfix::after {
   content: "";
@@ -81,6 +84,10 @@
  /*以下原*/
 
  /*// 共通レイアウト*/
+ .errors_message {
+   width: 1000px;
+   margin: 0 auto;
+ }
 .message {
   width: 100%;
   font-size: 18px;

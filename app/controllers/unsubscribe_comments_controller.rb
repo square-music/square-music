@@ -9,16 +9,11 @@ before_action :authenticate_user!, only: [:new]
     if @unsubscribe_comment.save
     end
   end
-
   def complete
     if current_user
     current_user.update( delete_flag: "true")
     end
   end
-
-
-
-
   private
     def unsubscribe_comment_params
       params.require(:unsubscribe_comment).permit(:comment, :user_id)

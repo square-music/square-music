@@ -45,6 +45,15 @@ class ProductsController < ApplicationController
 	    	redirect_to new_disc_tune_path(disc)
 	    	return
 	    else
+	    	if new_artist
+	    		new_artist.destroy
+	    	end
+	    	if new_label
+	    		new_label.destroy
+	    	end
+	    	if new_genre
+	    		new_genre.destroy
+	    	end
 	    	flash[:warning] = "入力されていない情報があります"
 	    	@artists = Artist.all
 	    	@labels = Label.all

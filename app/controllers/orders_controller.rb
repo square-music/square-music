@@ -97,21 +97,21 @@ layout "special_layout", only: [:index]
     @order = Order.find(params[:id])
   end
 
-   def access_admin
-     unless   admin_signed_in?
-       redirect_to("/")
-     end
-   end
 
-  def access_authority
-     unless   admin_signed_in? ||  user_signed_in? && current_user.id == params[:user_id].to_i
-        redirect_to user_session_path
-     end
-  end
 
    private
       def order_params
         params.require(:order).permit(:total_price, :order_number,
          :user_id, :status_id, :payment_id, :sub_address_id)
+      end
+      def access_admin
+        unless   admin_signed_in?
+          redirect_to("/")
+        end
+      end
+      def access_authority
+        unless   admin_signed_in? ||  user_signed_in? && current_user.id == params[:user_id].to_i
+           redirect_to user_session_path
+        end
       end
 end

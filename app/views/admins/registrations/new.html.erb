@@ -23,9 +23,7 @@
           <% if @minimum_password_length %>
           <div><em class="em_text">(<%= @minimum_password_length %> 文字以上で入力して下さい)</em></div></td>
         <td><%= f.password_field :password, autocomplete: "off" %></td>
-
         <% end %><br />
-
       </div>
     </tr>
     <tr>
@@ -39,6 +37,5 @@
     <%= f.submit "登録",class: "signup_btn" %>
     <% end %>
   </div>
-
   <%= render "admins/shared/links" %>
 </div>

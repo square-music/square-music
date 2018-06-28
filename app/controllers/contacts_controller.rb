@@ -27,17 +27,17 @@ before_action :access_admin, only: [:index]
 		redirect_to contacts_path
 	end
 
-	def access_admin
-     unless   admin_signed_in?
-       redirect_to("/")
-     end
-    end
+
 
 	def question
 	end
-
+  private
 	def contact_params
         params.require(:contact).permit(:user_id, :content, :type)
-      end
-      
+  end
+	def access_admin
+		 unless   admin_signed_in?
+			 redirect_to("/")
+		 end
+	end    
 end

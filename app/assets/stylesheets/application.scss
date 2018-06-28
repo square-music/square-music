@@ -599,17 +599,10 @@ header{
   overflow:hidden;
   background-color: white;
 }
-.sidebar-space{
-  width: 20%;
-  height: 600px;
-  float: left;
-}
 .genre-box{
   width: 18%;
-  position: fixed;
-  margin-top: 30px;
-  left: 2%;
-  z-index: 100;
+  float: left;
+  margin: 30px 0 0 20px;
   border: solid black 2px;
   background-color: white;
 }
@@ -760,6 +753,7 @@ header{
 /*商品検索用のCSS*/
 .top-box2{
   width: 78%;
+  margin-left: 2%;
   float: left;
 }
 .sarch-word{
@@ -798,17 +792,26 @@ header{
   background-color: gray;
 }
 .search-product-name{
-  margin: 50px 0 0 10px;
-  font-size: 20px;
+  margin: 30px 0 0 10px;
+  font-size: 22px;
+}
+.search-product-genre{
+  font-size: 15px;
+  padding-top: 15px;
+}
+.search-product-stock{
+  font-size: 15px;
+  padding-top: 5px;
+  float: left;
 }
 .search-product-price{
-  text-align: right;
+  float: right;
   font-size: 20px;
-  margin: 40px 30px 0 0;
+  margin: 20px 30px 0 0;
 }
 .search-product-artist{
   padding-top: 5px;
-  font-size: 20px;
+  font-size: 22px;
 }
 .float-space-onsearch{
   width: 98%;
@@ -841,7 +844,7 @@ header{
 .product-detail{
   width: 93%;
   background-color: white;
-  margin: 20px 2% 20px 2%;
+  margin: 30px 2% 20px 2%;
   border: solid black 1px;
   padding-top:20px;
   word-break: break-all;
@@ -1025,7 +1028,7 @@ header{
 
 .genre-list .genre-list-item {
   line-height: 1.5;
-  height:35px;
+  height:auto;
   padding: 0.5em 0.5em 0.5em 1.7em;
   list-style-type: none!important;
   background: -webkit-linear-gradient(top, #whitesmoke 0%, whitesmoke 100%);/*グラデーション*/

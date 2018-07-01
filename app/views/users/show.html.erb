@@ -41,15 +41,17 @@
         <%= link_to "退会したい方はこちら",unsubscribe_comments_new_path  %>
 
 
-        <% if admin_signed_in? && @user.delete_flag == true %>
-            <h2>退会コメント</h2>
-            <div class="comment"><%= @unsubscribe_comment.comment %></div>
+        <% if admin_signed_in? %>
           <div class="link_tag_1"><% cart = Cart.find_by(user_id: @user.id) %></div>
       		<%= link_to "カートを見る",cart_path(cart)  %>
           <div class="link_tag_1">
           <%= link_to "ユーザー一覧に戻る",users_path %>
           </div>
         <% end %>
+        <% if @user.delete_flag == true %>
+          <h4>退会コメント</h4>
+            <div class="comment"><%= @unsubscribe_comment.comment %></div>
+          <% end %>
 
     </div>
     <div class="user-box clearfix col-lg-8">
@@ -79,8 +81,9 @@
             <div class="order_content_bottom clearfix">
               <div class="order_content_5"><%= attachment_image_tag order_item.product, :image, :fill, 90, 90, format: 'jpeg', fallback: 'no_image.jpg', :size => '100x100' %></div>
               <div class="order_content_product">
-                <h3><%= order_item.product.product_name %></h3>
-                <h3 ><%= order_item.product.artist.artist_name %></h3>
+                <h4><%= order_item.product.product_name %></h4>
+                <br>
+                <h4 ><%= order_item.product.artist.artist_name %></h4>
               </div>
               <div class="order_content_6">
                 <% @item_count = order.order_items.count - 1 %>

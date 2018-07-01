@@ -4,8 +4,8 @@
     </div>
     <div class="col-lg-10">
       <div class="row user_search">
-        <div class="col-lg-8"></div>
-        <div class="col-lg-4">
+        <div class="col-lg-7"></div>
+        <div class="col-lg-5 ui-kensaku">
           <%= search_form_for @search, html: {class: 'form-inline'} do |f| %>
             <%= f.label :user_name_or_email_or_address_or_user_phonetic_cont, "ユーザー情報検索" %>
             <%= f.search_field :user_name_or_email_or_address_or_user_phonetic_cont, class:'form-control', :size => '30' %>
@@ -57,8 +57,8 @@
     </div>
     <div class="col-lg-1">
     </div>
-    <div class="col-sm-5"></div>
-    <div class="col-sm-2"><%= paginate @users, class: "pagenate" %></div>
-    <div class="col-sm-5"></div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-4 pi-wata"><%= paginate @users, class: "pagenate" %></div>
+    <div class="col-sm-4"></div>
   </div>
  </div>

@@ -45,7 +45,7 @@
 </div>
 <div class="newproduct-space">
 			<div class="product-heading">新着一覧</div>
-			<% @new.order("release DESC").first(5).each do |t| %>
+			<% @new.where("release <= ?", Time.now).order("release DESC").first(5).each do |t| %>
 			<%= link_to product_path(t), :style=>"text-decoration: none; color:black;" do %>
 			<div class="rankin-product">
 				<div class="ranking-integer">発売日：<%= t.release %></div>

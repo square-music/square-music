@@ -16,7 +16,7 @@
                   <%= attachment_image_tag cart_item.product, :image, :fill, 80, 80, format: 'jpeg', fallback: 'no_image.jpg', :size => '80x80' %>
                     <% end %>
                   </div>
-                    <div class="col-md-3 cart_item_box"><%= cart_item.product.product_name %>
+                    <div class="col-md-3 cart_item_box"><%= cart_item.product.product_name.truncate(50) %>
                      </div>
                     <div class="col-md-2 cart_item_box"><%= cart_item.product.artist.artist_name %>
                   </div>

@@ -76,10 +76,10 @@
                   <h4><%= o.product.product_name %></h4>
                   </div>
                    <div class="purchase-artist">
-                     <h4> <%= o.product.artist.artist_name %></h4>
+                     <h5> <%= o.product.artist.artist_name %></h5>
                    </div>
                    <div class="purchase-price">
-                  <h5>単価：<%= o.order_item_price.to_s(:delimited) %>円</h5>
+                  単価：<%= o.order_item_price.to_s(:delimited) %>円
                  </div>
                </div>
                 <div class="purchase-subtotal">

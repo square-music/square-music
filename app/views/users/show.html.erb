@@ -36,17 +36,21 @@
           </div>
         <% end %>
         <%= link_to "登録情報を変更する",edit_user_path ,class:'btn btn-info' %>
-        <% if admin_signed_in? %>
-          <% if @unsubscribe_comment %>
+        <br>
+        <br>
+        <%= link_to "退会したい方はこちら",unsubscribe_comments_new_path  %>
+
+
+        <% if admin_signed_in? && @user.delete_flag == true %>
             <h2>退会コメント</h2>
             <div class="comment"><%= @unsubscribe_comment.comment %></div>
-          <% end %>
           <div class="link_tag_1"><% cart = Cart.find_by(user_id: @user.id) %></div>
       		<%= link_to "カートを見る",cart_path(cart)  %>
           <div class="link_tag_1">
           <%= link_to "ユーザー一覧に戻る",users_path %>
           </div>
         <% end %>
+
     </div>
     <div class="user-box clearfix col-lg-8">
       <h3 class="user-box-headline">購入履歴</h2>
